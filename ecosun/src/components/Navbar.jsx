@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-
-import logo from "../../public/assets/assets/imgs/logo-light.png";
+import ThemeToggle from "./ThemeToggle";
+import logo from "/logo.svg";
 const Navbar = () => {
   const preventClick = (e) => e.preventDefault();
 
@@ -127,6 +127,11 @@ const Navbar = () => {
               <a className="nav-link" href="page-contact.html">
                 ارتباط با ما
               </a>
+            </li>
+            <li className="nav-item">
+              <div className="nav-link">
+                <ThemeToggle></ThemeToggle>
+              </div>
             </li>
           </ul>
         </div>

@@ -1,10 +1,11 @@
 import React from "react";
-import bgImage17 from "../../public/assets/assets/imgs/background/17.jpg";
-import bgImage19 from "../../public/assets/assets/imgs/background/19.jpg";
+import bgImage17 from "../assets/dark/imgs/background/21.jpg";
+import bgImage19 from "../assets/dark/imgs/background/22.jpg";
+import bgImage23 from "../assets/dark/imgs/background/23.jpg";
 const Slider = () => {
   return (
     <header className="slider slider-prlx o-hidden">
-      <div className="lines two"></div>
+      {/* <div className="lines two"></div> */}
       <div className="swiper-container parallax-slider">
         <div className="swiper-wrapper">
           <div className="swiper-slide">
@@ -33,11 +34,12 @@ const Slider = () => {
                             fill="currentColor"
                           ></path>
                         </svg>
-                        <span className="ml-10">آژانس خلاق</span>
+                        <span className="ml-10">
+                          {" "}
+                          خدمات انرژی صنعت نیرو توس
+                        </span>
                       </h6>
-                      <h1 className="fz-60">
-                        ارائه بهترین راه حل های دیجیتال و رشد تجارت.
-                      </h1>
+                      <h1 className="fz-60">زیرساختی هوشمند برای جهانی متصل</h1>
                       <a
                         href="page-about.html"
                         className="butn butn-md butn-bg main-colorbg3 text-dark mt-30"
@@ -69,7 +71,7 @@ const Slider = () => {
             <div
               className="bg-img valign"
               style={{
-                backgroundImage: `url(${bgImage17})`,
+                backgroundImage: `url(${bgImage23})`,
               }}
               data-overlay-dark="7"
             >
@@ -91,11 +93,12 @@ const Slider = () => {
                             fill="currentColor"
                           ></path>
                         </svg>
-                        <span className="ml-10">آژانس خلاق</span>
+                        <span className="ml-10">
+                          {" "}
+                          خدمات انرژی صنعت نیرو توس
+                        </span>
                       </h6>
-                      <h1 className="fz-60">
-                        ارائه بهترین راه حل های دیجیتال و رشد تجارت.
-                      </h1>
+                      <h1 className="fz-60">زیرساختی هوشمند برای جهانی متصل</h1>
                       <a
                         href="page-about.html"
                         className="butn butn-md butn-bg main-colorbg3 text-dark mt-30"
@@ -149,11 +152,12 @@ const Slider = () => {
                             fill="currentColor"
                           ></path>
                         </svg>
-                        <span className="ml-10">آژانس خلاق</span>
+                        <span className="ml-10">
+                          {" "}
+                          خدمات انرژی صنعت نیرو توس
+                        </span>
                       </h6>
-                      <h1 className="fz-60">
-                        ارائه بهترین راه حل های دیجیتال و رشد تجارت.
-                      </h1>
+                      <h1 className="fz-60">زیرساختی هوشمند برای جهانی متصل</h1>
                       <a
                         href="page-about.html"
                         className="butn butn-md butn-bg main-colorbg3 text-dark mt-30"
