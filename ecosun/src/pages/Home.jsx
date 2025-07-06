@@ -11,6 +11,7 @@ import Block from "../components/Block.jsx";
 import Pricing from "../components/Pricing.jsx";
 import Blog from "../components/Blog.jsx";
 import Footer from "../components/Footer.jsx";
+import FAQs from "../components/FAQs.jsx";
 function Home() {
   return (
     <div class="home-corp main-bg">
@@ -27,6 +28,7 @@ function Home() {
             <Numbers></Numbers>
             <Testimonials></Testimonials>
             <Block></Block>
+            <FAQs></FAQs>
             <Pricing></Pricing>
             <Blog></Blog>
           </main>
