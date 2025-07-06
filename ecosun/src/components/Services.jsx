@@ -1,8 +1,19 @@
 import React from "react";
-import p0 from "../../public/assets/assets/imgs/serv-icons/0.png";
-import p1 from "../../public/assets/assets/imgs/serv-icons/1.png";
-import p2 from "../../public/assets/assets/imgs/serv-icons/1.png";
+import { useContext } from "react";
+import { ThemeContext } from "./ThemeContext";
+import darkp0 from "../assets/dark/imgs/serv-icons/0.png";
+import lightp0 from "../assets/light/imgs/serv-icons/0.png";
+import darkp1 from "../assets/dark/imgs/serv-icons/1.png";
+import lightp1 from "../assets/light/imgs/serv-icons/1.png";
+import darkp2 from "../assets/dark/imgs/serv-icons/2.png";
+import lightp2 from "../assets/light/imgs/serv-icons/2.png";
+
 const Services = () => {
+  const { theme } = useContext(ThemeContext);
+
+  const p0 = theme === "dark" ? darkp0 : lightp0;
+  const p1 = theme === "dark" ? darkp1 : lightp1;
+  const p2 = theme === "dark" ? darkp2 : lightp2;
   return (
     <section class="serv-box section-padding">
       <div class="container">
@@ -34,7 +45,7 @@ const Services = () => {
                 <img src={p0} alt="" />
               </div>
               <span class="mb-10 opacity-7">طراحی محصول</span>
-              <h6 class="mb-15">طراحی محصول دیجیتال</h6>
+              <h6 class="mb-15">خدمت 1 </h6>
               <p class="fz-14">
                 ایجاد فاصله بالاتر و نحوه حرکت مردم از طریق یک منحصر به فرد.
               </p>
@@ -67,7 +78,7 @@ const Services = () => {
                 <img src={p1} alt="" />
               </div>
               <span class="mb-10 opacity-7">خدمات گمرکی</span>
-              <h6 class="mb-15">برندسازی و طراحی</h6>
+              <h6 class="mb-15"> خدمت 2 </h6>
               <p class="fz-14">
                 ایجاد فاصله بالاتر و نحوه حرکت مردم از طریق یک منحصر به فرد.
               </p>
@@ -94,10 +105,10 @@ const Services = () => {
           <div class="col-lg-4">
             <div class="serv-item radius-5 wow fadeIn" data-wow-delay="1.2s">
               <div class="icon-img-50 mb-40">
-                <img src="assets/imgs/serv-icons/2.png" alt="" />
+                <img src={p2} alt="" />
               </div>
               <span class="mb-10 opacity-7">توسعه محصول</span>
-              <h6 class="mb-15">توسعه وب</h6>
+              <h6 class="mb-15"> خدمت 3</h6>
               <p class="fz-14">
                 ایجاد فاصله بالاتر و نحوه حرکت مردم از طریق یک منحصر به فرد.
               </p>
