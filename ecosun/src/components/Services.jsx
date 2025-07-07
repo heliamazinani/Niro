@@ -45,9 +45,9 @@ const Services = () => {
                 <img src={p0} alt="" />
               </div>
               <span class="mb-10 opacity-7">طراحی محصول</span>
-              <h6 class="mb-15">خدمت 1 </h6>
+              <h6 class="mb-15">تاسیسات الکتریکی </h6>
               <p class="fz-14">
-                ایجاد فاصله بالاتر و نحوه حرکت مردم از طریق یک منحصر به فرد.
+                طراحی نظارت و اجرای در کارخانجات و ساختمانهای تجاری و هتل
               </p>
               <div class="underline">
                 <a href="page-services.html" class="mt-30 ls1 fz-12 text-u">
@@ -77,10 +77,11 @@ const Services = () => {
               <div class="icon-img-50 mb-40">
                 <img src={p1} alt="" />
               </div>
-              <span class="mb-10 opacity-7">خدمات گمرکی</span>
-              <h6 class="mb-15"> خدمت 2 </h6>
+              <span class="mb-10 opacity-7">خدمات مشاوره</span>
+              <h6 class="mb-15"> فیبر نوری </h6>
               <p class="fz-14">
-                ایجاد فاصله بالاتر و نحوه حرکت مردم از طریق یک منحصر به فرد.
+                مشاوره، طراحی و اجرا  FTTX – FTTO  FTTH –
+                FTTC - FTTB
               </p>
               <div class="underline">
                 <a href="page-services.html" class="mt-30 ls1 fz-12 text-u">

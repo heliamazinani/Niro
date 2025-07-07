@@ -1303,6 +1303,9 @@ img {
   -webkit-filter: blur(0px);
   filter: blur(0px);
 }
+.text-colorh {
+    color: #f08f74; 
+}
 
 /* ====================== [ Start Helper Classes  ] ====================== */
 .cursor-pointer {

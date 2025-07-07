@@ -79,7 +79,9 @@ body {
 body.noise-img {
   position: relative;
 }
-
+.text-colorh {
+    color: #f08f74; 
+}
 body.noise-img:before {
   content: '';
   background-image: url(../imgs/patterns/noise.png);

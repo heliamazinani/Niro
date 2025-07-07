@@ -21,8 +21,9 @@ function Home() {
         <div id="smooth-content">
           <main className="main-bg">
             <Slider></Slider>
-            <Services></Services>
+
             <About></About>
+            <Services></Services>
             <Spin></Spin>
             <Portfolio></Portfolio>
             <Numbers></Numbers>

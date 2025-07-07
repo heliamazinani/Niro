@@ -39,7 +39,9 @@ const Slider = () => {
                           خدمات انرژی صنعت نیرو توس
                         </span>
                       </h6>
-                      <h1 className="fz-60">زیرساختی هوشمند برای جهانی متصل</h1>
+                      <h1 className="fz-60">
+                        پیشگامان انرژی، با سایه ای از افتخار
+                      </h1>
                       <a
                         href="page-about.html"
                         className="butn butn-md butn-bg main-colorbg3 text-dark mt-30"
@@ -98,7 +100,9 @@ const Slider = () => {
                           خدمات انرژی صنعت نیرو توس
                         </span>
                       </h6>
-                      <h1 className="fz-60">زیرساختی هوشمند برای جهانی متصل</h1>
+                      <h1 className="fz-60">
+                        پیشگامان انرژی، با سایه ای از افتخار
+                      </h1>
                       <a
                         href="page-about.html"
                         className="butn butn-md butn-bg main-colorbg3 text-dark mt-30"
@@ -157,7 +161,9 @@ const Slider = () => {
                           خدمات انرژی صنعت نیرو توس
                         </span>
                       </h6>
-                      <h1 className="fz-60">زیرساختی هوشمند برای جهانی متصل</h1>
+                      <h1 className="fz-60">
+                        پیشگامان انرژی، با سایه ای از افتخار
+                      </h1>
                       <a
                         href="page-about.html"
                         className="butn butn-md butn-bg main-colorbg3 text-dark mt-30"
