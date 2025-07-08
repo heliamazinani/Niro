@@ -13,24 +13,14 @@ import Blog from "../components/Blog.jsx";
 import Footer from "../components/Footer.jsx";
 import FAQs from "../components/FAQs.jsx";
 
-function Home() {
+function AboutUs() {
+
   return (
     <>
 
       <div id="smooth-content">
         <main className="main-bg">
-          <Slider></Slider>
-
           <About></About>
-          <Services></Services>
-          <Spin></Spin>
-          <Portfolio></Portfolio>
-          {/* <Numbers></Numbers> */}
-          <Testimonials></Testimonials>
-          {/* <Block></Block> */}
-          <FAQs></FAQs>
-          <Pricing></Pricing>
-          <Blog></Blog>
         </main>
         <Footer></Footer>
       </div>
@@ -38,14 +28,4 @@ function Home() {
   );
 }
 
-// function Home() {
-//   return (
-//     <div >
-//       {" "}
-//       {/* Make it tall for scrolling */}
-//       <h1>Home Page</h1>
-    
-//     </div>
-//   );
-// };
-export default Home;
+export default AboutUs;

@@ -1,8 +1,12 @@
 import React, { useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
+import { Link } from "react-router-dom";
 import logo from "/logo.svg";
 const Navbar = () => {
   const preventClick = (e) => e.preventDefault();
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
   return (
     <nav className="navbar navbar-expand-lg static">
@@ -30,18 +34,10 @@ const Navbar = () => {
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav">
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                href="#"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-                onClick={preventClick}
-              >
-                خانه
-              </a>
+            <li className="nav-item ">
+              <Link to="/" smooth={true} duration={500} onClick={scrollToTop}>
+                <div className="nav-link">خانه</div>
+              </Link>
             </li>
             <li className="nav-item dropdown">
               <a
@@ -54,6 +50,7 @@ const Navbar = () => {
               >
                 صفحات
               </a>
+
               <div className="dropdown-menu">
                 <a className="dropdown-item" href="">
                   درباره ما
@@ -84,17 +81,10 @@ const Navbar = () => {
                 </a>
               </div>
             </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                href="#"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                نمونه کار
-              </a>
+            <li className="nav-item ">
+              <Link to="/about">
+                <div className="nav-link">خانه</div>
+              </Link>
             </li>
 
             <li className="nav-item dropdown">

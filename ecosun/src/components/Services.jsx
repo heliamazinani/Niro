@@ -28,8 +28,8 @@ const Services = () => {
             <div class="col-lg-4 d-flex align-items-center">
               <div class="text">
                 <p>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
-                  با استفاده از طراحان گرافیک است، چاپگرها{" "}
+                  .شرکت خدمات انرژی صنعت نیرو توس با بیش از پنج دهه تجربه مدیران تخصص و توانمندی‌های برتر خود بهترین خدمات را ارائه می ‌دهد
+                 
                 </p>
               </div>
             </div>
@@ -108,10 +108,10 @@ const Services = () => {
               <div class="icon-img-50 mb-40">
                 <img src={p2} alt="" />
               </div>
-              <span class="mb-10 opacity-7">توسعه محصول</span>
-              <h6 class="mb-15"> خدمت 3</h6>
+              <span class="mb-10 opacity-7"> تامین کالا</span>
+              <h6 class="mb-15"> تابلو‌های برق صنعتی  </h6>
               <p class="fz-14">
-                ایجاد فاصله بالاتر و نحوه حرکت مردم از طریق یک منحصر به فرد.
+               طراحی ساخت و نصب و راه اندازی انواع تابلو‌های برق صنعتی
               </p>
               <div class="underline">
                 <a href="page-services.html" class="mt-30 ls1 fz-12 text-u">

@@ -64,6 +64,9 @@ html{
   outline: none;
   list-style: none;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   color: #1d1d1d;
