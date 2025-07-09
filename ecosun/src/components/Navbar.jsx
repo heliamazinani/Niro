@@ -82,7 +82,12 @@ const scrollToTop = () => {
               </div>
             </li>
             <li className="nav-item ">
-              <Link to="/about">
+              <Link
+                to="/about"
+                smooth={true}
+                duration={500}
+                onClick={scrollToTop}
+              >
                 <div className="nav-link">خانه</div>
               </Link>
             </li>
