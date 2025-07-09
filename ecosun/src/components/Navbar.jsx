@@ -93,17 +93,9 @@ const scrollToTop = () => {
             </li>
 
             <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                href="#"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-                onClick={preventClick}
-              >
-                وبلاگ
-              </a>
+              <Link to="/blog" smooth={true} duration={500} onClick={scrollToTop}>
+                <div className="nav-link">وبلاگ</div>
+              </Link>
             </li>
             <li className="nav-item dropdown">
               <a

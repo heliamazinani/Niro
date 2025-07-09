@@ -1,7 +1,11 @@
 import React from "react";
 import sq1 from "../assets/dark/imgs/about/sq3.jpg";
 import sq2 from "../assets/dark/imgs/about/sq2.jpg";
+import { Link } from "react-router-dom";
 const About = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <>
       <section className="intro-corp section-padding sub-bg">
@@ -134,12 +138,14 @@ const About = () => {
                     </div>
                   </div>
                 </div>
-                <a
-                  href="page-about.html"
-                  className="butn butn-md butn-bord radius-30 mt-50"
-                >
-                  <span>بیشتر کاوش کنید</span>
-                </a>
+                <Link to="/about" smooth={true} duration={500} onClick={scrollToTop}>
+                  <div
+                   
+                    className="butn butn-md butn-bord radius-30 mt-50"
+                  >
+                    <span>بیشتر کاوش کنید</span>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
