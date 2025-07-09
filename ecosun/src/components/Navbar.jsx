@@ -88,7 +88,7 @@ const scrollToTop = () => {
                 duration={500}
                 onClick={scrollToTop}
               >
-                <div className="nav-link">خانه</div>
+                <div className="nav-link">درباره ما</div>
               </Link>
             </li>
 

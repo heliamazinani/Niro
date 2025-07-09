@@ -6,7 +6,7 @@ import Spin from "../components/Spin.jsx";
 import Services from "../components/Services.jsx";
 import Portfolio from "../components/Portfolio.jsx";
 import Numbers from "../components/Numbers.jsx";
-import Testimonials from "../components/Testimonials.jsx";
+import Process from "../components/Process.jsx";
 import Block from "../components/Block.jsx";
 import Why from "../components/Why.jsx";
 import TeamS from "../components/TeamS.jsx";
@@ -21,12 +21,13 @@ function AboutUs() {
       <div id="smooth-content">
         <main className="main-bg">
           {/* <About></About> */}
-
           <ASlider></ASlider>
           <AAbout></AAbout>
+
+          <Why></Why>
+          <Process></Process>
           <TeamS></TeamS>
           <Team></Team>
-          <Why></Why>
         </main>
         <Footer></Footer>
       </div>
