@@ -8,11 +8,12 @@ import Portfolio from "../components/Portfolio.jsx";
 import Numbers from "../components/Numbers.jsx";
 import Testimonials from "../components/Testimonials.jsx";
 import Block from "../components/Block.jsx";
-import Pricing from "../components/Pricing.jsx";
+import Why from "../components/Why.jsx";
 import TeamS from "../components/TeamS.jsx";
 import Footer from "../components/Footer.jsx";
 import ASlider from "../components/ASlider.jsx";
 import Team from "../components/Team.jsx";
+
 function AboutUs() {
 
   return (
@@ -25,6 +26,7 @@ function AboutUs() {
           <AAbout></AAbout>
           <TeamS></TeamS>
           <Team></Team>
+          <Why></Why>
         </main>
         <Footer></Footer>
       </div>
