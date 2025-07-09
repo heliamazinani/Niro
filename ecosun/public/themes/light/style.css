@@ -6160,6 +6160,12 @@ footer .bg-pattern {
   position: relative;
 }
 
+.skills .resume-exp .box-items {
+    position: relative;
+    border: 1px solid rgba(195, 195, 195, 0.3);
+    background: #e8e8e8;
+}
+
 .skills-box .skill-progress .progres {
   position: absolute;
   height: 100%;
