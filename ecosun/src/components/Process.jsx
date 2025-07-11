@@ -17,8 +17,8 @@ const Process = () => {
                   {/* <span className="stroke">برای انجام کار</span> */}
                 </h2>
 
-                <div className="col-lg-5 offset-lg-4">
-                  <div className="text mt-30">
+                
+                  <div className="text mt-15">
                     <p>
                       {" "}
                       شرکت خدمات انرژی صنعت نیرو ،توس با تکیه بر دانش و تجربهی
@@ -26,7 +26,7 @@ const Process = () => {
                       خوشنام صنعت برق و مدیران لایق و توانمند با مأموریت تحول در
                       حوزه انرژی پایدار و بهینه سازی مصرف انرژی تأسیس شده است.
                     </p>
-                  </div>
+                  
                 </div>
               </div>
             </div>

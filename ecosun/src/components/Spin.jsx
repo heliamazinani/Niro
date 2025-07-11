@@ -12,25 +12,25 @@ const Spin = () => {
                   <div className="box non-strok">
                     <div className="item">
                       <h4 className="d-flex align-items-center">
-                        <span>تجربه </span>
+                        <span>حرفه‌ای </span>
                         <span className="fz-50 ml-50 stroke icon">*</span>
                       </h4>
                     </div>
                     <div className="item">
                       <h4 className="d-flex align-items-center">
-                        <span>توسعه </span>{" "}
+                        <span>قابل اعتماد </span>{" "}
                         <span className="fz-50 ml-50 stroke icon">*</span>
                       </h4>
                     </div>
                     <div className="item">
                       <h4 className="d-flex align-items-center">
-                        <span>بازاریابی </span>
+                        <span>نوآورانه </span>
                         <span className="fz-50 ml-50 stroke icon">*</span>
                       </h4>
                     </div>
                     <div className="item">
                       <h4 className="d-flex align-items-center">
-                        <span>طراحی محصول</span>{" "}
+                        <span>طراحی </span>{" "}
                         <span className="fz-50 ml-50 stroke icon">*</span>
                       </h4>
                     </div>
@@ -44,25 +44,25 @@ const Spin = () => {
                   <div className="box non-strok">
                     <div className="item">
                       <h4 className="d-flex align-items-center">
-                        <span>تجربه </span>
+                        <span>حرفه‌ای </span>
                         <span className="fz-50 ml-50 stroke icon">*</span>
                       </h4>
                     </div>
                     <div className="item">
                       <h4 className="d-flex align-items-center">
-                        <span>توسعه </span>{" "}
+                        <span>قابل اعتماد </span>{" "}
                         <span className="fz-50 ml-50 stroke icon">*</span>
                       </h4>
                     </div>
                     <div className="item">
                       <h4 className="d-flex align-items-center">
-                        <span>بازاریابی </span>
+                        <span>نوآورانه </span>
                         <span className="fz-50 ml-50 stroke icon">*</span>
                       </h4>
                     </div>
                     <div className="item">
                       <h4 className="d-flex align-items-center">
-                        <span>طراحی محصول</span>{" "}
+                        <span>طراحی </span>{" "}
                         <span className="fz-50 ml-50 stroke icon">*</span>
                       </h4>
                     </div>

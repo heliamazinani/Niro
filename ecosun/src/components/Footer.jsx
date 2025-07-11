@@ -35,7 +35,7 @@ const Footer = () => {
                     <h6>آدرس</h6>
                   </div>
                   <div className="text">
-                    <p>ایران، مشهد سنایی 12 پلاک 121</p>
+                    <p> مشهد خیابان سنایی نبش سنایی 12 پلاک 121 طبقه 5</p>
                   </div>
                 </div>
               </div>
@@ -46,10 +46,11 @@ const Footer = () => {
                   </div>
                   <div className="text">
                     <p className="mb-10">
-                      <a href="#0">hello@design.com</a>
+                      <a href="#0">Ecosunir@gmail.com</a>
                     </p>
                     <h5>
-                      <a href="#">0912 123 12 23</a>
+                      <a href="#">0915-5363-273</a>
+                      <a href="#">051-36570009</a>
                     </h5>
                   </div>
                 </div>
