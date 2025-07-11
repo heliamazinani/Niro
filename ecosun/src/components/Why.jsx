@@ -1,4 +1,3 @@
-
 import React from "react";
 import sq1 from "../assets/dark/imgs/about/sq3.jpg";
 import sq2 from "../assets/dark/imgs/about/sq2.jpg";
@@ -9,9 +8,9 @@ const Why = () => {
         <div className="sec-lg-head mb-80">
           <div className="row">
             <div className="col-lg-6">
-              <h6 className="dot-titl-non mb-15 wow fadeIn">خدمات برجسته</h6>
+              <h6 className="dot-titl-non mb-15 wow fadeIn">خدمات برجسته </h6>
               <h2 className="fz-60 fw-700 d-rotate wow animated">
-                <span className="rotate-text">خدمات وب</span>
+                <span className="rotate-text"> </span>
               </h2>
             </div>
           </div>
@@ -37,7 +36,7 @@ const Why = () => {
                   </svg>
                 </span>
                 <h5 className="fw-700 mt-15">
-                  چرا خدمات ما را در مقایسه با دیگری انتخاب می کنیم؟
+                  چرا شرکت خدمات انرژی صنعت نیرو را انتخاب می کنیم؟
                 </h5>
               </div>
             </div>
@@ -46,15 +45,15 @@ const Why = () => {
             <div className="cont mb-50">
               <span className="sub-title mb-15">آنچه ما ارائه می دهیم</span>
               <h3>
-                راه حل های ویژه برای توسعه وب سایت{" "}
-                <span className="stroke">و طراحی آن</span>
+                برتری در کیفیت، قابلیت اجرا با دقت بالا{" "}
+                <span className="stroke">و تخصص فراگیر</span>
               </h3>
               <div className="row mt-50">
                 <div className="col-lg-11 offset-lg-1">
                   <p>
-                    ما کارهای دیجیتالی حق بیمه را برای وب ، موبایل و تجربیات
-                    انجام می دهیم با آژانس های خلاق و مارک های جهانی به طور
-                    یکسان - اشتیاق. لذت بردن از لذت نیست.
+                    وجه تمایز ما در کیفیت بالا ، دقت در جزئیات و کنترل بودجه است
+                    .تیم ما از افراد مجرب و متعهد تشکیل شده است که از فناوری‌های
+                    پیشرفته و مدرن استفاده میکنند.
                   </p>
 
                   <div className="list-arrow mt-50">
@@ -63,30 +62,31 @@ const Why = () => {
                         <span className="icon main-color3">
                           <i className="fas fa-check-double"></i>
                         </span>
-                        اولویت بندی ویژگی ها مشتریان شما نیاز دارند
+                        رشد پایدار و بهبود مداوم در همه جنبه‌های فعالیت‌هایمان
                       </li>{" "}
-                      {/* Close the <li> tag here */}
                       <li className="mb-20">
                         <span className="icon main-color3">
                           <i className="fas fa-check-double"></i>
                         </span>
-                        همه اطراف را تراز کنید نقشه راه
+                        استفاده از تجهیزات پیشرفته و بهره‌گیری از فناوری برای
+                        رشد پایدار
                       </li>
-                      <li>
+                      <li className="mb-20">
                         <span className="icon main-color3">
                           <i className="fas fa-check-double"></i>
                         </span>
-                        محصول خود را تعریف کنید چشم انداز با بازخورد مشتری
+                        رعایت استاندارد‌های بین‌المللی کیفیت در تمامی
+                        فعالیت‌هایمان
                       </li>
                     </ul>
                   </div>
 
                   <div className="pt-50 mt-50 bord-thin-top">
                     <p className="fz-13">
-                      وقت کمتری را برای نوشتن یک برنامه تجاری و زمان بیشتری برای
-                      ساختن مشاغل خود صرف کنید. ما به شما در بهترین ابزارهای
-                      مورد نیاز برای برقراری ارتباط بهترین ایده خود به شما کمک
-                      می کنیم.
+                      ما باور داریم که ترکیب دانش دانشگاهی تجربه صنعتی و
+                      فناوریهای روز نه تنها صنعت انرژی را متحول می کند بلکه به
+                      صنایع کشور کمک میکند تا با مصرف بهینه ،انرژی بهرهوری خود
+                      را به سطح جهانی ارتقا دهند.
                     </p>
                   </div>
                 </div>

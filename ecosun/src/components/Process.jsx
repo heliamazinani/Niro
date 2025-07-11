@@ -10,12 +10,24 @@ const Process = () => {
             <div className="col-lg-6 col-md-9">
               <div className="sec-head text-center mb-80">
                 <span className="sub-title mb-15">
-                  چگونه ما آن را انجام می دهیم
+                  شرکت خدمات انرژی صنعت نیرو
                 </span>
-                <h3>
-                  قدم ساده دنبال کنید{" "}
-                  <span className="stroke">برای انجام کار</span>
-                </h3>
+                <h2>
+                  اهداف شرکت
+                  {/* <span className="stroke">برای انجام کار</span> */}
+                </h2>
+
+                <div className="col-lg-5 offset-lg-4">
+                  <div className="text mt-30">
+                    <p>
+                      {" "}
+                      شرکت خدمات انرژی صنعت نیرو ،توس با تکیه بر دانش و تجربهی
+                      عمیق اعضای هیئت مدیره متشکل از اساتید دانشگاهی و متخصصان
+                      خوشنام صنعت برق و مدیران لایق و توانمند با مأموریت تحول در
+                      حوزه انرژی پایدار و بهینه سازی مصرف انرژی تأسیس شده است.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -25,8 +37,11 @@ const Process = () => {
                 <span className="icon">
                   <i className="fas fa-chart-pie"></i>
                 </span>
-                <h5>تحلیل و بررسی</h5>
-                <p className="fz-14">تعریف شرکت ها یک پروژه یا انجام آن است</p>
+                <h5> توسعه فناوری‌های نوین </h5>
+                <p className="fz-14">
+                  در زمینه انرژیهای تجدیدپذیر خورشیدی ، بادی زیست توده و ...
+                  برای افزایش بهره وری و کاهش هزینه های تولید{" "}
+                </p>
               </div>
             </div>
             <div className="col-lg col-md-4 col-sm-6">
@@ -34,8 +49,12 @@ const Process = () => {
                 <span className="icon">
                   <i className="fas fa-shield-alt"></i>
                 </span>
-                <h5>بهبودی</h5>
-                <p className="fz-14">تعریف شرکت ها یک پروژه یا انجام آن است</p>
+                <h5>بهینه‌سازی مصرف انرژی در صنایع </h5>
+                <p className="fz-14">
+                  {" "}
+                  از طریق طراحی و پیاده سازی سیستمهای هوشمند مدیریت انرژی، کاهش
+                  تلفات و افزایش راندمان عملیاتی{" "}
+                </p>
               </div>
             </div>
             <div className="col-lg col-md-4 col-sm-6">
@@ -43,8 +62,12 @@ const Process = () => {
                 <span className="icon">
                   <i className="fas fa-dice-d6"></i>
                 </span>
-                <h5>استراتژی</h5>
-                <p className="fz-14">تعریف شرکت ها یک پروژه یا انجام آن است</p>
+                <h5> راهکارهای مهندسی و مشاوره ای</h5>
+                <p className="fz-14">
+                  به صنایع انرژی بر نظیر فولاد ،سیمان پتروشیمی و ... جهت کاهش
+                  مصرف انرژی و هزینه‌های عملیاتی با رعایت استانداردهای زیست
+                  محیطی{" "}
+                </p>
               </div>
             </div>
             <div className="col-lg col-md-4 col-sm-6">
@@ -52,8 +75,11 @@ const Process = () => {
                 <span className="icon">
                   <i className="fas fa-cog"></i>
                 </span>
-                <h5>کارایی</h5>
-                <p className="fz-14">تعریف شرکت ها یک پروژه یا انجام آن است</p>
+                <h5>توانمندسازی نیروی انسانی</h5>
+                <p className="fz-14">
+                  از طریق آموزشهای تخصصی در حوزه مدیریت انرژی و فناوریهای نوین
+                  صنعت برق{" "}
+                </p>
               </div>
             </div>
             <div className="col-lg col-md-4 col-sm-6">
@@ -61,15 +87,18 @@ const Process = () => {
                 <span className="icon">
                   <i className="fas fa-sticky-note"></i>
                 </span>
-                <h5>نتایج</h5>
-                <p className="fz-14">تعریف شرکت ها یک پروژه یا انجام آن است</p>
+                <h5>همکاری با مراکز علمی و صنعتی</h5>
+                <p className="fz-14">
+                  جهت تبدیل پژوهشهای کاربردی به راهکارهای عملی در حوزه بهینه
+                  سازی انرژی و تجاری سازی آنها
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="block-serv section-padding pb-80 bord-thin-top">
+      {/* <section className="block-serv section-padding pb-80 bord-thin-top">
         <div className="container">
           <div className="row">
             <div className="col-lg-5 valign mb-40">
@@ -154,7 +183,7 @@ const Process = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

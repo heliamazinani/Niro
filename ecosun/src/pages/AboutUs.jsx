@@ -22,9 +22,9 @@ function AboutUs() {
         <main className="main-bg">
           {/* <About></About> */}
           <ASlider></ASlider>
-          <AAbout></AAbout>
+          {/* <AAbout></AAbout> */}
 
-          <Why></Why>
+
           <Process></Process>
           <TeamS></TeamS>
           <Team></Team>

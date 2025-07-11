@@ -35,9 +35,13 @@ const scrollToTop = () => {
         >
           <ul className="navbar-nav">
             <li className="nav-item ">
-              <Link to="/" smooth={true} duration={500} onClick={scrollToTop}>
-                <div className="nav-link">خانه</div>
-              </Link>
+
+                <div className="nav-link">
+                                <Link to="/" smooth={true} duration={500} onClick={scrollToTop}>
+                  خانه
+                  </Link>
+                  </div>
+        
             </li>
             <li className="nav-item dropdown">
               <a
@@ -82,20 +86,31 @@ const scrollToTop = () => {
               </div>
             </li>
             <li className="nav-item ">
-              <Link
+
+                <div className="nav-link">
+                                <Link
                 to="/about"
                 smooth={true}
                 duration={500}
                 onClick={scrollToTop}
               >
-                <div className="nav-link">درباره ما</div>
-              </Link>
+                  درباره ما
+                  </Link>
+                  </div>
+           
             </li>
 
             <li className="nav-item dropdown">
-              <Link to="/blog" smooth={true} duration={500} onClick={scrollToTop}>
-                <div className="nav-link">وبلاگ</div>
-              </Link>
+              <div className="nav-link">
+                <Link
+                  to="/blog"
+                  smooth={true}
+                  duration={500}
+                  onClick={scrollToTop}
+                >
+                  وبلاگ
+                </Link>
+              </div>
             </li>
             <li className="nav-item dropdown">
               <a

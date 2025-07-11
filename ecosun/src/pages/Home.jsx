@@ -8,7 +8,7 @@ import Portfolio from "../components/Portfolio.jsx";
 import Numbers from "../components/Numbers.jsx";
 import Testimonials from "../components/Testimonials.jsx";
 import Block from "../components/Block.jsx";
-import Pricing from "../components/Pricing.jsx";
+import Why from "../components/Why.jsx";
 import Blog from "../components/Blog.jsx";
 import Footer from "../components/Footer.jsx";
 import FAQs from "../components/FAQs.jsx";
@@ -16,7 +16,6 @@ import FAQs from "../components/FAQs.jsx";
 function Home() {
   return (
     <>
-
       <div id="smooth-content">
         <main className="main-bg">
           <Slider></Slider>
@@ -27,9 +26,10 @@ function Home() {
           <Portfolio></Portfolio>
           {/* <Numbers></Numbers> */}
           <Testimonials></Testimonials>
+          <Why></Why>
           {/* <Block></Block> */}
           <FAQs></FAQs>
-          <Pricing></Pricing>
+          {/* <Pricing></Pricing> */}
           <Blog></Blog>
         </main>
         <Footer></Footer>
