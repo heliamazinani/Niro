@@ -7,6 +7,7 @@ import AboutUs from "./pages/AboutUs";
 import Blog from "./pages/Blog";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ContactUs from "./pages/ContactUs";
+import SingleBlog from "./pages/SingleBlog"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route path="/about" element={<AboutUs />}></Route>
               <Route path="/blog" element={<Blog />}></Route>
               <Route path="/contact" element={<ContactUs />}></Route>
+              <Route path="/posts/:id" element={<SingleBlog></SingleBlog>} />
             </Routes>
           </div>
         </div>

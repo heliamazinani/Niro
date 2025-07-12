@@ -41,7 +41,7 @@ const scrollToTop = () => {
                 </Link>
               </div>
             </li>
-            <li className="nav-item dropdown">
+            {/* <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
                 data-toggle="dropdown"
@@ -82,7 +82,7 @@ const scrollToTop = () => {
                   به زودی
                 </a>
               </div>
-            </li>
+            </li> */}
             <li className="nav-item ">
               <div className="nav-link">
                 <Link
