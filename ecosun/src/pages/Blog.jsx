@@ -12,13 +12,13 @@ import Why from "../components/Why.jsx";
 import TeamS from "../components/TeamS.jsx";
 import Footer from "../components/Footer.jsx";
 import ASlider from "../components/ASlider.jsx";
-import b1 from  "/assets/imgs/background/23.jpg";
+import b1 from "/assets/imgs/background/23.jpg";
 import BlogTitle from "../components/BlogTitle.jsx";
 import { Link } from "react-router-dom";
 
 function Blog() {
-    const data = [
-{
+  const data = [
+    {
       id: 1,
       date: "12 3 شهریور",
       img: b1,
@@ -48,7 +48,7 @@ function Blog() {
       author: "من ",
       genre: "خورشیدی",
     },
-    ];
+  ];
   return (
     <>
       <div id="smooth-content">
@@ -69,15 +69,13 @@ function Blog() {
             <div class="container">
               <div class="row">
                 {data.map((item) => (
-                  
-                    <BlogTitle
-                      key={item.id}
-                      date={item.date}
-                      img={item.img}
-                      link={`/posts/${item.id}`}
-                      title={item.title}
-                    />
-                
+                  <BlogTitle
+                    key={item.id}
+                    date={item.date}
+                    img={item.img}
+                    link={`/posts/${item.id}`}
+                    title={item.title}
+                  />
                 ))}
               </div>
             </div>
