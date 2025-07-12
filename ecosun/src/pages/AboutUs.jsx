@@ -18,6 +18,7 @@ function AboutUs() {
 
   return (
     <>
+    
       <div id="smooth-content">
         <main className="main-bg">
           {/* <About></About> */}

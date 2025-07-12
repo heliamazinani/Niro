@@ -16,6 +16,7 @@ import FAQs from "../components/FAQs.jsx";
 function Home() {
   return (
     <>
+    
       <div id="smooth-content">
         <main className="main-bg">
           <Slider></Slider>
@@ -23,9 +24,9 @@ function Home() {
           <About></About>
           <Services></Services>
           <Spin></Spin>
-          <Portfolio></Portfolio>
+          {/* <Portfolio></Portfolio> */}
           {/* <Numbers></Numbers> */}
-          <Testimonials></Testimonials>
+          {/* <Testimonials></Testimonials> */}
           <Why></Why>
           {/* <Block></Block> */}
           <FAQs></FAQs>

@@ -65,6 +65,9 @@ html{
   outline: none;
   list-style: none;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   color: #fff;
@@ -79,7 +82,9 @@ body {
 body.noise-img {
   position: relative;
 }
-
+.text-colorh {
+    color: #f6ad55; 
+}
 body.noise-img:before {
   content: '';
   background-image: url(../imgs/patterns/noise.png);
@@ -5720,7 +5725,7 @@ body.loaded {
 .skills .resume-exp .box-items {
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  background: #ffffff;
+  background: #1d1d1d;
 }
 
 .skills .resume-exp .box-items:after {
@@ -5740,7 +5745,6 @@ body.loaded {
 .skills .resume-exp .box-items .item {
   padding: 25px;
   position: relative;
-  
 }
 
 .skills .resume-exp .box-items .item .num {
