@@ -1,6 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <>
       <footer class="pt-80">
@@ -9,8 +13,15 @@ const Footer = () => {
             <div className="container pb-80 pt-80 ontop">
               <div className="call-box text-center mb-80">
                 <h2>
-                  <a href="page-contact.html">
+                  <a href="#">
+                    <Link
+                      to="/contact"
+                      smooth={true}
+                      duration={500}
+                      onClick={scrollToTop}
+                    >
                     بیایید <span className="stroke"> صحبت کنیم</span>
+                    </Link>
                   </a>
                   <span className="arrow main-color3">
                     <svg

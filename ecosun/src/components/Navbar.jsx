@@ -35,13 +35,11 @@ const scrollToTop = () => {
         >
           <ul className="navbar-nav">
             <li className="nav-item ">
-
-                <div className="nav-link">
-                                <Link to="/" smooth={true} duration={500} onClick={scrollToTop}>
+              <div className="nav-link">
+                <Link to="/" smooth={true} duration={500} onClick={scrollToTop}>
                   خانه
-                  </Link>
-                  </div>
-        
+                </Link>
+              </div>
             </li>
             <li className="nav-item dropdown">
               <a
@@ -86,18 +84,16 @@ const scrollToTop = () => {
               </div>
             </li>
             <li className="nav-item ">
-
-                <div className="nav-link">
-                                <Link
-                to="/about"
-                smooth={true}
-                duration={500}
-                onClick={scrollToTop}
-              >
+              <div className="nav-link">
+                <Link
+                  to="/about"
+                  smooth={true}
+                  duration={500}
+                  onClick={scrollToTop}
+                >
                   درباره ما
-                  </Link>
-                  </div>
-           
+                </Link>
+              </div>
             </li>
 
             <li className="nav-item dropdown">
@@ -126,9 +122,16 @@ const scrollToTop = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="page-contact.html">
-                ارتباط با ما
-              </a>
+              <div className="nav-link">
+                <Link
+                  to="/contact"
+                  smooth={true}
+                  duration={500}
+                  onClick={scrollToTop}
+                >
+                  ارتباط با ما
+                </Link>
+              </div>
             </li>
             <li className="nav-item">
               <div className="nav-link">
