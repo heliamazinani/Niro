@@ -11,6 +11,7 @@ import SingleBlog from "./pages/SingleBlog";
 
 import Auth from "./pages/Auth";
 import Team from "./pages/Team";
+import Calc from "./pages/Calc";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/contact" element={<ContactUs />}></Route>
             <Route path="/signup" element={<Auth />}></Route>
             <Route path="/team" element={<Team />}></Route>
+            <Route path="/calc" element={<Calc />}></Route>
             <Route path="/posts/:id" element={<SingleBlog></SingleBlog>} />
           </Routes>
         </div>

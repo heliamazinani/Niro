@@ -95,6 +95,16 @@ function Navbar() {
                 </div>
                 <div className="dropdown-item">
                   <Link
+                    to="/calc"
+                    smooth={true}
+                    duration={500}
+                    onClick={scrollToTop}
+                  >
+              vd;khn'iCW هیئت 
+                  </Link>
+                </div>
+                <div className="dropdown-item">
+                  <Link
                     to="/team"
                     smooth={true}
                     duration={500}
