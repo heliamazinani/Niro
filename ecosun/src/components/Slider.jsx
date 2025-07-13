@@ -37,7 +37,7 @@ const Slider = () => {
                         </svg>
                         <span className="ml-10">
                           {" "}
-                          خدمات انرژی صنعت نیرو توس
+                          خدمات انرژی صنعت نیرو 
                         </span>
                       </h6>
                       <h1 className="fz-60">
@@ -98,7 +98,7 @@ const Slider = () => {
                         </svg>
                         <span className="ml-10">
                           {" "}
-                          خدمات انرژی صنعت نیرو توس
+                          خدمات انرژی صنعت نیرو 
                         </span>
                       </h6>
                       <h1 className="fz-60">
@@ -159,7 +159,7 @@ const Slider = () => {
                         </svg>
                         <span className="ml-10">
                           {" "}
-                          خدمات انرژی صنعت نیرو توس
+                          خدمات انرژی صنعت نیرو 
                         </span>
                       </h6>
                       <h1 className="fz-60">

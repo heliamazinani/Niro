@@ -15,7 +15,6 @@ import ASlider from "../components/ASlider.jsx";
 import Team from "../components/Team.jsx";
 
 function AboutUs() {
-
   return (
     <>
       <div id="smooth-wrapper">
@@ -23,12 +22,12 @@ function AboutUs() {
         <div id="smooth-content">
           <main className="main-bg">
             {/* <About></About> */}
-            <ASlider></ASlider>
+            {/* <ASlider></ASlider> */}
             {/* <AAbout></AAbout> */}
 
-            <Process></Process>
-            {/* <TeamS></TeamS> */}
-            {/* <Team></Team> */}
+     
+            <TeamS></TeamS>
+            <Team></Team>
           </main>
           <Footer></Footer>
         </div>

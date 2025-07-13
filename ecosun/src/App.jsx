@@ -10,6 +10,7 @@ import ContactUs from "./pages/ContactUs";
 import SingleBlog from "./pages/SingleBlog";
 
 import Auth from "./pages/Auth";
+import Team from "./pages/Team";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/blog" element={<Blog />}></Route>
             <Route path="/contact" element={<ContactUs />}></Route>
             <Route path="/signup" element={<Auth />}></Route>
+            <Route path="/team" element={<Team />}></Route>
             <Route path="/posts/:id" element={<SingleBlog></SingleBlog>} />
           </Routes>
         </div>

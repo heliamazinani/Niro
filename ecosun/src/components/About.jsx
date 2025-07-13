@@ -28,14 +28,13 @@ const About = () => {
               <div className="cont">
                 <h6 className="sub-title mb-15">درباره شرکت</h6>
                 <h3 className="mb-15">
-                  درباره خدمات انرژی صنعت نیرو توس
+                  رهبران صنعت،
                   <span className="stroke fw-700 opacity-7">
-                    رهبران صنعت، خالقان انرژی فردا
+                    خالقان انرژی فردا
                   </span>
-                  .
                 </h3>
                 <p>
-                  شرکت خدمات انرژی صنعت نیرو توس وابسته به{" "}
+                  شرکت خدمات انرژی صنعت نیرو وابسته به{" "}
                   <span className=" fw-700  text-colorh opacity-7">
                     {" "}
                     شرکت صنعت نیرو{" "}
@@ -138,11 +137,13 @@ const About = () => {
                     </div>
                   </div>
                 </div>
-                <Link to="/about" smooth={true} duration={500} onClick={scrollToTop}>
-                  <div
-                   
-                    className="butn butn-md butn-bord radius-30 mt-50"
-                  >
+                <Link
+                  to="/about"
+                  smooth={true}
+                  duration={500}
+                  onClick={scrollToTop}
+                >
+                  <div className="butn butn-md butn-bord radius-30 mt-50">
                     <span>بیشتر کاوش کنید</span>
                   </div>
                 </Link>

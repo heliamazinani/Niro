@@ -69,7 +69,7 @@ function Navbar() {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                صفحات
+                درباره ما
               </div>
 
               <div className="dropdown-menu">
@@ -80,37 +80,31 @@ function Navbar() {
                     duration={500}
                     onClick={scrollToTop}
                   >
-                    درباره ما
+                    معرفی شرکت
                   </Link>
                 </a>
-                <a className="dropdown-item" href="page-services.html">
-                  خدمات
-                </a>
-                <a className="dropdown-item" href="page-career.html">
-                  مشاغل
-                </a>
-                <a className="dropdown-item" href="page-single-service.html">
-                  جزئیات خدمات
-                </a>
-                <a className="dropdown-item" href="page-FAQS.html">
-                  سوالات متداول
-                </a>
-                <a className="dropdown-item" href="page-team.html">
-                  تیم ما
-                </a>
-                <a className="dropdown-item" href="page-single-team.html">
-                  جزئیات تیم
-                </a>
-                <a className="dropdown-item" href="page-Oops404.html">
-                  ارور 404
-                </a>
-                <a className="dropdown-item" href="page-comingsoon.html">
-                  به زودی
-                </a>
+                <div className="dropdown-item">
+                  <Link
+                    to="/team"
+                    smooth={true}
+                    duration={500}
+                    onClick={scrollToTop}
+                  >
+                    اعضای هیئت مدیره
+                  </Link>
+                </div>
+                <div className="dropdown-item">
+                  <Link
+                    to="/team"
+                    smooth={true}
+                    duration={500}
+                    onClick={scrollToTop}
+                  >
+                    مدیر عامل
+                  </Link>
+                </div>
               </div>
             </li>
-
-
 
             <li className="nav-item dropdown">
               <div className="nav-link">
