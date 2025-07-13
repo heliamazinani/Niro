@@ -59,6 +59,13 @@ html{
 html {
   scroll-behavior: smooth;
 }
+.active {
+  color: white; /* Active form color */
+}
+
+.inactive {
+  color: grey; /* Inactive form color */
+}
 
 * {
   margin: 0;

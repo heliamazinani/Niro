@@ -2,11 +2,31 @@ import React, { useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
 import { Link } from "react-router-dom";
 import logo from "/logo.svg";
-const Navbar = () => {
+function Navbar() {
+  useEffect(() => {
+    const dropdowns = document.querySelectorAll(".dropdown-toggle");
+    dropdowns.forEach((dropdown) => {
+      dropdown.addEventListener("click", function () {
+        const dropdownMenu = this.nextElementSibling;
+        dropdownMenu.classList.toggle("show");
+      });
+    });
+
+    return () => {
+      dropdowns.forEach((dropdown) => {
+        dropdown.removeEventListener("click", function () {
+          const dropdownMenu = this.nextElementSibling;
+          dropdownMenu.classList.toggle("show");
+        });
+      });
+    };
+  }, []);
+
+
   const preventClick = (e) => e.preventDefault();
-const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <nav className="navbar navbar-expand-lg static">
@@ -41,21 +61,27 @@ const scrollToTop = () => {
                 </Link>
               </div>
             </li>
-            {/* <li className="nav-item dropdown">
-              <a
+            <li className="nav-item dropdown">
+              <div
                 className="nav-link dropdown-toggle"
                 data-toggle="dropdown"
-                href="#"
                 role="button"
                 aria-haspopup="true"
                 aria-expanded="false"
               >
                 صفحات
-              </a>
+              </div>
 
               <div className="dropdown-menu">
                 <a className="dropdown-item" href="">
-                  درباره ما
+                  <Link
+                    to="/about"
+                    smooth={true}
+                    duration={500}
+                    onClick={scrollToTop}
+                  >
+                    درباره ما
+                  </Link>
                 </a>
                 <a className="dropdown-item" href="page-services.html">
                   خدمات
@@ -82,19 +108,9 @@ const scrollToTop = () => {
                   به زودی
                 </a>
               </div>
-            </li> */}
-            <li className="nav-item ">
-              <div className="nav-link">
-                <Link
-                  to="/about"
-                  smooth={true}
-                  duration={500}
-                  onClick={scrollToTop}
-                >
-                  درباره ما
-                </Link>
-              </div>
             </li>
+
+
 
             <li className="nav-item dropdown">
               <div className="nav-link">
@@ -104,7 +120,7 @@ const scrollToTop = () => {
                   duration={500}
                   onClick={scrollToTop}
                 >
-                  وبلاگ
+                  آموزش
                 </Link>
               </div>
             </li>
@@ -142,9 +158,7 @@ const scrollToTop = () => {
                   duration={500}
                   onClick={scrollToTop}
                 >
-                 
-                 ورود | عضویت 
-              
+                  ورود | عضویت
                 </Link>
               </div>
             </li>

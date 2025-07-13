@@ -1,31 +1,23 @@
-import Navbar from "../components/Navbar";
-import Slider from "../components/Slider.jsx";
-import AAbout from "../components/AAbout.jsx";
-import Loader from "../components/Loader.jsx";
-import Spin from "../components/Spin.jsx";
-import Services from "../components/Services.jsx";
-import Portfolio from "../components/Portfolio.jsx";
-import Numbers from "../components/Numbers.jsx";
-import Process from "../components/Process.jsx";
-import Block from "../components/Block.jsx";
-import Why from "../components/Why.jsx";
-import TeamS from "../components/TeamS.jsx";
-import Footer from "../components/Footer.jsx";
-import ASlider from "../components/ASlider.jsx";
-import Team from "../components/Team.jsx";
+import Navbar from "./Navbar.jsx";
+import React, { useState } from "react";
+import Footer from "./Footer.jsx";
+import ASlider from "./ASlider.jsx";
+import Team from "./Team.jsx";
 
 function SignUp() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle signup logic here
+    console.log("Signing up with:", { name, email, password });
+  };
   return (
     <>
-      <Navbar></Navbar>
-      <div id="smooth-content">
-        <main className="main-bg">
-          <section className="contact-crev section-padding">
-            <div className="container">
-              <div className="row justify-content-center">
-                <div className="col-lg-6 col-md-9">
-                  <div className="sec-head text-center">
-                    <h6>ثبت نام</h6>
+
+
+                    
 
                     <div className="full-width">
                       <form id="contact-form" method="post" action="#">
@@ -35,10 +27,26 @@ function SignUp() {
                           <div className="col-12">
                             <div className="form-group mb-30">
                               <input
+                                id="form_name"
+                                type="text"
+                                name="name"
+                                placeholder="نام کاربری "
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                required="required"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="col-12">
+                            <div className="form-group mb-30">
+                              <input
                                 id="form_email"
                                 type="email"
                                 name="email"
                                 placeholder="ایمیل"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 required="required"
                               />
                             </div>
@@ -51,6 +59,8 @@ function SignUp() {
                                 type="password"
                                 name="name"
                                 placeholder="رمز عبور"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 required="required"
                               />
                             </div>
@@ -61,19 +71,14 @@ function SignUp() {
                               type="submit"
                               className="butn butn-md butn-bg main-colorbg3 text-dark "
                             >
-                              <span className="text">صحبت کردن</span>
+                              <span className="text">ثبت نام </span>
                             </button>
                           </div>
                         </div>
                       </form>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </main>
-      </div>
+
+
     </>
   );
 }

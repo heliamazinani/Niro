@@ -3,6 +3,7 @@ import bgImage17 from "../assets/dark/imgs/background/21.jpg";
 import bgImage19 from "../assets/dark/imgs/background/22.jpg";
 import bgImage23 from "../assets/dark/imgs/background/23.jpg";
 const Slider = () => {
+
   return (
     <header className="slider slider-prlx o-hidden">
       {/* <div className="lines two"></div> */}

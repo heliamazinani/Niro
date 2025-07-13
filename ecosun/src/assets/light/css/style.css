@@ -5425,6 +5425,7 @@ body.loaded {
   pointer-events: none;
 }
 
+
 .contact-crev input,
 .contact-crev textarea {
   width: 100%;
@@ -5432,6 +5433,7 @@ body.loaded {
   border-radius: 10px;
   background: transparent;
   padding: 15px;
+  color: #000000;
   -webkit-transition: all .4s;
   -o-transition: all .4s;
   transition: all .4s;

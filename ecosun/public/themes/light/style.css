@@ -71,7 +71,13 @@ html {
 html {
   scroll-behavior: smooth;
 }
+.active {
+  color: black; /* Active form color */
+}
 
+.inactive {
+  color: grey; /* Inactive form color */
+}
 body {
   color: #1d1d1d;
   background-color: #f1f3f5;
@@ -5499,6 +5505,7 @@ body.loaded {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   background: transparent;
+  color: rgba(0, 0, 0, 0.658);
   padding: 15px;
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
