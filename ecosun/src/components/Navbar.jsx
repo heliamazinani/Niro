@@ -133,6 +133,21 @@ const scrollToTop = () => {
                 </Link>
               </div>
             </li>
+
+            <li className="nav-item">
+              <div className="nav-link">
+                <Link
+                  to="/signup"
+                  smooth={true}
+                  duration={500}
+                  onClick={scrollToTop}
+                >
+                 
+                 ورود | عضویت 
+              
+                </Link>
+              </div>
+            </li>
             <li className="nav-item">
               <div className="nav-link">
                 <ThemeToggle></ThemeToggle>

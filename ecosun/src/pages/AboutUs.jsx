@@ -18,19 +18,20 @@ function AboutUs() {
 
   return (
     <>
-    
-      <div id="smooth-content">
-        <main className="main-bg">
-          {/* <About></About> */}
-          <ASlider></ASlider>
-          {/* <AAbout></AAbout> */}
+      <div id="smooth-wrapper">
+        <Navbar />
+        <div id="smooth-content">
+          <main className="main-bg">
+            {/* <About></About> */}
+            <ASlider></ASlider>
+            {/* <AAbout></AAbout> */}
 
-
-          <Process></Process>
-          <TeamS></TeamS>
-          <Team></Team>
-        </main>
-        <Footer></Footer>
+            <Process></Process>
+            <TeamS></TeamS>
+            <Team></Team>
+          </main>
+          <Footer></Footer>
+        </div>
       </div>
     </>
   );

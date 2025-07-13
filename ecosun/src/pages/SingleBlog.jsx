@@ -1,6 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import Footer from "../components/Footer.jsx";
+import Navbar from "../components/Navbar";
+import Slider from "../components/Slider.jsx";
+import AAbout from "../components/AAbout.jsx";
+import Loader from "../components/Loader.jsx";
 import b1 from "/assets/imgs/background/23.jpg";
 const SingleBlog = () => {
   const { id } = useParams();
@@ -46,107 +50,105 @@ const SingleBlog = () => {
 
   return (
     <>
-      <div id="smooth-content">
-        <main className="main-bg">
-          <header class="page-header blog-header section-padding pb-0">
-            <div class="container mt-80">
-              <div class="row justify-content-center">
-                <div class="col-lg-10">
-                  <div class="caption">
-                    <div class="sub-title fz-12">
-                      <a href="#0">
-                        <span>{post.genre}</span>
-                      </a>
-                     
-          
-                    </div>
-                    <h1 class="fz-55 mt-30">{post.title}</h1>
-                  </div>
-                  <div class="info d-flex mt-40 align-items-center">
-                    <div class="left-info">
-                      <div class="d-flex">
-                        <div class="author-info">
-                          <div class="d-flex align-items-center">
-                            <a href="#0" class="ml-20">
-                              <span class="opacity-7">نویسنده</span>
-                              <h6 class="fz-16"> {post.author} </h6>
-                            </a>
-                          </div>
-                        </div>
-                        <div class="date ml-50">
+
+        <div id="smooth-wrapper">
+          <Navbar />
+
+          <div id="smooth-content">
+            <main className="main-bg">
+              <header class="page-header blog-header section-padding pb-0">
+                <div class="container mt-80">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                      <div class="caption">
+                        <div class="sub-title fz-12">
                           <a href="#0">
-                            <span class="opacity-7">منتشر شده در</span>
-                            <h6 class="fz-16">{post.date}  </h6>
+                            <span>{post.genre}</span>
                           </a>
                         </div>
+                        <h1 class="fz-55 mt-30">{post.title}</h1>
                       </div>
-                    </div>
-                    <div class="right-info ml-auto">
-                      <div>
-                        <span class="pe-7s-comment fz-18 mr-10"></span>
-                        <span class="opacity-7">02 کامنت</span>
+                      <div class="info d-flex mt-40 align-items-center">
+                        <div class="left-info">
+                          <div class="d-flex">
+                            <div class="author-info">
+                              <div class="d-flex align-items-center">
+                                <a href="#0" class="ml-20">
+                                  <span class="opacity-7">نویسنده</span>
+                                  <h6 class="fz-16"> {post.author} </h6>
+                                </a>
+                              </div>
+                            </div>
+                            <div class="date ml-50">
+                              <a href="#0">
+                                <span class="opacity-7">منتشر شده در</span>
+                                <h6 class="fz-16">{post.date} </h6>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right-info ml-auto">
+                          <div>
+                            <span class="pe-7s-comment fz-18 mr-10"></span>
+                            <span class="opacity-7">02 کامنت</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div
-              class="background bg-img parallaxie mt-80"
-              data-background={post.img}
-            ></div>
-          </header>
+                <div
+                  class="background bg-img parallaxie mt-80"
+                  data-background={post.img}
+                ></div>
+              </header>
 
-
-
-        <section class="blog section-padding pb-0">
-            <div class="container">
-                <div class="main-post">
+              <section class="blog section-padding pb-0">
+                <div class="container">
+                  <div class="main-post">
                     <div class="item pb-60">
-                        <div>
-                
-                            <div class="row justify-content-center">
-                                <div class="col-lg-10">
-  
-                                    <div class="title mt-30">
-                                        <h5 class="fw-600"> {post.title} </h5>
-                                    </div>
-                                    <div class="text mt-20">
-                                        <p>
-                                          {post.content}
-                                        </p>
-                                    </div>
-                                </div>
+                      <div>
+                        <div class="row justify-content-center">
+                          <div class="col-lg-10">
+                            <div class="title mt-30">
+                              <h5 class="fw-600"> {post.title} </h5>
                             </div>
+                            <div class="text mt-20">
+                              <p>{post.content}</p>
+                            </div>
+                          </div>
                         </div>
-
-
-                     
+                      </div>
                     </div>
                     <div class="info-area flex mt-20 pb-20">
-                        <div>
-                            <div class="tags flex">
-                                <div class="valign">
-                                    <span>تگ ها :</span>
-                                </div>
-                                <div>
-                                    <a href="blog-classic.html"> {post.genre} </a>
-                                   
-                                </div>
-                            </div>
+                      <div>
+                        <div class="tags flex">
+                          <div class="valign">
+                            <span>تگ ها :</span>
+                          </div>
+                          <div>
+                            <a href="blog-classic.html"> {post.genre} </a>
+                          </div>
                         </div>
-                        <div class="ml-auto">
-                            <div class="share-icon flex">
-                                <div class="valign">
-                                    <span>اشتراک :</span>
-                                </div>
-                                <div>
-                                    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
-                                    <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
-                                </div>
-                            </div>
+                      </div>
+                      <div class="ml-auto">
+                        <div class="share-icon flex">
+                          <div class="valign">
+                            <span>اشتراک :</span>
+                          </div>
+                          <div>
+                            <a href="https://www.facebook.com/">
+                              <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.twitter.com/">
+                              <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.youtube.com/">
+                              <i class="fab fa-youtube"></i>
+                            </a>
+                          </div>
                         </div>
+                      </div>
                     </div>
                     {/* <div class="author-area mt-50">
                         <div class="flex">
@@ -178,10 +180,10 @@ const SingleBlog = () => {
                             </a>
                         </div>
                     </div> */}
+                  </div>
                 </div>
-            </div>
 
-            {/* <div class="recent-posts blog-list-half crev sub-bg section-padding mt-100">
+                {/* <div class="recent-posts blog-list-half crev sub-bg section-padding mt-100">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
@@ -241,7 +243,7 @@ const SingleBlog = () => {
                 </div>
             </div> */}
 
-            {/* <div class="comments-post section-padding">
+                {/* <div class="comments-post section-padding">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-11">
@@ -305,7 +307,7 @@ const SingleBlog = () => {
                 </div>
             </div> */}
 
-            {/* <div class="comments-from section-padding sub-bg">
+                {/* <div class="comments-from section-padding sub-bg">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-11">
@@ -314,8 +316,8 @@ const SingleBlog = () => {
                             </div>
                         </div>
                     </div> */}
-                    {/* <div class="row justify-content-center"> */}
-                        {/* <div class="col-lg-11">
+                {/* <div class="row justify-content-center"> */}
+                {/* <div class="col-lg-11">
                             <form id="contact-form" method="post" action="#">
 
                                 <div class="messages"></div>
@@ -355,17 +357,15 @@ const SingleBlog = () => {
                                 </div>
                             </form>
                         </div> */}
-                    {/* </div>
+                {/* </div>
                 </div>
             </div> */}
-        </section>
-
-
-
-
-        </main>
-        <Footer></Footer>
-      </div>
+              </section>
+            </main>
+            <Footer></Footer>
+          </div>
+        </div>
+    
     </>
   );
 };
