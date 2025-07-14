@@ -1,9 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import bgImage17 from "../assets/dark/imgs/background/21.jpg";
 import bgImage19 from "../assets/dark/imgs/background/22.jpg";
 import bgImage23 from "../assets/dark/imgs/background/23.jpg";
 const Slider = () => {
+  useEffect(() => {
 
+    if (window.Swiper) {
+
+      const existingSwiper =
+        document.querySelector(".swiper-container")?.swiper;
+      if (existingSwiper) {
+        existingSwiper.destroy(true, true);
+      }
+
+
+      new window.Swiper(".parallax-slider", {
+        speed: 1000,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+        },
+        parallax: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    }
+  }, []);
   return (
     <header className="slider slider-prlx o-hidden">
       {/* <div className="lines two"></div> */}
@@ -35,10 +63,7 @@ const Slider = () => {
                             fill="currentColor"
                           ></path>
                         </svg>
-                        <span className="ml-10">
-                          {" "}
-                          خدمات انرژی صنعت نیرو 
-                        </span>
+                        <span className="ml-10"> خدمات انرژی صنعت نیرو</span>
                       </h6>
                       <h1 className="fz-60">
                         پیشگامان انرژی، با سایه ای از افتخار
@@ -96,10 +121,7 @@ const Slider = () => {
                             fill="currentColor"
                           ></path>
                         </svg>
-                        <span className="ml-10">
-                          {" "}
-                          خدمات انرژی صنعت نیرو 
-                        </span>
+                        <span className="ml-10"> خدمات انرژی صنعت نیرو</span>
                       </h6>
                       <h1 className="fz-60">
                         پیشگامان انرژی، با سایه ای از افتخار
@@ -157,10 +179,7 @@ const Slider = () => {
                             fill="currentColor"
                           ></path>
                         </svg>
-                        <span className="ml-10">
-                          {" "}
-                          خدمات انرژی صنعت نیرو 
-                        </span>
+                        <span className="ml-10"> خدمات انرژی صنعت نیرو</span>
                       </h6>
                       <h1 className="fz-60">
                         پیشگامان انرژی، با سایه ای از افتخار

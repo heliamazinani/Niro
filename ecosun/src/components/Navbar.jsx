@@ -2,28 +2,31 @@ import React, { useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
 import { Link } from "react-router-dom";
 import logo from "/logo.svg";
+
 function Navbar() {
   useEffect(() => {
     const dropdowns = document.querySelectorAll(".dropdown-toggle");
-    dropdowns.forEach((dropdown) => {
-      dropdown.addEventListener("click", function () {
-        const dropdownMenu = this.nextElementSibling;
+
+    const handleDropdownClick = function () {
+      const dropdownMenu = this.nextElementSibling;
+      if (dropdownMenu) {
         dropdownMenu.classList.toggle("show");
-      });
+      }
+    };
+
+    dropdowns.forEach((dropdown) => {
+      dropdown.addEventListener("click", handleDropdownClick);
     });
 
     return () => {
       dropdowns.forEach((dropdown) => {
-        dropdown.removeEventListener("click", function () {
-          const dropdownMenu = this.nextElementSibling;
-          dropdownMenu.classList.toggle("show");
-        });
+        dropdown.removeEventListener("click", handleDropdownClick);
       });
     };
   }, []);
 
-
   const preventClick = (e) => e.preventDefault();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -54,13 +57,14 @@ function Navbar() {
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav">
-            <li className="nav-item ">
+            <li className="nav-item">
               <div className="nav-link">
-                <Link to="/" smooth={true} duration={500} onClick={scrollToTop}>
+                <Link to="/" onClick={scrollToTop}>
                   خانه
                 </Link>
               </div>
             </li>
+
             <li className="nav-item dropdown">
               <div
                 className="nav-link dropdown-toggle"
@@ -71,84 +75,55 @@ function Navbar() {
               >
                 درباره ما
               </div>
-
               <div className="dropdown-menu">
-                <a className="dropdown-item" href="">
-                  <Link
-                    to="/about"
-                    smooth={true}
-                    duration={500}
-                    onClick={scrollToTop}
-                  >
+                <div className="dropdown-item">
+                  <Link to="/about" onClick={scrollToTop}>
                     معرفی شرکت
                   </Link>
-                </a>
+                </div>
                 <div className="dropdown-item">
-                  <Link
-                    to="/team"
-                    smooth={true}
-                    duration={500}
-                    onClick={scrollToTop}
-                  >
+                  <Link to="/team" onClick={scrollToTop}>
                     اعضای هیئت مدیره
                   </Link>
                 </div>
                 <div className="dropdown-item">
-                  <Link
-                    to="/calc"
-                    smooth={true}
-                    duration={500}
-                    onClick={scrollToTop}
-                  >
-              vd;khn'iCW هیئت 
+                  <Link to="/calc" onClick={scrollToTop}>
+                    محاسبه هیئت
                   </Link>
                 </div>
                 <div className="dropdown-item">
-                  <Link
-                    to="/team"
-                    smooth={true}
-                    duration={500}
-                    onClick={scrollToTop}
-                  >
+                  <Link to="/team" onClick={scrollToTop}>
                     مدیر عامل
                   </Link>
                 </div>
               </div>
             </li>
 
-            <li className="nav-item dropdown">
+            <li className="nav-item">
               <div className="nav-link">
-                <Link
-                  to="/blog"
-                  smooth={true}
-                  duration={500}
-                  onClick={scrollToTop}
-                >
+                <Link to="/blog" onClick={scrollToTop}>
                   آموزش
                 </Link>
               </div>
             </li>
+
             <li className="nav-item dropdown">
-              <a
+              <div
                 className="nav-link dropdown-toggle"
                 data-toggle="dropdown"
-                href="#"
                 role="button"
                 aria-haspopup="true"
                 aria-expanded="false"
                 onClick={preventClick}
               >
                 فروشگاه
-              </a>
+              </div>
+              {/* You can add a dropdown-menu for فروشگاه if needed */}
             </li>
+
             <li className="nav-item">
               <div className="nav-link">
-                <Link
-                  to="/contact"
-                  smooth={true}
-                  duration={500}
-                  onClick={scrollToTop}
-                >
+                <Link to="/contact" onClick={scrollToTop}>
                   ارتباط با ما
                 </Link>
               </div>
@@ -156,19 +131,15 @@ function Navbar() {
 
             <li className="nav-item">
               <div className="nav-link">
-                <Link
-                  to="/signup"
-                  smooth={true}
-                  duration={500}
-                  onClick={scrollToTop}
-                >
+                <Link to="/signup" onClick={scrollToTop}>
                   ورود | عضویت
                 </Link>
               </div>
             </li>
+
             <li className="nav-item">
               <div className="nav-link">
-                <ThemeToggle></ThemeToggle>
+                <ThemeToggle />
               </div>
             </li>
           </ul>
@@ -189,6 +160,6 @@ function Navbar() {
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;
