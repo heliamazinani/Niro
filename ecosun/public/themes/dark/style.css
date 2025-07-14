@@ -5489,7 +5489,9 @@ body.loaded {
 }
 
 .contact-crev input,
-.contact-crev textarea {
+.contact-crev textarea ,.select-category,
+.unit-select,
+.result{
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;

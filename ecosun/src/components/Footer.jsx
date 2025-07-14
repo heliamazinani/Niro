@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Inst from "/location.jpg";
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -20,7 +20,7 @@ const Footer = () => {
                       duration={500}
                       onClick={scrollToTop}
                     >
-                    بیایید <span className="stroke"> صحبت کنیم</span>
+                      بیایید <span className="stroke"> صحبت کنیم</span>
                     </Link>
                   </a>
                   <span className="arrow main-color3">
@@ -48,6 +48,9 @@ const Footer = () => {
                     </div>
                     <div className="text">
                       <p> مشهد خیابان سنایی نبش سنایی 12 پلاک 121 طبقه 5</p>
+                    </div>
+                    <div className="icon-img-100 mb-40 mt-10 ">
+                      <img src={Inst} alt="" style={{ borderRadius: "10px" }} />
                     </div>
                   </div>
                 </div>
