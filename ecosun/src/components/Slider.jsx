@@ -68,7 +68,7 @@ const Slider = () => {
                       <h1 className="fz-60">
                         پیشگامان انرژی، با سایه ای از افتخار
                       </h1>
-                      <a
+                      {/* <a
                         href="page-about.html"
                         className="butn butn-md butn-bg main-colorbg3 text-dark mt-30"
                       >
@@ -88,7 +88,7 @@ const Slider = () => {
                             ></path>
                           </svg>
                         </i>
-                      </a>
+                      </a> */}
                     </div>
                   </div>
                 </div>
@@ -126,7 +126,7 @@ const Slider = () => {
                       <h1 className="fz-60">
                         پیشگامان انرژی، با سایه ای از افتخار
                       </h1>
-                      <a
+                      {/* <a
                         href="page-about.html"
                         className="butn butn-md butn-bg main-colorbg3 text-dark mt-30"
                       >
@@ -146,7 +146,7 @@ const Slider = () => {
                             ></path>
                           </svg>
                         </i>
-                      </a>
+                      </a> */}
                     </div>
                   </div>
                 </div>
@@ -184,7 +184,7 @@ const Slider = () => {
                       <h1 className="fz-60">
                         پیشگامان انرژی، با سایه ای از افتخار
                       </h1>
-                      <a
+                      {/* <a
                         href="page-about.html"
                         className="butn butn-md butn-bg main-colorbg3 text-dark mt-30"
                       >
@@ -204,7 +204,7 @@ const Slider = () => {
                             ></path>
                           </svg>
                         </i>
-                      </a>
+                      </a> */}
                     </div>
                   </div>
                 </div>

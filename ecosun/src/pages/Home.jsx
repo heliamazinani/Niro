@@ -56,7 +56,7 @@ function Home() {
           <main className="main-bg">
             <Slider></Slider>
             <About></About>
-            <IS></IS>
+            {/* <IS></IS> */}
             <Services></Services>
             <Spin></Spin>
             {/* <Portfolio></Portfolio> */}
@@ -66,7 +66,7 @@ function Home() {
             {/* <Block></Block> */}
             <FAQs></FAQs>
             {/* <Pricing></Pricing> */}
-            <section className="blog-crev section-padding">
+            {/* <section className="blog-crev section-padding">
               <div className="container">
                 <div className="sec-lg-head mb-80">
                   <div className="row">
@@ -114,7 +114,7 @@ function Home() {
                   ))}
                 </div>
               </div>
-            </section>
+            </section> */}
             ;
           </main>
           <Footer></Footer>

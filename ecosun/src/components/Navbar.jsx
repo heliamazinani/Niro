@@ -1,35 +1,22 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
-import { Link } from "react-router-dom";
 import logo from "/logo.svg";
 
 function Navbar() {
-  useEffect(() => {
-    const dropdowns = document.querySelectorAll(".dropdown-toggle");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const location = useLocation();
 
-    const handleDropdownClick = function () {
-      const dropdownMenu = this.nextElementSibling;
-      if (dropdownMenu) {
-        dropdownMenu.classList.toggle("show");
-      }
-    };
-
-    dropdowns.forEach((dropdown) => {
-      dropdown.addEventListener("click", handleDropdownClick);
-    });
-
-    return () => {
-      dropdowns.forEach((dropdown) => {
-        dropdown.removeEventListener("click", handleDropdownClick);
-      });
-    };
-  }, []);
-
-  const preventClick = (e) => e.preventDefault();
+  const toggleDropdown = () => {
+    setDropdownOpen((prev) => !prev);
+  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+    setDropdownOpen(false); // close dropdown after click
   };
+
+  const preventClick = (e) => e.preventDefault();
 
   return (
     <nav className="navbar navbar-expand-lg static">
@@ -41,10 +28,11 @@ function Navbar() {
         <button
           className="navbar-toggler"
           type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
+          onClick={() =>
+            document
+              .getElementById("navbarSupportedContent")
+              ?.classList.toggle("show")
+          }
           aria-label="Toggle navigation"
         >
           <span className="icon-bar">
@@ -68,71 +56,37 @@ function Navbar() {
             <li className="nav-item dropdown">
               <div
                 className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
                 role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
+                onClick={toggleDropdown}
               >
                 درباره ما
               </div>
-              <div className="dropdown-menu">
-                <div className="dropdown-item">
-                  <Link to="/about" onClick={scrollToTop}>
-                    معرفی شرکت
-                  </Link>
-                </div>
-                <div className="dropdown-item">
-                  <Link to="/team" onClick={scrollToTop}>
-                    اعضای هیئت مدیره
-                  </Link>
-                </div>
-                <div className="dropdown-item">
-                  <Link to="/calc" onClick={scrollToTop}>
-                    محاسبه هیئت
-                  </Link>
-                </div>
-                <div className="dropdown-item">
-                  <Link to="/team" onClick={scrollToTop}>
-                    مدیر عامل
-                  </Link>
-                </div>
-              </div>
-            </li>
 
-            <li className="nav-item">
-              <div className="nav-link">
-                <Link to="/blog" onClick={scrollToTop}>
-                  آموزش
-                </Link>
-              </div>
-            </li>
-
-            <li className="nav-item dropdown">
-              <div
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-                onClick={preventClick}
-              >
-                فروشگاه
-              </div>
-              {/* You can add a dropdown-menu for فروشگاه if needed */}
+              {dropdownOpen && (
+                <div className="dropdown-menu show">
+                  <div className="dropdown-item">
+                    <Link to="/about" onClick={scrollToTop}>
+                      معرفی شرکت
+                    </Link>
+                  </div>
+                  <div className="dropdown-item">
+                    <Link to="/team" onClick={scrollToTop}>
+                      اعضای هیئت مدیره
+                    </Link>
+                  </div>
+                  <div className="dropdown-item">
+                    <Link to="/team" onClick={scrollToTop}>
+                      مدیر عامل
+                    </Link>
+                  </div>
+                </div>
+              )}
             </li>
 
             <li className="nav-item">
               <div className="nav-link">
                 <Link to="/contact" onClick={scrollToTop}>
                   ارتباط با ما
-                </Link>
-              </div>
-            </li>
-
-            <li className="nav-item">
-              <div className="nav-link">
-                <Link to="/signup" onClick={scrollToTop}>
-                  ورود | عضویت
                 </Link>
               </div>
             </li>
