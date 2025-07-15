@@ -1,7 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import logo from "/logo.svg";
-const Navbar = () => {
+
+function Navbar() {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const location = useLocation();
+
+  const toggleDropdown = () => {
+    setDropdownOpen((prev) => !prev);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setDropdownOpen(false); // close dropdown after click
+  };
+
   const preventClick = (e) => e.preventDefault();
 
   return (
@@ -14,10 +28,11 @@ const Navbar = () => {
         <button
           className="navbar-toggler"
           type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
+          onClick={() =>
+            document
+              .getElementById("navbarSupportedContent")
+              ?.classList.toggle("show")
+          }
           aria-label="Toggle navigation"
         >
           <span className="icon-bar">
@@ -30,107 +45,55 @@ const Navbar = () => {
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav">
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                href="#"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-                onClick={preventClick}
-              >
-                خانه
-              </a>
-            </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                href="#"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                صفحات
-              </a>
-              <div className="dropdown-menu">
-                <a className="dropdown-item" href="">
-                  درباره ما
-                </a>
-                <a className="dropdown-item" href="page-services.html">
-                  خدمات
-                </a>
-                <a className="dropdown-item" href="page-career.html">
-                  مشاغل
-                </a>
-                <a className="dropdown-item" href="page-single-service.html">
-                  جزئیات خدمات
-                </a>
-                <a className="dropdown-item" href="page-FAQS.html">
-                  سوالات متداول
-                </a>
-                <a className="dropdown-item" href="page-team.html">
-                  تیم ما
-                </a>
-                <a className="dropdown-item" href="page-single-team.html">
-                  جزئیات تیم
-                </a>
-                <a className="dropdown-item" href="page-Oops404.html">
-                  ارور 404
-                </a>
-                <a className="dropdown-item" href="page-comingsoon.html">
-                  به زودی
-                </a>
+            <li className="nav-item">
+              <div className="nav-link">
+                <Link to="/" onClick={scrollToTop}>
+                  خانه
+                </Link>
               </div>
-            </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                href="#"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                نمونه کار
-              </a>
             </li>
 
             <li className="nav-item dropdown">
-              <a
+              <div
                 className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                href="#"
                 role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-                onClick={preventClick}
+                onClick={toggleDropdown}
               >
-                وبلاگ
-              </a>
+                درباره ما
+              </div>
+
+              {dropdownOpen && (
+                <div className="dropdown-menu show">
+                  <div className="dropdown-item">
+                    <Link to="/about" onClick={scrollToTop}>
+                      معرفی شرکت
+                    </Link>
+                  </div>
+                  <div className="dropdown-item">
+                    <Link to="/team" onClick={scrollToTop}>
+                      اعضای هیئت مدیره
+                    </Link>
+                  </div>
+                  <div className="dropdown-item">
+                    <Link to="/team" onClick={scrollToTop}>
+                      مدیر عامل
+                    </Link>
+                  </div>
+                </div>
+              )}
             </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                href="#"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-                onClick={preventClick}
-              >
-                فروشگاه
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="page-contact.html">
-                ارتباط با ما
-              </a>
-            </li>
+
             <li className="nav-item">
               <div className="nav-link">
-                <ThemeToggle></ThemeToggle>
+                <Link to="/contact" onClick={scrollToTop}>
+                  ارتباط با ما
+                </Link>
+              </div>
+            </li>
+
+            <li className="nav-item">
+              <div className="nav-link">
+                <ThemeToggle />
               </div>
             </li>
           </ul>
@@ -151,6 +114,6 @@ const Navbar = () => {
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;

@@ -1,7 +1,11 @@
 import React from "react";
-import sq1 from "../assets/dark/imgs/about/sq3.jpg";
-import sq2 from "../assets/dark/imgs/about/sq2.jpg";
+import sq1 from "/assets/imgs/about/sq3.jpg";
+import sq2 from "/assets/imgs/about/sq2.jpg";
+import { Link } from "react-router-dom";
 const About = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <>
       <section className="intro-corp section-padding sub-bg">
@@ -24,17 +28,22 @@ const About = () => {
               <div className="cont">
                 <h6 className="sub-title mb-15">درباره شرکت</h6>
                 <h3 className="mb-15">
-                  درباره انرژی صنعت نیرو توس
+                  رهبران صنعت،
                   <span className="stroke fw-700 opacity-7">
-                    آینده را روشن می‌کنیم
+                    خالقان انرژی فردا
                   </span>
-                  .
                 </h3>
                 <p>
-                  ما در انرژی صنعت نیرو توس با تکیه بر دانش فنی، تجربه و فناوری
-                  روز دنیا، خدمات تخصصی در زمینه طراحی و اجرای سیستم‌های فیبر
-                  نوری، انرژی خورشیدی و تابلوهای برق ارائه می‌دهیم. با ما، انرژی
-                  را هوشمندانه و پایدار تجربه کنید.
+                  شرکت خدمات انرژی صنعت نیرو وابسته به{" "}
+                  <span className=" fw-700  text-colorh opacity-7">
+                    {" "}
+                    شرکت صنعت نیرو{" "}
+                  </span>{" "}
+                  ( اولین تولید کننده تابلوهای برق صنعتی در شرق کشور از سال 1351
+                  تاکنون ) با نام اختصاری اکوسانیر (Ecosunir) و با بهره گیری از
+                  تجربیات ارزشمند و دانش فنی متخصصین برجسته در صنعت و دانشگاه با
+                  هدف ارتقاء سطح کیفی خدمات در حوزه انرژی های تجدیدپذیر و بهینه
+                  سازی مصرف انرژی در صنعت و ساختمان تأسیس شده است.
                 </p>
                 <div className="mt-50 pt-30 bord-thin-top">
                   <div className="row">
@@ -58,7 +67,7 @@ const About = () => {
                               ></path>
                             </svg>
                           </span>
-                          <span>استراتژی </span>
+                          <span>کیفیت بالا </span>
                         </li>
                         <li className="mt-20">
                           <span className="icon">
@@ -78,7 +87,7 @@ const About = () => {
                               ></path>
                             </svg>
                           </span>
-                          <span>طراحی</span>
+                          <span>دقت در جزئیات</span>
                         </li>
                       </ul>
                     </div>
@@ -102,7 +111,7 @@ const About = () => {
                               ></path>
                             </svg>
                           </span>
-                          <span>تولید بی نظیر</span>
+                          <span> کنترل بودجه </span>
                         </li>
                         <li className="mt-20">
                           <span className="icon">
@@ -122,18 +131,22 @@ const About = () => {
                               ></path>
                             </svg>
                           </span>
-                          <span>هویت سازمانی</span>
+                          <span>استاندارد بین‌المللی </span>
                         </li>
                       </ul>
                     </div>
                   </div>
                 </div>
-                <a
-                  href="page-about.html"
-                  className="butn butn-md butn-bord radius-30 mt-50"
+                <Link
+                  to="/about"
+                  smooth={true}
+                  duration={500}
+                  onClick={scrollToTop}
                 >
-                  <span>بیشتر کاوش کنید</span>
-                </a>
+                  <div className="butn butn-md butn-bord radius-30 mt-50">
+                    <span>بیشتر کاوش کنید</span>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
