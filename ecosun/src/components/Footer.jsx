@@ -75,14 +75,14 @@ const Footer = () => {
                     <h6>شبکه های مجازی</h6>
                   </div>
                   <ul className="rest social-text">
-                    <li>
+                    {/* <li>
                       <a href="#0">Facebook</a>
                     </li>
                     <li>
                       <a href="#0">Twitter</a>
-                    </li>
+                    </li> */}
                     <li>
-                      <a href="#0">LinkedIn</a>
+                      <a href="#0">Whatsapp</a>
                     </li>
                     <li>
                       <a href="#0">Instagram</a>
