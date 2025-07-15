@@ -64,7 +64,7 @@ const Footer = () => {
                         <a href="#0">Ecosunir@gmail.com</a>
                       </p>
                       <h5>
-                        <a href="#">0915-5363-273</a>
+                        <a href="#">0915-53-63-273</a>
                         <a href="#">051-36570009</a>
                       </h5>
                     </div>
@@ -113,14 +113,14 @@ const Footer = () => {
                   <div className="col-lg-8">
                     <div className="copyright d-flex">
                       <div className="ml-auto">
-                        <p className="fz-13">
+                        {/* <p className="fz-13">
                           © 2023 Geekfolio ارائه در{" "}
                           <span className="underline">
                             <a href="#" target="_blank">
                               راستچین
                             </a>
                           </span>
-                        </p>
+                        </p> */}
                       </div>
                     </div>
                   </div>

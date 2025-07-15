@@ -53,7 +53,7 @@ function ContactUs() {
                         با ما تماس بگیرید.
                       </p>
                       <div className="phone fz-30 fw-600 mt-30 underline">
-                        <a href="#0">0915-5363-273 </a>
+                        <a href="#0">0915-53-63-273 </a>
                       </div>
                       <ul className="rest social-text d-flex mt-60">
                         <li className="mr-30 text-center">
@@ -76,7 +76,7 @@ function ContactUs() {
                             />
                           </div>
                         </li>
-                        <li className="mr-30 text-center">
+                        {/* <li className="mr-30 text-center">
                           <a href="#0">واتساپ</a>
                           <div className="icon-img-100 mb-40 mt-10 ">
                             <img
@@ -85,7 +85,7 @@ function ContactUs() {
                               style={{ borderRadius: "10px" }}
                             />
                           </div>
-                        </li>
+                        </li> */}
                       </ul>
                     </div>
                   </div>

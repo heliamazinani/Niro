@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Footer from "../components/Footer.jsx";
 import Login from "../components/Login";
 import SignUp from "../components/SignUp";
-import "./Calc.css";
+
 function Calc() {
   return (
     <>

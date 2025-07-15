@@ -420,10 +420,10 @@ const Team = () => {
 
   return (
     <>
-      <section className="serv-box section-padding">
+      <section className="team section-padding">
         <div className="container ">
-          <div class="sec-lg-head mb-80">
-            <div class="row">
+          <div class="sec-head mb-80">
+            <div class="row md-marg">
               <div class="col-lg-8">
                 <div class="position-re">
                   <h2 class="fz-60 fw-700">خدمات ما</h2>
@@ -440,14 +440,22 @@ const Team = () => {
               </div>
             </div>
           </div>
-          <div className="row ">
+          <div className="row md-marg ">
             {faqs.map((faq, index) => (
-              <div className="col-lg-4 mt-15 " key={index}>
+              <div className="col-lg-4 col-md-6 " key={index}>
                 <div
-                  className="serv-item md-mb50  radius-5 wow fadeIn "
+                  className="item mb-50 radius-5 wow fadeIn "
                   data-wow-delay=".5s"
                 >
-                  <div className="mb-15" onClick={() => toggleAnswer(index)}>
+                  <div
+                    className="mb-15"
+                    style={{
+                      border: "2px",
+                      alignItems: "center",
+                      height: "100%", // Ensure the container has a height
+                    }}
+                    onClick={() => toggleAnswer(index)}
+                  >
                     <section className="item  ">
                       <div className="container text-center">
                         <div className="row mb-10">
@@ -472,20 +480,37 @@ const Team = () => {
 
                         <span className="main-color3">{faq.rank}</span>
                         <h6 className="icon" onClick={toggleForm}>
-                          
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            className="bi bi-arrow-up"
-                            viewBox="0 0 16 16"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M8 3.5a.5.5 0 0 1 .5.5V13.293l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 14V4a.5.5 0 0 1 .5-.5z"
-                            />
-                          </svg>
+                          {isOpen ? (
+                            <>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                className="bi bi-arrow-up"
+                                viewBox="0 0 16 16"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M8 3.5a.5.5 0 0 1 .5.5V13.293l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 14V4a.5.5 0 0 1 .5-.5z"
+                                />
+                              </svg>
+                            </>
+                          ) : (
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              className="bi bi-arrow-up"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M8 3.5a.5.5 0 0 1 .5.5V13.293l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 14V4a.5.5 0 0 1 .5-.5z"
+                              />
+                            </svg>
+                          )}
                         </h6>
                       </div>
                     </section>
