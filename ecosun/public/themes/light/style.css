@@ -82,7 +82,10 @@ html {
   color: #f6ad55; /* Change this to your desired active color */
   font-weight: bold; /* Optional: make it bold */
 }
-
+.m-content{
+  color: #000;
+  background: #e3e3e3;
+}
 body {
   color: #1d1d1d;
   background-color: #f1f3f5;

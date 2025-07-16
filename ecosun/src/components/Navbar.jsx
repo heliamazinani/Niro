@@ -70,12 +70,15 @@ function Navbar() {
 
             <li className="nav-item dropdown">
               <div
-                className="nav-link dropdown-toggle"
-                role="button"
-                onClick={toggleDropdown}
+                className={location.pathname === "/about" ? "active-link" : ""}
               >
-
-                درباره ما
+                <div
+                  className="nav-link dropdown-toggle"
+                  role="button"
+                  onClick={toggleDropdown}
+                >
+                  درباره ما
+                </div>
               </div>
 
               {dropdownOpen && (

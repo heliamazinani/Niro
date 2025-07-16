@@ -70,8 +70,10 @@ html {
   color: #f6ad55; /* Change this to your desired active color */
   font-weight: bold; /* Optional: make it bold */
 }
-
-
+.m-content{
+  color: #bbb;
+  background: #000;
+}
 * {
   margin: 0;
   padding: 0;
