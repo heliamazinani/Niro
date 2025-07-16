@@ -78,6 +78,11 @@ html {
 .inactive {
   color: grey; /* Inactive form color */
 }
+.active-link {
+  color: #f6ad55; /* Change this to your desired active color */
+  font-weight: bold; /* Optional: make it bold */
+}
+
 body {
   color: #1d1d1d;
   background-color: #f1f3f5;
