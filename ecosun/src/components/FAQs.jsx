@@ -55,10 +55,9 @@ const FAQs = () => {
                   <div className="text mt-30">
                     <p>
                       در این بخش، به برخی از سوالات رایج مشتریان و کاربران
-                      درباره خدمات و فعالیت‌های شرکت  پاسخ داده‌ایم. هدف ما
-                      ارائه اطلاعات شفاف و مفید به شماست تا بتوانید تصمیمات
-                      بهتری بگیرید. اگر سوال دیگری دارید، لطفاً با ما تماس
-                      بگیرید.
+                      درباره خدمات و فعالیت‌های شرکت پاسخ داده‌ایم. هدف ما ارائه
+                      اطلاعات شفاف و مفید به شماست تا بتوانید تصمیمات بهتری
+                      بگیرید. اگر سوال دیگری دارید، لطفاً با ما تماس بگیرید.
                     </p>
                   </div>
                 </div>
@@ -112,7 +111,13 @@ const FAQs = () => {
             {faqs.map((faq, index) => (
               <div className="col-lg-6 md-mb50" key={index}>
                 <div className="item pb-50 mb-50 bord-thin-bottom">
-                  <h6 className="mb-15" onClick={() => toggleAnswer(index)}>
+                  <h6
+                    className="mb-15"
+                    style={{
+                      cursor: "pointer",
+                    }}
+                    onClick={() => toggleAnswer(index)}
+                  >
                     {faq.question}
                   </h6>
                   {activeIndex === index && <p>{faq.answer}</p>}
