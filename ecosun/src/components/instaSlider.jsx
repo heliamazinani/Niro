@@ -12,39 +12,33 @@ const slidesData = [
   {
     image: p1,
     link: "https://www.instagram.com/reel/DMCmGeVsQs6/?igsh=MTNlbXN3c2FxODZoYg==",
-    branding: "برندینگ",
-    studio: "استودیو آرت بورد",
+
   },
   {
     image: p2,
     link: "https://www.instagram.com/reel/DL_4MsyMjrk/?igsh=MWM2bHQ1ejFwcHNyMw==",
-    branding: "طراحی وب",
-    studio: "استودیو دیزاین",
+
+
   },
   {
     image: p3,
     link: "https://www.instagram.com/reel/DMFZRCEtuA4/?igsh=YnF3b2I4cTR5ejNk",
-    branding: "طراحی وب",
 
-    studio: "استودیو عکس",
   },
   {
     image: p4,
     link: "https://www.instagram.com/reel/DMKmIxVtR01/?igsh=MXk0ZWlwMnZxNHl0",
-    branding: "توسعه نرم‌افزار",
-    studio: "استودیو کد",
+
   },
   {
     image: p5,
     link: "https://www.instagram.com/reel/DMM_F21Nsdt/?igsh=MTJ5anBnZHRxZ2ZvZA==",
-    branding: "مدیریت پروژه",
-    studio: "استودیو مدیریت",
+ 
   },
   {
     image: p6,
     link: "https://www.instagram.com/reel/DMPVXzCtbsr/?igsh=aGQwbDI1ZzZzOGM2",
-    branding: "مدیریت پروژه",
-    studio: "استودیو مدیریت",
+   
   },
 ];
   useEffect(() => {
