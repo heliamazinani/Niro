@@ -85,10 +85,14 @@ const Footer = () => {
                       <a href="#0">Twitter</a>
                     </li> */}
                     <li>
-                      <a href="#0">Whatsapp</a>
+                      <a href="https://api.whatsapp.com/send/?phone=989155363273&text&type=phone_number&app_absent=0&wame_ctl=1">
+                        Whatsapp
+                      </a>
                     </li>
                     <li>
-                      <a href="#0">Instagram</a>
+                      <a href="https://www.instagram.com/ecosunir?igsh=MWo3ZGVydnYxY2k1dw==">
+                        Instagram
+                      </a>
                     </li>
                   </ul>
                 </div>

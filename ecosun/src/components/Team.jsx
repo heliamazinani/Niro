@@ -432,9 +432,7 @@ const Team = () => {
     },
   ];
 
-  const toggleAnswer = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
+
 
   return (
     <>
@@ -494,7 +492,7 @@ const Team = () => {
 
                         <h6>{faq.name} </h6>
 
-                        {/* {faq.question} */}
+              
 
                         <span className="main-color3">{faq.rank}</span>
                         <div class="underline" onClick={() => openModal(index)}>

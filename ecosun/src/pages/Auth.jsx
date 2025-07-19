@@ -25,6 +25,9 @@ function Auth() {
                     <div className="col">
                       <h6
                         className={isLogin ? "active" : "inactive"}
+                        style={{
+                          cursor: "pointer",
+                        }}
                         onClick={toggleForm}
                       >
                         ورود
@@ -34,12 +37,14 @@ function Auth() {
                       <h6
                         className={!isLogin ? "active" : "inactive"}
                         onClick={toggleForm}
+                        style={{
+                          cursor: "pointer",
+                        }}
                       >
                         ثبت نام
                       </h6>
                     </div>
                   </div>
-                  
                   {isLogin ? <Login /> : <SignUp />}{" "}
                 </div>
               </div>

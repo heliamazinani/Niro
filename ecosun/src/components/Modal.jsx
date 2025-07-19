@@ -6,7 +6,8 @@ const Modal = ({ isOpen, onClose, children }) => {
 
   return (
     <div
-      className="mcontainer "
+      className="mcontainer  wow fadeIn"
+      data-wow-delay=".3s"
       onClick={onClose}
       style={{
         position: "fixed",

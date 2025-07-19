@@ -60,8 +60,8 @@ function Blog() {
                 <div className="row">
                   <div className="col-lg-8">
                     <div className="caption">
-                      <h6 className="sub-title">وبلاگ ما</h6>
-                      <h1 className="fz-80">آخرین اخبار.</h1>
+                      {/* <h6 className="sub-title">وبلاگ ما</h6> */}
+                      <h1 className="fz-80">آخرین اخبار</h1>
                     </div>
                   </div>
                 </div>
