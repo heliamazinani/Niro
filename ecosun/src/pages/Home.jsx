@@ -56,7 +56,7 @@ function Home() {
           <main className="main-bg">
             <Slider></Slider>
             <About></About>
-            {/* <IS></IS> */}
+            <IS></IS>
             <Services></Services>
             <Spin></Spin>
             {/* <Portfolio></Portfolio> */}
