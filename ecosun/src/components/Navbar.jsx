@@ -24,7 +24,7 @@ function Navbar() {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
 
- 
+   window.location.href = "/";
   };
 
   const toggleSearch = () => {

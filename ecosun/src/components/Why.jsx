@@ -1,6 +1,6 @@
 import React from "react";
 import sq1 from "../assets/dark/imgs/about/sq3.jpg";
-import sq2 from "../assets/dark/imgs/about/sq2.jpg";
+import sq from "/assets/imgs/about/02.JPG";
 const Why = () => {
   return (
     <section className="serv-intro section-padding sub-bg">
@@ -18,7 +18,9 @@ const Why = () => {
         <div className="row">
           <div className="col-lg-6 md-mb80">
             <div className="img mb-50">
-              <img src="assets/imgs/about/03.jpg" alt="" />
+              <img src={sq} style={{
+                height:"10%",
+              }} alt="" />
               <div className="cont-box main-colorbg3">
                 <span>
                   <svg
@@ -35,7 +37,7 @@ const Why = () => {
                     ></path>
                   </svg>
                 </span>
-                <h5 className="fw-700 mt-15">
+                <h5 className="fw-700 mt-1">
                   چرا شرکت خدمات انرژی صنعت نیرو را انتخاب می‌کنیم؟
                 </h5>
               </div>
