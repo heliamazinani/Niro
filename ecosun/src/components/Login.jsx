@@ -6,6 +6,23 @@ import Team from "./Team.jsx";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+const userInfo = {
+  name: name,
+  email: email,
+};
+
+// Store in localStorage
+
+const handleSubmit1 = (e) => {
+  e.preventDefault();
+
+  // Simulate login success
+localStorage.setItem("token", "dummy-token");
+localStorage.setItem("user", JSON.stringify(userInfo));
+
+  // Redirect to homepage or profile page
+  window.location.href = "/";
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,7 +57,7 @@ function Login() {
   return (
     <>
       <div className="full-width">
-        <form id="contact-form" onSubmit={handleSubmit}>
+        <form id="contact-form" onSubmit={handleSubmit1}>
           <div className="messages"></div>
 
           <div className="controls row">

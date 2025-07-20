@@ -1,25 +1,50 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import logo from "/logo.svg";
 
 function Navbar() {
+  const navigate = useNavigate();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
+  const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
+
   const location = useLocation();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Check if token exists on load
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+
+ 
+  };
+
   const toggleSearch = () => {
     setSearchOpen((prev) => !prev);
   };
 
-  const toggleDropdown = () => {
-    setDropdownOpen((prev) => !prev);
+  const toggleAboutDropdown = () => {
+    setAboutDropdownOpen((prev) => !prev);
+    setProfileDropdownOpen(false); // Close the other
+  };
+
+  const toggleProfileDropdown = () => {
+    setProfileDropdownOpen((prev) => !prev);
+    setAboutDropdownOpen(false); // Close the other
   };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-    setDropdownOpen(false); // close dropdown after click
+    setAboutDropdownOpen(false);
+    setProfileDropdownOpen(false);
     setMobileNavOpen(false);
   };
 
@@ -29,8 +54,11 @@ function Navbar() {
   }, [location.pathname]);
 
   useEffect(() => {
-    setDropdownOpen(false);
+    setSearchOpen(false);
+    setAboutDropdownOpen(false);
+    setProfileDropdownOpen(false);
   }, [location.pathname]);
+
   return (
     <nav className="navbar navbar-expand-lg static">
       <div className="container">
@@ -75,13 +103,13 @@ function Navbar() {
                 <div
                   className="nav-link dropdown-toggle"
                   role="button"
-                  onClick={toggleDropdown}
+                  onClick={toggleAboutDropdown}
                 >
                   درباره ما
                 </div>
               </div>
 
-              {dropdownOpen && (
+              {aboutDropdownOpen && (
                 <div className="dropdown-menu show">
                   <div className="dropdown-item">
                     <Link
@@ -144,19 +172,6 @@ function Navbar() {
                 فروشگاه
               </div>
             </li>
-            <li className="nav-item">
-              <div className="nav-link">
-                <Link
-                  to="/signup"
-                  className={
-                    location.pathname === "/signup" ? "active-link" : ""
-                  }
-                  onClick={scrollToTop}
-                >
-                  ورود | عضویت
-                </Link>
-              </div>
-            </li>
 
             <li className="nav-item">
               <div className="nav-link">
@@ -172,6 +187,61 @@ function Navbar() {
               </div>
             </li>
 
+            {!isLoggedIn ? (
+              <li className="nav-item">
+                <div className="nav-link">
+                  <Link
+                    to="/signup"
+                    className={
+                      location.pathname === "/signup" ? "active-link" : ""
+                    }
+                    onClick={scrollToTop}
+                  >
+                    ورود | عضویت
+                  </Link>
+                </div>
+              </li>
+            ) : (
+              <>
+                <li className="nav-item dropdown">
+                  <div>
+                    <div
+                      className="nav-link dropdown-toggle"
+                      role="button"
+                      onClick={toggleProfileDropdown}
+                    >
+                      پرفایل
+                    </div>
+                  </div>
+
+                  {profileDropdownOpen && (
+                    <div className="dropdown-menu show">
+                      <div className="dropdown-item">
+                        <Link
+                          to="/info"
+                          className={
+                            location.pathname === "/info" ? "active-link" : ""
+                          }
+                          onClick={scrollToTop}
+                        >
+                          اطلاعات من
+                        </Link>
+                      </div>
+                      <div className="dropdown-item">
+                        <Link to="/info" onClick={scrollToTop}>
+                          دوره های من
+                        </Link>
+                      </div>
+                      <div className="dropdown-item">
+                        <Link  onClick={handleLogout}>
+                          خروج
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+                </li>
+              </>
+            )}
             <li className="nav-item">
               <div className="nav-link">
                 <ThemeToggle />

@@ -248,10 +248,11 @@ const SingleBlog = () => {
                     </div>
                   </div>
                 </div>
-                <div
+                <img src={post.img} alt="" />
+                {/* <div
                   class="background bg-img parallaxie mt-80"
                   data-background={post.img}
-                ></div>
+                ></div> */}
               </header>
 
               <section class="blog section-padding pb-0">
