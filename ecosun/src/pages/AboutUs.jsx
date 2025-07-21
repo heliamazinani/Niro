@@ -23,7 +23,7 @@ function AboutUs() {
         <div id="smooth-content">
           <main className="main-bg">
             {/* <About></About> */}
-            <ASlider></ASlider>
+            {/* <ASlider></ASlider> */}
             {/* <AAbout></AAbout> */}
 
             <Process></Process>

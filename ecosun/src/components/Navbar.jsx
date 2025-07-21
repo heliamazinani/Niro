@@ -133,17 +133,11 @@ function Navbar() {
                       اعضای هیئت مدیره
                     </Link>
                   </div>
-                  <div className="dropdown-item">
-                    <Link
-                      to="/team"
-                      className={
-                        location.pathname === "/team" ? "active-link" : ""
-                      }
-                      onClick={scrollToTop}
-                    >
+                  {/* <div className="dropdown-item">
+                    <Link to="/team" onClick={scrollToTop}>
                       مدیر عامل
                     </Link>
-                  </div>
+                  </div> */}
                 </div>
               )}
             </li>

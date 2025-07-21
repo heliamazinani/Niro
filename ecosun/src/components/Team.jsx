@@ -438,7 +438,7 @@ const Team = () => {
     <>
       <section className="team section-padding">
         <div className="container ">
-          <div class="sec-head mb-80">
+          {/* <div class="sec-head mb-80">
             <div class="row md-marg">
               <div class="col-lg-8">
                 <div class="position-re">
@@ -455,7 +455,7 @@ const Team = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="row md-marg ">
             {faqs.map((faq, index) => (
               <div className="col-lg-4 col-md-6 " key={index}>
@@ -485,7 +485,10 @@ const Team = () => {
                             }}
                           >
                             <div className="img circle-100 ">
-                              <img src={faq.img} alt="" />
+                              <img style={{ position : faq.img == "/assets/imgs/team/khodabande.jpg" ? "relative" : "static" ,
+                              top : faq.img == "/assets/imgs/team/khodabande.jpg" ? "15px" : "15px" 
+
+                              }} src={faq.img} alt="" />
                             </div>
                           </div>
                         </div>

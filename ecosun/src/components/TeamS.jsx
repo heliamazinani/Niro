@@ -4,7 +4,7 @@ import sq2 from "../assets/dark/imgs/about/sq2.jpg";
 const TeamS = () => {
   return (
     <>
-      <header className="page-header  pb-0">
+      <header id="teamS-header" className="page-header  pb-0" >
         <div className="main-marq xlrg section-padding pb-0">
           <div className="slide-har st1">
             <div className="box">
