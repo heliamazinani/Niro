@@ -5,34 +5,23 @@ import ASlider from "./ASlider.jsx";
 import Team from "./Team.jsx";
 
 function SignUp() {
-  const [name, setName] = useState("");
+  const [username, setusername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const userInfo = {
-    name: name,
+    name: username,
     email: email,
   };
-const handleSubmit1 = (e) => {
-  e.preventDefault();
-
-  // Simulate login success
-localStorage.setItem("token", "dummy-token");
-localStorage.setItem("user", JSON.stringify(userInfo));
-
-  // Redirect to homepage or profile page
-  window.location.href = "/";
-};
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://your-backend-api.com/signup", {
+      const response = await fetch("http://localhost:3000/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ username, email, password }),
       });
 
       const data = await response.json();
@@ -43,10 +32,10 @@ localStorage.setItem("user", JSON.stringify(userInfo));
 
       // Save JWT token to localStorage
       localStorage.setItem("token", data.token);
+      localStorage.setItem("user",JSON.stringify(userInfo));
 
-      alert("Signup successful!");
-      // Optional: navigate to another page
-      // window.location.href = "/dashboard";
+
+      window.location.href = "/";
     } catch (error) {
       console.error("Signup error:", error.message);
       alert("Signup failed: " + error.message);
@@ -56,7 +45,7 @@ localStorage.setItem("user", JSON.stringify(userInfo));
   return (
     <>
       <div className="full-width">
-        <form id="contact-form" onSubmit={handleSubmit1}>
+        <form id="contact-form" onSubmit={handleSubmit}>
           <div className="messages"></div>
 
           <div className="controls row">
@@ -65,10 +54,10 @@ localStorage.setItem("user", JSON.stringify(userInfo));
                 <input
                   id="form_name"
                   type="text"
-                  name="name"
+                  name="username"
                   placeholder="نام کاربری "
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={username}
+                  onChange={(e) => setusername(e.target.value)}
                   required
                 />
               </div>
