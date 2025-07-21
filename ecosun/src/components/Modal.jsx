@@ -48,7 +48,7 @@ const Modal = ({ isOpen, onClose, children }) => {
         >
           ✕
         </button>
-        <h5>{children}</h5>
+        <p>{children}</p>
       </div>
     </div>
   );

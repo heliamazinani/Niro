@@ -7,22 +7,21 @@ const Footer = () => {
   };
   return (
     <>
-      <footer class="pt-80">
+      <footer className="pt-80">
         <div className="sub-bg">
           <div className="footer-container">
             <div className="container pb-80 pt-80 ontop">
               <div className="call-box text-center mb-80">
                 <h2>
-                  <a href="#">
-                    <Link
-                      to="/contact"
-                      smooth={true}
-                      duration={500}
-                      onClick={scrollToTop}
-                    >
-                      بیایید <span className="stroke"> صحبت کنیم</span>
-                    </Link>
-                  </a>
+                  <Link
+                    to="/contact"
+                    smooth="true"
+                    duration={500}
+                    onClick={scrollToTop}
+                  >
+                    بیایید <span className="stroke"> صحبت کنیم</span>
+                  </Link>
+
                   <span className="arrow main-color3">
                     <svg
                       width="18"
