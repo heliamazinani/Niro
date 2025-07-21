@@ -11,27 +11,27 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/api/login", {
+      const response = await fetch("http://api.ecosunir.ir:5000/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
       });
-      console.log(response)
+      console.log(response);
       const data = await response.json();
 
       if (!response.ok) {
         throw new Error(data.message || "Login failed");
       }
 
-    localStorage.setItem("token", data.token);
+      localStorage.setItem("token", data.token);
 
-    // Decode token to get user info
-    // const decoded = jwt_decode(data.token);  // { user_id, username, email, exp }
-    // localStorage.setItem("user", JSON.stringify(decoded)); // e.g., { email, name, exp }
+      // Decode token to get user info
+      // const decoded = jwt_decode(data.token);  // { user_id, username, email, exp }
+      // localStorage.setItem("user", JSON.stringify(decoded)); // e.g., { email, name, exp }
 
-    // Save user info if needed
+      // Save user info if needed
 
       window.location.href = "/";
     } catch (error) {
