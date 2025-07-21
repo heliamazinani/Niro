@@ -26,7 +26,7 @@ function AboutUs() {
             {/* <AAbout></AAbout> */}
 
      
-            <TeamS></TeamS>
+            {/* <TeamS></TeamS> */}
             <Team></Team>
           </main>
           <Footer></Footer>

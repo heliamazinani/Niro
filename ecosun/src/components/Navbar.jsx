@@ -74,11 +74,11 @@ function Navbar() {
                       اعضای هیئت مدیره
                     </Link>
                   </div>
-                  <div className="dropdown-item">
+                  {/* <div className="dropdown-item">
                     <Link to="/team" onClick={scrollToTop}>
                       مدیر عامل
                     </Link>
-                  </div>
+                  </div> */}
                 </div>
               )}
             </li>
