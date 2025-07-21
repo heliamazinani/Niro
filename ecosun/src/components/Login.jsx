@@ -6,23 +6,23 @@ import Team from "./Team.jsx";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-const userInfo = {
-  name: name,
-  email: email,
-};
+  const userInfo = {
+    name: name,
+    email: email,
+  };
 
-// Store in localStorage
+  // Store in localStorage
 
-const handleSubmit1 = (e) => {
-  e.preventDefault();
+  const handleSubmit1 = (e) => {
+    e.preventDefault();
 
-  // Simulate login success
-localStorage.setItem("token", "dummy-token");
-localStorage.setItem("user", JSON.stringify(userInfo));
+    // Simulate login success
+    localStorage.setItem("token", "dummy-token");
+    localStorage.setItem("user", JSON.stringify(userInfo));
 
-  // Redirect to homepage or profile page
-  window.location.href = "/";
-};
+    // Redirect to homepage or profile page
+    window.location.href = "/";
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
