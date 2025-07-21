@@ -19,7 +19,7 @@ function App() {
     <>
       <BrowserRouter>
         <div class="home-corp main-bg">
-          <Loader></Loader>
+          {/* <Loader></Loader> */}
 
           <Routes>
             <Route path="/" element={<Home />}></Route>

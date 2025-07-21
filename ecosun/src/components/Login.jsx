@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Footer from "./Footer.jsx";
 import ASlider from "./ASlider.jsx";
 import Team from "./Team.jsx";
-import jwt_decode from "jwt-decode";
+// import jwt_decode from "jwt-decode";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
