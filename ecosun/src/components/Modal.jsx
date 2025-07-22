@@ -12,14 +12,14 @@ const Modal = ({ isOpen, onClose, children }) => {
       style={{
         position: "fixed",
 
-        top: 0,
+        top: "100px",
         left: 0,
         right: 0,
         bottom: 0,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        zIndex: 1000,
+        zIndex: 9999999999999,
       }}
     >
       <div
