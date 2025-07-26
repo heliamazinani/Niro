@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import bgImage17 from "../assets/dark/imgs/background/21.jpg";
-import bgImage19 from "../assets/dark/imgs/background/22.jpg";
-import bgImage23 from "../assets/dark/imgs/background/23.jpg";
+import bgImage17 from "/assets/imgs/background/21.jpg";
+import bgImage19 from "/assets/imgs/background/22.jpg";
+import bgImage23 from "/assets/imgs/background/23.jpg";
 const Slider = () => {
   useEffect(() => {
 

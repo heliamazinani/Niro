@@ -1,6 +1,6 @@
 import React from "react";
-import p1 from "../assets/dark/imgs/patterns/1.svg";
-import abst from "../assets/dark/imgs/patterns/abstact-BG.png";
+import p1 from "/assets/imgs/patterns/1.svg";
+import abst from "/assets/imgs/patterns/abstact-BG.png";
 
 const Pricing = () => {
   return (

@@ -1,13 +1,13 @@
 import React from "react";
-import b1 from "../assets/dark/imgs/brands/01.png";
-import b2 from "../assets/dark/imgs/brands/02.png";
-import b3 from "../assets/dark/imgs/brands/03.png";
-import b4 from "../assets/dark/imgs/brands/04.png";
-import b5 from "../assets/dark/imgs/brands/05.png";
-import b6 from "../assets/dark/imgs/brands/06.png";
-import a1 from "../assets/dark/imgs/about/1.jpg";
-import si0 from "../assets/dark/imgs/serv-icons/0.png";
-import si1 from "../assets/dark/imgs/serv-icons/1.png";
+import b1 from "/assets/imgs/brands/01.png";
+import b2 from "/assets/imgs/brands/02.png";
+import b3 from "/assets/imgs/brands/03.png";
+import b4 from "/assets/imgs/brands/04.png";
+import b5 from "/assets/imgs/brands/05.png";
+import b6 from "/assets/imgs/brands/06.png";
+import a1 from "/assets/imgs/about/1.jpg";
+import si0 from "/assets/imgs/serv-icons/0.png";
+import si1 from "/assets/imgs/serv-icons/1.png";
 const Block = () => {
   return (
     <>

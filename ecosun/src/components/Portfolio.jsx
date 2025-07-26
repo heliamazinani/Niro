@@ -1,7 +1,7 @@
 import React from "react";
-import p1 from "../assets/dark/imgs/portfolio/3/1.jpg";
-import p2 from "../assets/dark/imgs/portfolio/3/2.jpg";
-import p3 from "../assets/dark/imgs/portfolio/3/3.jpg";
+import p1 from "/assets/imgs/portfolio/3/1.jpg";
+import p2 from "/assets/imgs/portfolio/3/2.jpg";
+import p3 from "/assets/imgs/portfolio/3/3.jpg";
 const Portfolio = () => {
   return (
     <>

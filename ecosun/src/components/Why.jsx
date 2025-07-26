@@ -1,5 +1,5 @@
 import React from "react";
-import sq1 from "../assets/dark/imgs/about/sq3.jpg";
+
 import sq from "/assets/imgs/about/02.JPG";
 const Why = () => {
   return (

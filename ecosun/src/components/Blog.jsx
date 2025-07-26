@@ -1,8 +1,4 @@
 import React from "react";
-import b1 from "../assets/dark/imgs/blog/b1.jpg";
-import b2 from "../assets/dark/imgs/blog/b2.jpg";
-import b3 from "../assets/dark/imgs/blog/b3.jpg";
-
 
 const Blog = ({ date, img, title, link }) => {
   return (

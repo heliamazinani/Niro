@@ -1,8 +1,7 @@
 
 import { Link } from "react-router-dom";
 import React from "react";
-import sq1 from "../assets/dark/imgs/about/sq3.jpg";
-import sq2 from "../assets/dark/imgs/about/sq2.jpg";
+
 const BlogTitle = ({date,img,title,link}) => {
   return (
     <>

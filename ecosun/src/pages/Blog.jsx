@@ -15,7 +15,7 @@ import ASlider from "../components/ASlider.jsx";
 import b1 from "/assets/imgs/background/23.jpg";
 import BlogTitle from "../components/BlogTitle.jsx";
 import { Link } from "react-router-dom";
-
+import { posts } from "../data/posts";
 function Blog() {
   const data = [
     {
@@ -70,7 +70,7 @@ function Blog() {
             <section class="blog-modern section-padding sub-bg">
               <div class="container">
                 <div class="row">
-                  {data.map((item) => (
+                  {posts.map((item) => (
                     <BlogTitle
                       key={item.id}
                       date={item.date}
