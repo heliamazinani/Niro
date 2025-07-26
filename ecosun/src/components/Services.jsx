@@ -1,12 +1,12 @@
 import React from "react";
 import { useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
-import darkp0 from "../assets/dark/imgs/serv-icons/0.png";
-import lightp0 from "../assets/light/imgs/serv-icons/0.png";
-import darkp1 from "../assets/dark/imgs/serv-icons/1.png";
-import lightp1 from "../assets/light/imgs/serv-icons/1.png";
-import darkp2 from "../assets/dark/imgs/serv-icons/2.png";
-import lightp2 from "../assets/light/imgs/serv-icons/2.png";
+import darkp0 from "/assets/imgs/serv-icons/0.png";
+import lightp0 from "/assets/imgs/light/serv-icons/0.png";
+import darkp1 from "/assets/imgs/serv-icons/1.png";
+import lightp1 from "/assets/imgs/light/serv-icons/1.png";
+import darkp2 from "/assets/imgs/serv-icons/2.png";
+import lightp2 from "/assets/imgs/light/serv-icons/2.png";
 
 const Services = () => {
   const { theme } = useContext(ThemeContext);

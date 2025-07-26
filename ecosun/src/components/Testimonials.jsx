@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
 import React from "react";
-import test4 from "../assets/dark/imgs/testim/4.jpg";
-import test1 from "../assets/dark/imgs/testim/01.png";
-import quote from "../assets/dark/imgs/svg-assets/quote.png";
-import darkdots from "../assets/dark/imgs/patterns/dots.png";
-import lightdots from "../assets/light/imgs/patterns/dots.png";
+import test4 from "/assets/imgs/testim/4.jpg";
+import test1 from "/assets/imgs/testim/01.png";
+import quote from "/assets/imgs/svg-assets/quote.png";
+import darkdots from "/assets/imgs/patterns/dots.png";
+import lightdots from "/assets/imgs/patterns/dots.png";
 const Testimonials = () => {
   const { theme } = useContext(ThemeContext);
   const dots = theme === "dark" ? darkdots : lightdots;

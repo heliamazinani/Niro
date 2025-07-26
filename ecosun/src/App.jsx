@@ -1,5 +1,5 @@
-import "./assets/dark/css/plugins.css";
-import "./assets/dark/css/style.css";
+import "./css/plugins.css";
+import "./css/style.css";
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
