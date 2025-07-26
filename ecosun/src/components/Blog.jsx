@@ -2,13 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Blog = ({ date, img, title, link }) => {
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
   return (
     <>
       <div className="col-lg-4">
         <div className="item md-mb50">
           <div className="cont">
             <h6>
-              <Link to={link}>{title}</Link>
+              <Link to={link} onClick={scrollToTop}>
+                {title}
+              </Link>
             </h6>
             <div className="info mt-20 mb-20 pt-20 bord-thin-top">
               <span className="by">
@@ -25,9 +30,18 @@ const Blog = ({ date, img, title, link }) => {
               </span>
             </div>
           </div>
-          <div className="img">
-            <img src={img} alt="" />
-            <Link to={link} className="main-colorbg3">
+          <div style={{ width: "100%", height: "220px", overflow: "hidden" }}>
+            <img
+              src={img}
+              alt=""
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
+              }}
+            />
+            <Link to={link} className="main-colorbg3" onClick={scrollToTop}>
               <svg
                 width="18"
                 height="18"

@@ -73,7 +73,7 @@ function Home() {
                   </div>
                 </div>
                 <div className="row">
-                  {posts.map((item) => (
+                  {posts.slice(-3).map((item) => (
                     <Blog
                       key={item.id}
                       date={item.date}

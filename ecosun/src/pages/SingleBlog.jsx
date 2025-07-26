@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Footer from "../components/Footer.jsx";
 import Navbar from "../components/Navbar";
 
@@ -10,6 +10,9 @@ const SingleBlog = () => {
   if (!post) {
     return <div>Post not found!</div>;
   }
+const index = posts.findIndex((p) => p.id === parseInt(id));
+const prevPost = index > 0 ? posts[index - 1] : null;
+const nextPost = index < posts.length - 1 ? posts[index + 1] : null;
 
   return (
     <>
@@ -49,10 +52,10 @@ const SingleBlog = () => {
                         </div>
                       </div>
                       <div class="right-info ml-auto">
-                        <div>
+                        {/* <div>
                           <span class="pe-7s-comment fz-18 mr-10"></span>
                           <span class="opacity-7">02 کامنت</span>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>
@@ -99,14 +102,13 @@ const SingleBlog = () => {
                           <span>اشتراک :</span>
                         </div>
                         <div>
-                          <a href="https://www.facebook.com/">
-                            <i class="fab fa-facebook-f"></i>
+                          <a
+                            href={`https://www.linkedin.com/shareArticle?mini=true&url=${window.location.href}`}
+                          >
+                            <i class="fab fa-linkedin-in"></i>
                           </a>
-                          <a href="https://www.twitter.com/">
+                          <a href={`https://twitter.com/intent/tweet?url=${window.location.href}&text=${post.title}`}>
                             <i class="fab fa-twitter"></i>
-                          </a>
-                          <a href="https://www.youtube.com/">
-                            <i class="fab fa-youtube"></i>
                           </a>
                         </div>
                       </div>
@@ -126,22 +128,35 @@ const SingleBlog = () => {
                             </div>
                         </div>
                     </div> */}
-                  {/* <div class="next-prv-post flex mt-50">
-                        <div class="thumb-post bg-img" data-background="assets/imgs/blog/b2.jpg">
-                            <a href="blog-details.html">
-                                <span class="fz-12 text-u ls1 main-color mb-15"><i class="pe-7s-angle-right"></i>
-                                    پست قبل</span>
-                                <h6 class="fw-600 fz-16">راه هایی برای ترافیک سریع به وبسایت شما.</h6>
-                            </a>
-                        </div>
-                        <div class="thumb-post ml-auto text-right bg-img" data-background="assets/imgs/blog/b3.jpg">
-                            <a href="blog-details.html">
-                                <span class="fz-12 text-u ls1 main-color mb-15">پست بعدی <i
-                                        class="pe-7s-angle-left"></i></span>
-                                <h6 class="fw-600 fz-16">چگونه کارمند خوب خود را اداره کنیم.</h6>
-                            </a>
-                        </div>
-                    </div> */}
+                  <div className="next-prv-post flex mt-50">
+                    {prevPost && (
+                      <div
+                        className="thumb-post bg-img"
+                        // style={{ backgroundImage: `url(${prevPost.img})` }}
+                      >
+                        <Link to={`/posts/${prevPost.id}`}>
+                          <span className="fz-12 text-u ls1 main-color mb-15">
+                            <i className="pe-7s-angle-right"></i> پست قبل
+                          </span>
+                          <h6 className="fw-600 fz-16">{prevPost.title}</h6>
+                        </Link>
+                      </div>
+                    )}
+
+                    {nextPost && (
+                      <div
+                        className="thumb-post ml-auto text-right bg-img"
+                        // style={{ backgroundImage: `url(${nextPost.img})` }}
+                      >
+                        <Link to={`/posts/${nextPost.id}`}>
+                          <span className="fz-12 text-u ls1 main-color mb-15">
+                            پست بعدی <i className="pe-7s-angle-left"></i>
+                          </span>
+                          <h6 className="fw-600 fz-16">{nextPost.title}</h6>
+                        </Link>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
 

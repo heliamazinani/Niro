@@ -7,18 +7,26 @@ const BlogTitle = ({date,img,title,link}) => {
     <>
       <div className="col-lg-4 col-md-6">
         <div className="item mb-50">
-          <div className="img">
+          <div style={{ width: "100%", height: "220px", overflow: "hidden" }}>
+            <img
+              src={img}
+              alt=""
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
+              }}
+            />
             <img src={img} alt="" />
-            <div className="date">
-              <a href="blog-details.html">{date}</a>
-            </div>
+            <div className="date">{date}</div>
           </div>
           <div className="cont mt-30">
             <h6>
               <Link to={link}>{title}</Link>
             </h6>
             <Link to={link}>
-              <a  className="mt-20 ls1 sub-title">
+              <a className="mt-20 ls1 sub-title">
                 بیشتر بخوانید{" "}
                 <i className="ml-5">
                   <svg
