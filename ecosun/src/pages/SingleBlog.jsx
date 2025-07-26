@@ -2,10 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Footer from "../components/Footer.jsx";
 import Navbar from "../components/Navbar";
-import Slider from "../components/Slider.jsx";
-import AAbout from "../components/AAbout.jsx";
-import Loader from "../components/Loader.jsx";
-import b1 from "/assets/imgs/background/23.jpg";
+
 import { posts } from "../data/posts";
 const SingleBlog = () => {
   const { id } = useParams();

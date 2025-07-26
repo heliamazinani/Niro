@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Blog = ({ date, img, title, link }) => {
   return (
@@ -7,28 +8,26 @@ const Blog = ({ date, img, title, link }) => {
         <div className="item md-mb50">
           <div className="cont">
             <h6>
-              <a href="blog-details.html">
-               {title}
-              </a>
+              <Link to={link}>{title}</Link>
             </h6>
             <div className="info mt-20 mb-20 pt-20 bord-thin-top">
               <span className="by">
-                <a href="blog-classNameic.html">
+                <a>
                   <i className="far fa-user fz-14 mr-10"></i> توسط ادمین
                 </a>
               </span>
               <span className="dot main-colorbg3"></span>
               <span className="date">
-                <a href="blog-details.html">
+                <Link to={link}>
                   <i className="far fa-calendar-alt fz-14 mr-10"></i>
-{date}
-                </a>
+                  {date}
+                </Link>
               </span>
             </div>
           </div>
           <div className="img">
             <img src={img} alt="" />
-            <a href="blog-details.html" className="main-colorbg3">
+            <Link to={link} className="main-colorbg3">
               <svg
                 width="18"
                 height="18"
@@ -42,7 +41,7 @@ const Blog = ({ date, img, title, link }) => {
                   fill="currentColor"
                 ></path>
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

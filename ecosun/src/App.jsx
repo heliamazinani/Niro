@@ -1,5 +1,5 @@
-import "./css/plugins.css";
-import "./css/style.css";
+import "./assets/css/plugins.css";
+import "./assets/css/style.css";
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
