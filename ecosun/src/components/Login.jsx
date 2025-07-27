@@ -26,13 +26,6 @@ function Login() {
       }
 
       localStorage.setItem("token", data.token);
-
-      // Decode token to get user info
-      // const decoded = jwt_decode(data.token);  // { user_id, username, email, exp }
-      // localStorage.setItem("user", JSON.stringify(decoded)); // e.g., { email, name, exp }
-
-      // Save user info if needed
-
       window.location.href = "/";
     } catch (error) {
       console.error("Login error:", error.message);

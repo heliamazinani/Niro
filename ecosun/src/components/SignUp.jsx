@@ -8,42 +8,52 @@ function SignUp() {
   const [username, setusername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const userInfo = {
-    name: username,
-    email: email,
-  };
-  const handleSubmit = async (e) => {
-    e.preventDefault();
 
-    try {
-      const response = await fetch(
-        "http://api.ecosunir.ir:5000/api/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ username, email, password }),
-        }
-      );
+ const handleSubmit = async (e) => {
+   e.preventDefault();
 
-      const data = await response.json();
+   try {
+     const response = await fetch("http://api.ecosunir.ir:5000/api/register", {
+       method: "POST",
+       headers: {
+         "Content-Type": "application/json",
+       },
+       body: JSON.stringify({ username, email, password }),
+     });
 
-      if (!response.ok) {
-        throw new Error(data.message || "Signup failed");
-      }
+     const data = await response.json();
+     console.log("Register Response:", data);
 
-      // Save JWT token to localStorage
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user",JSON.stringify(userInfo));
+     if (!response.ok) {
+       throw new Error(data.message || "Signup failed");
+     }
 
+     // ✅ If register does not return token, login now
+     const loginResponse = await fetch(
+       "http://api.ecosunir.ir:5000/api/login",
+       {
+         method: "POST",
+         headers: {
+           "Content-Type": "application/json",
+         },
+         body: JSON.stringify({ email, password }),
+       }
+     );
 
-      window.location.href = "/";
-    } catch (error) {
-      console.error("Signup error:", error.message);
-      alert("Signup failed: " + error.message);
-    }
-  };
+     const loginData = await loginResponse.json();
+
+     if (!loginResponse.ok) {
+       throw new Error(loginData.message || "Login failed");
+     }
+
+    
+     localStorage.setItem("token", loginData.token);
+     window.location.href = "/";
+   } catch (error) {
+     console.error("Signup error:", error.message);
+     alert("Signup failed: " + error.message);
+   }
+ };
 
   return (
     <>

@@ -5,7 +5,7 @@ import Loader from "../components/Loader.jsx";
 import Spin from "../components/Spin.jsx";
 import Services from "../components/Services.jsx";
 import Portfolio from "../components/Portfolio.jsx";
-import Numbers from "../components/Numbers.jsx";
+import Shopin from "../components/Shop.jsx";
 import Process from "../components/Process.jsx";
 import Block from "../components/Block.jsx";
 import Why from "../components/Why.jsx";
@@ -16,7 +16,7 @@ import b1 from "/assets/imgs/background/23.jpg";
 import BlogTitle from "../components/BlogTitle.jsx";
 import { Link } from "react-router-dom";
 
-function Blog() {
+function Shop() {
   const data = [
     {
       id: 1,
@@ -55,33 +55,9 @@ function Blog() {
         <Navbar />
         <div id="smooth-content">
           <main className="main-bg">
-            <header className="page-header section-padding pb-0">
-              <div className="container mt-80">
-                <div className="row">
-                  <div className="col-lg-8">
-                    <div className="caption">
-                      <h6 className="sub-title">وبلاگ ما</h6>
-                      <h1 className="fz-80">آخرین اخبار.</h1>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </header>
-            <section class="blog-modern section-padding sub-bg">
-              <div class="container">
-                <div class="row">
-                  {data.map((item) => (
-                    <BlogTitle
-                      key={item.id}
-                      date={item.date}
-                      img={item.img}
-                      link={`/posts/${item.id}`}
-                      title={item.title}
-                    />
-                  ))}
-                </div>
-              </div>
-            </section>
+
+<Shopin></Shopin>
+
           </main>
           <Footer></Footer>
         </div>
@@ -90,4 +66,4 @@ function Blog() {
   );
 }
 
-export default Blog;
+export default Shop;

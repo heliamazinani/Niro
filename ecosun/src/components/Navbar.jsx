@@ -154,16 +154,15 @@ function Navbar() {
               </div>
             </li>
 
-            <li className="nav-item dropdown">
-              <div
-                className="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-                onClick={preventClick}
-              >
-                فروشگاه
+            <li className="nav-item">
+              <div className="nav-link">
+                <Link
+                  to="/shop"
+                  className={location.pathname === "/shop" ? "active-link" : ""}
+                  onClick={scrollToTop}
+                >
+                  فروشگاه
+                </Link>
               </div>
             </li>
 
@@ -227,9 +226,7 @@ function Navbar() {
                         </Link>
                       </div>
                       <div className="dropdown-item">
-                        <Link  onClick={handleLogout}>
-                          خروج
-                        </Link>
+                        <Link onClick={handleLogout}>خروج</Link>
                       </div>
                     </div>
                   )}
