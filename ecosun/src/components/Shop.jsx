@@ -130,9 +130,6 @@ const Shop = () => {
                         <a href="#0" className="add-cart">
                           اضافه به سبد خرید
                         </a>
-                        <span className="fav">
-                          <i className="far fa-heart"></i>
-                        </span>
                       </div>
                       <div className="cont">
                         <div className="rate">

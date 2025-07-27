@@ -14,6 +14,7 @@ import Team from "./pages/Team";
 import Calc from "./pages/Calc";
 import MyInfo from "./pages/MyInfo";
 import Shop from "./pages/Shop";
+import SingleShop from "./pages/SingleShop";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -43,7 +44,7 @@ function App() {
                 <Route path="/team" element={<Team />}></Route>
                 <Route path="/calc" element={<Calc />}></Route>
                 <Route path="/info" element={<MyInfo />}></Route>
-                <Route path="/shop" element={<Shop />}></Route>
+                <Route path="/shop" element={<SingleShop />}></Route>
                 <Route path="/posts/:id" element={<SingleBlog></SingleBlog>} />
               </Routes>
             </>

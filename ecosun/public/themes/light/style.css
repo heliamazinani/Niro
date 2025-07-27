@@ -8945,8 +8945,8 @@ header.in-box {
 /* Thumb */
 .range-input input[type="range"]::-webkit-slider-thumb {
   appearance: none;
-  width: 17px;
-  height: 5px;
+  width: 18px;
+  height: 18px;
   background: #ffaa17;
   border-radius: 50%;
   cursor: pointer;

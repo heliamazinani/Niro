@@ -6,21 +6,27 @@
       "img": "assets/imgs/shop/1.jpg",
       "name": "هودی مردانه",
       "price": 130000,
-      "rating": 5
+      "category": "اکسسوری",
+      "rating": 5,
+      "description": "توضیحات برای کفش اسپرت..."
     },
     {
       "id": 2,
       "img": "assets/imgs/shop/3.jpg",
       "name": "کفش اسپرت",
       "price": 250000,
-      "rating": 4
+      "category": "اکسسوری",
+      "rating": 4,
+      "description": "توضیحات برای کفش اسپرت..."
     },
     {
       "id": 3,
       "img": "assets/imgs/shop/5.jpg",
       "name": "کیف چرمی",
       "price": 450000,
-      "rating": 5
+      "category": "اکسسوری",
+      "rating": 5,
+      "description": "توضیحات برای کفش اسپرت..."
     }
   ],
   "tags": [
