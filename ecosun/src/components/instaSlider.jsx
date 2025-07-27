@@ -8,39 +8,32 @@ import p6 from "/posts/p6.jpg";
 
 const IS = () => {
   const swiperRef = useRef(null);
-const slidesData = [
-  {
-    image: p1,
-    link: "https://www.instagram.com/reel/DMCmGeVsQs6/?igsh=MTNlbXN3c2FxODZoYg==",
-
-  },
-  {
-    image: p2,
-    link: "https://www.instagram.com/reel/DL_4MsyMjrk/?igsh=MWM2bHQ1ejFwcHNyMw==",
-
-
-  },
-  {
-    image: p3,
-    link: "https://www.instagram.com/reel/DMFZRCEtuA4/?igsh=YnF3b2I4cTR5ejNk",
-
-  },
-  {
-    image: p4,
-    link: "https://www.instagram.com/reel/DMKmIxVtR01/?igsh=MXk0ZWlwMnZxNHl0",
-
-  },
-  {
-    image: p5,
-    link: "https://www.instagram.com/reel/DMM_F21Nsdt/?igsh=MTJ5anBnZHRxZ2ZvZA==",
- 
-  },
-  {
-    image: p6,
-    link: "https://www.instagram.com/reel/DMPVXzCtbsr/?igsh=aGQwbDI1ZzZzOGM2",
-   
-  },
-];
+  const slidesData = [
+    {
+      image: p1,
+      link: "https://www.instagram.com/reel/DMCmGeVsQs6/?igsh=MTNlbXN3c2FxODZoYg==",
+    },
+    {
+      image: p2,
+      link: "https://www.instagram.com/reel/DL_4MsyMjrk/?igsh=MWM2bHQ1ejFwcHNyMw==",
+    },
+    {
+      image: p3,
+      link: "https://www.instagram.com/reel/DMFZRCEtuA4/?igsh=YnF3b2I4cTR5ejNk",
+    },
+    {
+      image: p4,
+      link: "https://www.instagram.com/reel/DMKmIxVtR01/?igsh=MXk0ZWlwMnZxNHl0",
+    },
+    {
+      image: p5,
+      link: "https://www.instagram.com/reel/DMM_F21Nsdt/?igsh=MTJ5anBnZHRxZ2ZvZA==",
+    },
+    {
+      image: p6,
+      link: "https://www.instagram.com/reel/DMPVXzCtbsr/?igsh=aGQwbDI1ZzZzOGM2",
+    },
+  ];
   useEffect(() => {
     // Make sure Swiper library is available
     if (window.Swiper && swiperRef.current) {
@@ -140,7 +133,7 @@ const slidesData = [
 
       <div className="container-fluid rest">
         <div className="row">
-          <div className="col-12">
+          <div className="col-12 ">
             <div className="work-crus work-crus3 out">
               <div
                 id="content-carousel-container-unq-w"
@@ -149,16 +142,28 @@ const slidesData = [
               >
                 <div className="swiper-wrapper">
                   {slidesData.map((slide, index) => (
-                    <div className="swiper-slide" key={index}>
-                      <a className="item" href={slide.link}>
+                    <div
+                      className="swiper-slide d-flex justify-content-center"
+                      key={index}
+                    >
+                      <a
+                        className="item"
+                        href={slide.link}
+                        style={{
+                          maxHeight: "600px",
+                          maxWidth: "337px",
+                        }}
+                      >
                         <div className="img">
                           <img
                             src={slide.image}
-                            style={{
-                              width: "75%",
-                            }}
                             alt={`slide-${index}`}
+                            style={{
+                              width: "100%",
+                              height: "50%",
+                            }}
                           />
+
                           <div className="cont">
                             <span className="mb-5">
                               <div class="underline">

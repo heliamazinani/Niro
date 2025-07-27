@@ -154,7 +154,7 @@ function Navbar() {
               </div>
             </li>
 
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <div className="nav-link">
                 <Link
                   to="/shop"
@@ -164,7 +164,7 @@ function Navbar() {
                   فروشگاه
                 </Link>
               </div>
-            </li>
+            </li> */}
 
             <li className="nav-item">
               <div className="nav-link">

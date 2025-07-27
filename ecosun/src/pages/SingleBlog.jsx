@@ -61,7 +61,16 @@ const nextPost = index < posts.length - 1 ? posts[index + 1] : null;
                   </div>
                 </div>
               </div>
-              <img src={post.img} alt="" />
+              <div
+                className="img"
+                style={{
+                  maxHeight: "600px", // or any fixed value
+                  width: "auto", // maintain aspect ratio
+                  objectFit: "contain", // prevent stretching
+                }}
+              >
+                <img src={post.img} alt="" />
+              </div>
               {/* <div
                   class="background bg-img parallaxie mt-80"
                   data-background={post.img}
@@ -107,7 +116,9 @@ const nextPost = index < posts.length - 1 ? posts[index + 1] : null;
                           >
                             <i class="fab fa-linkedin-in"></i>
                           </a>
-                          <a href={`https://twitter.com/intent/tweet?url=${window.location.href}&text=${post.title}`}>
+                          <a
+                            href={`https://twitter.com/intent/tweet?url=${window.location.href}&text=${post.title}`}
+                          >
                             <i class="fab fa-twitter"></i>
                           </a>
                         </div>
