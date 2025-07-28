@@ -15,8 +15,11 @@ import ASlider from "../components/ASlider.jsx";
 import b1 from "/assets/imgs/background/23.jpg";
 import BlogTitle from "../components/BlogTitle.jsx";
 import { Link } from "react-router-dom";
-import { posts } from "../data/posts";
+import postsData from "../data/posts.json";
+
 function Blog() {
+  const posts = postsData.posts;
+
   return (
     <>
       <div id="smooth-wrapper">
@@ -29,7 +32,7 @@ function Blog() {
                   {posts.map((item) => (
                     <BlogTitle
                       key={item.id}
-                      date={item.date}
+                      date={item.date} 
                       img={item.img}
                       link={`/posts/${item.id}`}
                       title={item.title}

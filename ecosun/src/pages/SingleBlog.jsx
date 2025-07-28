@@ -1,18 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../components/Footer.jsx";
 import Navbar from "../components/Navbar";
 
-import { posts } from "../data/posts";
+import postsData from "../data/posts.json";
+
 const SingleBlog = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const savedPosts = JSON.parse(localStorage.getItem("posts"));
+    setPosts(savedPosts || postsData.posts);
+  }, []);
+
   const { id } = useParams();
   const post = posts.find((p) => p.id === parseInt(id));
   if (!post) {
     return <div>Post not found!</div>;
   }
-const index = posts.findIndex((p) => p.id === parseInt(id));
-const prevPost = index > 0 ? posts[index - 1] : null;
-const nextPost = index < posts.length - 1 ? posts[index + 1] : null;
+  const index = posts.findIndex((p) => p.id === parseInt(id));
+  const prevPost = index > 0 ? posts[index - 1] : null;
+  const nextPost = index < posts.length - 1 ? posts[index + 1] : null;
 
   return (
     <>
@@ -88,7 +96,10 @@ const nextPost = index < posts.length - 1 ? posts[index + 1] : null;
                             <h5 class="fw-600"> {post.title} </h5>
                           </div>
                           <div class="text mt-20">
-                            <p>{post.content}</p>
+                            <div
+                              className="post-content"
+                              dangerouslySetInnerHTML={{ __html: post.content }}
+                            />
                           </div>
                         </div>
                       </div>
@@ -157,7 +168,6 @@ const nextPost = index < posts.length - 1 ? posts[index + 1] : null;
                   </div>
                 </div>
               </div>
-
             </section>
           </main>
           <Footer></Footer>

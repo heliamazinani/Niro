@@ -14,9 +14,11 @@ import Blog from "../components/Blog.jsx";
 import Footer from "../components/Footer.jsx";
 import FAQs from "../components/FAQs.jsx";
 import b1 from "/assets/imgs/background/23.jpg";
-import { posts } from "../data/posts";
+import postsData from "../data/posts.json";
+
 
 function Home() {
+const posts = postsData.posts;
 
   return (
     <>
