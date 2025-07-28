@@ -64,7 +64,7 @@ const nextPost = index < posts.length - 1 ? posts[index + 1] : null;
               <div
                 className="img"
                 style={{
-                  maxHeight: "600px", // or any fixed value
+                  maxHeight: "500px", // or any fixed value
                   width: "auto", // maintain aspect ratio
                   objectFit: "contain", // prevent stretching
                 }}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import shopData from "../data/shopData.json";
-
+import { Link } from "react-router-dom";
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -126,7 +126,9 @@ const Shop = () => {
                   <div className="col-md-6 col-lg-4" key={product.id}>
                     <div className="item mb-50">
                       <div className="img">
-                        <img src={product.img} alt={product.name} />
+                        <Link to={`/shop/${product.id}`}>
+                          <img src={product.img} alt={product.name} />
+                        </Link>
                         <a href="#0" className="add-cart">
                           اضافه به سبد خرید
                         </a>
@@ -139,8 +141,10 @@ const Shop = () => {
                               <i key={i} className="fas fa-star"></i>
                             ))}
                         </div>
-                        <h6>{product.name}</h6>
-                        <h5>{product.price.toLocaleString()} تومان</h5>
+                        <Link to={`/shop/${product.id}`}>
+                          <h6>{product.name}</h6>
+                          <h5>{product.price.toLocaleString()} تومان</h5>
+                        </Link>
                       </div>
                     </div>
                   </div>
