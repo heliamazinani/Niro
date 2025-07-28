@@ -30,7 +30,7 @@ function SignUp() {
 
      // ✅ If register does not return token, login now
      const loginResponse = await fetch(
-       "http://api.ecosunir.ir:5000/api/login",
+       "https://api.ecosunir.ir:5000/api/login",
        {
          method: "POST",
          headers: {

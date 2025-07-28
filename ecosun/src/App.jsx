@@ -14,6 +14,7 @@ import Team from "./pages/Team";
 import Calc from "./pages/Calc";
 import MyInfo from "./pages/MyInfo";
 import Shop from "./pages/Shop";
+import AdminEssayEditor from "./pages/AdminEssayEditor";
 import SingleShop from "./pages/SingleShop";
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
                 <Route path="/info" element={<MyInfo />}></Route>
                 <Route path="/shop" element={<Shop />}></Route>
                 <Route path="/shop/:id" element={<SingleShop />}></Route>
+                <Route path="/add" element={<AdminEssayEditor />}></Route>
                 <Route path="/posts/:id" element={<SingleBlog></SingleBlog>} />
               </Routes>
             </>

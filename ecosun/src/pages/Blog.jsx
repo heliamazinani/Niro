@@ -35,6 +35,13 @@ function Blog() {
                       title={item.title}
                     />
                   ))}
+                  <BlogTitle
+                    
+                    date=""
+                   
+                    link="/add"
+                    title="مقاله جدید"
+                  />
                 </div>
               </div>
             </section>
