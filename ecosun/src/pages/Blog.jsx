@@ -40,7 +40,7 @@ function Blog() {
                   ))}
                   <BlogTitle
                     
-                    date=""
+                    date="1233"
                    
                     link="/add"
                     title="مقاله جدید"

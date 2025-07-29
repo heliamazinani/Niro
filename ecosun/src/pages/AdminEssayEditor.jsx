@@ -1,79 +1,141 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-
-const AdminEssayEditor = () => {
-  const [content, setContent] = useState("");
+import postsData from "../data/posts.json";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+const AdminAddArticle = () => {
+  const [posts, setPosts] = useState([]);
   const [title, setTitle] = useState("");
+  const [genre, setGenre] = useState("");
+  const [img, setImg] = useState("");
+  const [content, setContent] = useState("");
 
-  const handleSubmit = () => {
-    const newEssay = {
+  useEffect(() => {
+    const savedPosts = JSON.parse(localStorage.getItem("posts"));
+    setPosts(savedPosts || postsData.posts);
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!title || !content) {
+      alert("عنوان و محتوا الزامی است.");
+      return;
+    }
+
+    const newPost = {
+      id: posts.length + 1,
+      date: new Date().toLocaleDateString("fa-IR"),
+      img: img || "/blogs/default.jpg",
       title,
-      content,
-      date: new Date().toISOString(),
+      content, // This will be HTML from ReactQuill
+      author: "ادمین",
+      genre,
     };
 
-    // Convert the essay data to JSON
-    const json = JSON.stringify(newEssay, null, 2); // Pretty print with 2 spaces
+    const updatedPosts = [...posts, newPost];
+    setPosts(updatedPosts);
+    localStorage.setItem("posts", JSON.stringify(updatedPosts));
 
-    // Create a Blob from the JSON string
-    const blob = new Blob([json], { type: "application/json" });
-
-    // Create a link element
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = `${title || "essay"}.json`; // Use title or default to "essay.json"
-
-    // Append to the body and trigger the download
-    document.body.appendChild(link);
-    link.click();
-
-    // Clean up and remove the link
-    document.body.removeChild(link);
-
-    alert("مقاله ذخیره شد!");
     setTitle("");
+    setImg("");
     setContent("");
+    setGenre("");
+    alert("مقاله ذخیره شد!");
   };
 
+
+  const modules = {
+    toolbar: [
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [{ size: [] }],
+      [{ font: [] }],
+      [{ align: ["right", "center", "justify"] }],
+      [{ list: "ordered" }, { list: "bullet" }],
+      ["link", "image"],
+      [{ color: ["red", "#785412"] }],
+      [{ background: ["red", "#785412"] }],
+    ],
+  };
+
+  const formats = [
+    "header",
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "blockquote",
+    "list",
+    "bullet",
+    "link",
+    "color",
+    "image",
+    "background",
+    "align",
+    "size",
+    "font",
+  ];
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>افزودن مقاله جدید</h2>
-      <input
-        type="text"
-        placeholder="عنوان مقاله"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        style={{ width: "100%", marginBottom: "10px", padding: "10px" }}
-      />
-      <h5>عکس</h5>
-      <input
-        type="file"
-        placeholder="عنوان مقاله"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        style={{ width: "100%", marginBottom: "10px", padding: "10px" }}
-      />
-      <ReactQuill
-        theme="snow"
-        value={content}
-        onChange={setContent}
-        style={{ height: "300px", marginBottom: "20px" }}
-      />
-      <button
-        onClick={handleSubmit}
-        style={{
-          padding: "10px 20px",
-          background: "#007bff",
-          color: "#fff",
-          border: "none",
-          cursor: "pointer",
-        }}
-      >
-        ذخیره مقاله
-      </button>
-    </div>
+    <>
+      <Navbar></Navbar>
+
+      <main className="main-bg">
+        <div className="comments-from" style={{ padding: "20px" }}>
+          <h2>افزودن مقاله جدید</h2>
+          <form
+            onSubmit={handleSubmit}
+            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+          >
+            <input
+              type="text"
+              placeholder="عنوان مقاله"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
+            <input
+              type="text"
+              placeholder="آدرس تصویر (اختیاری)"
+              value={img}
+              onChange={(e) => setImg(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="موضوع(خورشیدی)"
+              value={genre}
+              onChange={(e) => setGenre(e.target.value)}
+              required
+            />
+
+            <ReactQuill
+              theme="snow"
+              modules={modules}
+              formats={formats}
+              value={content}
+              onChange={setContent}
+              style={{ height: "200px", marginBottom: "20px" }}
+            />
+            <button
+              className="mt-80"
+              style={{
+                background: "#ffaa17",
+                color: "#fff",
+                padding: "10px 20px",
+                border: "none",
+                cursor: "pointer",
+              }}
+              type="submit"
+            >
+              ذخیره مقاله
+            </button>
+          </form>
+        </div>
+      </main>
+
+      <Footer></Footer>
+    </>
   );
 };
 
-export default AdminEssayEditor;
+export default AdminAddArticle;

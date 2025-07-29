@@ -5260,6 +5260,7 @@ body.loaded {
 
 .comments-from form input,
 .comments-from form textarea {
+  color: #000;
   padding: 15px 0;
   width: 100%;
   background: transparent;

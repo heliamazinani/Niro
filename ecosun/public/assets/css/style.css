@@ -4805,7 +4805,7 @@ body.loaded {
   opacity: .7;
 }
 
-.blog-modern .item .img .date:after {
+ .date:after {
   content: '';
   position: absolute;
   top: 50%;

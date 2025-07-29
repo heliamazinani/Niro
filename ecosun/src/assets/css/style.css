@@ -4792,7 +4792,7 @@ body.loaded {
   position: relative;
 }
 
-.blog-modern .item .img .date {
+ .date {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0px;
