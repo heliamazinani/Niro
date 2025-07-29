@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-
+import { motion } from "framer-motion";
 import "swiper/css";
 import "swiper/css/navigation";
 import p1 from "/posts/p1.jpg";
@@ -47,12 +47,14 @@ const IS = () => {
         <div className="sec-lg-head mb-40">
           <div className="row">
             <div className="col-lg-6">
-              <h6 className="dot-titl-non mb-15 wow fadeIn"> فضای مجازی</h6>
-              <h3 className="d-slideup wow">
-                <span className="sideup-text">
-                  <span className="up-text">پست های اخیر</span>
-                </span>
-              </h3>
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }} // triggers only once
+              >
+                <h6 className="dot-titl mb-15 wow fadeIn"> فضای مجازی</h6>
+              </motion.div>
             </div>
             <div className="col-lg-6 d-flex align-items-center">
               <div className="full-width">
@@ -121,7 +123,6 @@ const IS = () => {
         >
           {slidesData.map((slide, index) => (
             <SwiperSlide
-             
               key={index}
               style={{
                 display: "flex", // Flex container

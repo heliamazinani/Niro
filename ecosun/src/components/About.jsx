@@ -2,6 +2,7 @@ import React from "react";
 import sq1 from "/assets/imgs/about/sq3.jpg";
 import sq2 from "/assets/imgs/about/sq2.jpg";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 const About = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -13,15 +14,29 @@ const About = () => {
           <div className="row lg-marg">
             <div className="col-lg-6 md-mb50">
               <div className="imgs mb-80">
-                <div
-                  className="img1 main-color3 wow fadeIn"
-                  data-wow-delay=".3s"
+                <motion.div
+                  initial={{ opacity: 0, y: -100 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
                 >
-                  <img src={sq1} alt="" />
-                </div>
-                <div className="img2 wow fadeInLeft" data-wow-delay=".6s">
-                  <img src={sq2} alt="" />
-                </div>
+                  <div
+                    className="img1 main-color3  "
+                    
+                  >
+                    <img src={sq1} alt="" />
+                  </div>
+                </motion.div>
+                {/* <motion.div
+                  initial={{ opacity: 1, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.2 }}
+                  viewport={{ once: true }}
+                > */}
+                  <div className="img2">
+                    <img src={sq2} alt="" />
+                  </div>
+                {/* </motion.div> */}
               </div>
             </div>
             <div className="col-lg-6 valign">

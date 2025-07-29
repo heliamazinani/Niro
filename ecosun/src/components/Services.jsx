@@ -7,7 +7,7 @@ import darkp1 from "/assets/imgs/serv-icons/1.png";
 import lightp1 from "/assets/imgs/light/serv-icons/1.png";
 import darkp2 from "/assets/imgs/serv-icons/2.png";
 import lightp2 from "/assets/imgs/light/serv-icons/2.png";
-
+import { motion } from "framer-motion";
 const Services = () => {
   const { theme } = useContext(ThemeContext);
 
@@ -21,7 +21,14 @@ const Services = () => {
           <div class="row">
             <div class="col-lg-8">
               <div class="position-re">
-                <h6 class="dot-titl colorbg-3 mb-10">خدمات برجسته </h6>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }} 
+                >
+                  <h6 className="dot-titl mb-15  "> فضای مجازی</h6>
+                </motion.div>
                 <h2 class="fz-60 fw-700">خدمات ما</h2>
               </div>
             </div>
@@ -103,7 +110,6 @@ const Services = () => {
             </div>
           </div>
 
-          
           <div class="col-lg-3">
             <div class="serv-item radius-5 wow fadeIn" data-wow-delay="1.2s">
               <div class="icon-img-50 mb-40">
@@ -134,7 +140,7 @@ const Services = () => {
               </div>
             </div>
           </div>
-          
+
           <div class="col-lg-3">
             <div
               class="serv-item md-mb50 radius-5 wow fadeIn"
