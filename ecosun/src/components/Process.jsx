@@ -1,6 +1,6 @@
 
 import React from "react";
-
+import { motion } from "framer-motion";
 const Process = () => {
   return (
     <>
@@ -9,87 +9,135 @@ const Process = () => {
           <div className="row justify-content-center">
             <div className="col-lg-6 col-md-9 w-100">
               <div className="sec-head text-center mb-100">
-                <h2 className="mb-15 w-100" style={{"padding-top" : "70px",
-                    "padding-bottom" : "50px"
-                }}>
-                  شرکت خدمات انرژی صنعت نیرو
-                </h2>
-                <h4>
-                  اهداف شرکت
-                  {/* <span className="stroke">برای انجام کار</span> */}
-                </h4>
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
+                  <h2
+                    className="mb-15 w-100"
+                    style={{ "padding-top": "70px", "padding-bottom": "50px" }}
+                  >
+                    شرکت خدمات انرژی صنعت نیرو
+                  </h2>
+                  <h4>
+                    اهداف شرکت
+                    {/* <span className="stroke">برای انجام کار</span> */}
+                  </h4>
 
-                
                   <div className="text mt-15">
                     <p>
                       {" "}
-                      شرکت خدمات انرژی صنعت نیروی توس، با تکیه بر دانش و تجربه‌ی عمیق اعضای هیئت‌مدیره، متشکل از اساتید دانشگاهی، متخصصان خوش‌نام صنعت برق و مدیران لایق و توانمند، با مأموریت تحول در حوزه‌ی انرژی پایدار و بهینه‌سازی مصرف انرژی تأسیس شده است.
+                      شرکت خدمات انرژی صنعت نیروی توس، با تکیه بر دانش و تجربه‌ی
+                      عمیق اعضای هیئت‌مدیره، متشکل از اساتید دانشگاهی، متخصصان
+                      خوش‌نام صنعت برق و مدیران لایق و توانمند، با مأموریت تحول
+                      در حوزه‌ی انرژی پایدار و بهینه‌سازی مصرف انرژی تأسیس شده
+                      است.
                     </p>
-                  
-                </div>
+                  </div>
+                </motion.div>
               </div>
             </div>
           </div>
           <div className="row md-marg">
             <div className="col-lg col-md-4 col-sm-6">
-              <div className="item md-mb50">
-                <span className="icon">
-                  <i className="fas fa-chart-pie"></i>
-                </span>
-                <h5> توسعه فناوری‌های نوین </h5>
-                <p className="fz-14">
-                  در زمینه‌ی انرژی‌های تجدیدپذیر از جمله خورشیدی، بادی، زیست‌توده و سایر منابع پاک، فعالیت‌هایی با هدف افزایش بهره‌وری و کاهش هزینه‌های تولید انجام می‌شود.
-                  {" "}
-                </p>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="item md-mb50">
+                  <span className="icon">
+                    <i className="fas fa-chart-pie"></i>
+                  </span>
+                  <h5> توسعه فناوری‌های نوین </h5>
+                  <p className="fz-14">
+                    در زمینه‌ی انرژی‌های تجدیدپذیر از جمله خورشیدی، بادی،
+                    زیست‌توده و سایر منابع پاک، فعالیت‌هایی با هدف افزایش
+                    بهره‌وری و کاهش هزینه‌های تولید انجام می‌شود.{" "}
+                  </p>
+                </div>
+              </motion.div>
             </div>
             <div className="col-lg col-md-4 col-sm-6">
-              <div className="item md-mb50">
-                <span className="icon">
-                  <i className="fas fa-shield-alt"></i>
-                </span>
-                <h5>بهینه‌سازی مصرف انرژی در صنایع </h5>
-                <p className="fz-14">
-                  {" "}
-                از طریق طراحی و پیاده‌سازی سیستم‌های هوشمند مدیریت انرژی، کاهش تلفات و افزایش راندمان عملیاتی را محقق می‌کنیم.
-                {" "}
-                </p>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="item md-mb50">
+                  <span className="icon">
+                    <i className="fas fa-shield-alt"></i>
+                  </span>
+                  <h5>بهینه‌سازی مصرف انرژی در صنایع </h5>
+                  <p className="fz-14">
+                    {" "}
+                    از طریق طراحی و پیاده‌سازی سیستم‌های هوشمند مدیریت انرژی،
+                    کاهش تلفات و افزایش راندمان عملیاتی را محقق می‌کنیم.{" "}
+                  </p>
+                </div>
+              </motion.div>
             </div>
             <div className="col-lg col-md-4 col-sm-6">
-              <div className="item md-mb50">
-                <span className="icon">
-                  <i className="fas fa-dice-d6"></i>
-                </span>
-                <h5> راهکارهای مهندسی و مشاوره ای</h5>
-                <p className="fz-14">
-                  به صنایع انرژی‌بر نظیر فولاد، سیمان، پتروشیمی و سایر صنایع مرتبط، جهت کاهش مصرف انرژی و هزینه‌های عملیاتی با رعایت استانداردهای زیست‌محیطی خدمات ارائه می‌دهیم.
-                  {" "}
-                </p>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="item md-mb50">
+                  <span className="icon">
+                    <i className="fas fa-dice-d6"></i>
+                  </span>
+                  <h5> راهکارهای مهندسی و مشاوره ای</h5>
+                  <p className="fz-14">
+                    به صنایع انرژی‌بر نظیر فولاد، سیمان، پتروشیمی و سایر صنایع
+                    مرتبط، جهت کاهش مصرف انرژی و هزینه‌های عملیاتی با رعایت
+                    استانداردهای زیست‌محیطی خدمات ارائه می‌دهیم.{" "}
+                  </p>
+                </div>
+              </motion.div>
             </div>
             <div className="col-lg col-md-4 col-sm-6">
-              <div className="item sm-mb50">
-                <span className="icon">
-                  <i className="fas fa-cog"></i>
-                </span>
-                <h5>توانمندسازی نیروی انسانی</h5>
-                <p className="fz-14">
-                  از طریق آموزش‌های تخصصی در حوزه‌ی مدیریت انرژی و فناوری‌های نوین صنعت برق، توانمندسازی نیروهای انسانی را دنبال می‌کنیم.
-                  {" "}
-                </p>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="item sm-mb50">
+                  <span className="icon">
+                    <i className="fas fa-cog"></i>
+                  </span>
+                  <h5>توانمندسازی نیروی انسانی</h5>
+                  <p className="fz-14">
+                    از طریق آموزش‌های تخصصی در حوزه‌ی مدیریت انرژی و فناوری‌های
+                    نوین صنعت برق، توانمندسازی نیروهای انسانی را دنبال می‌کنیم.{" "}
+                  </p>
+                </div>
+              </motion.div>
             </div>
             <div className="col-lg col-md-4 col-sm-6">
-              <div className="item">
-                <span className="icon">
-                  <i className="fas fa-sticky-note"></i>
-                </span>
-                <h5>همکاری با مراکز علمی و صنعتی</h5>
-                <p className="fz-14">
-                جهت تبدیل پژوهش‌های کاربردی به راهکارهای عملی در حوزه‌ی بهینه‌سازی انرژی و تجاری‌سازی آن‌ها اقدام می‌کنیم.
-                </p>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <div className="item">
+                  <span className="icon">
+                    <i className="fas fa-sticky-note"></i>
+                  </span>
+                  <h5>همکاری با مراکز علمی و صنعتی</h5>
+                  <p className="fz-14">
+                    جهت تبدیل پژوهش‌های کاربردی به راهکارهای عملی در حوزه‌ی
+                    بهینه‌سازی انرژی و تجاری‌سازی آن‌ها اقدام می‌کنیم.
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
