@@ -44,7 +44,7 @@ const IS = () => {
   return (
     <section className="work-carsouel section-padding position-re o-hidden">
       <div className="container">
-        <div className="sec-lg-head mb-80">
+        <div className="sec-lg-head mb-40">
           <div className="row">
             <div className="col-lg-6">
               <h6 className="dot-titl-non mb-15 wow fadeIn"> فضای مجازی</h6>

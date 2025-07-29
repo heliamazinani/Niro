@@ -4,12 +4,12 @@ import ThemeToggle from "./ThemeToggle";
 import logo from "/logo.svg";
 
 function Navbar() {
-  const navigate = useNavigate();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const location = useLocation();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,8 +24,17 @@ function Navbar() {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
 
-   window.location.href = "/";
+    window.location.href = "/";
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleSearch = () => {
     setSearchOpen((prev) => !prev);
@@ -60,7 +69,10 @@ function Navbar() {
   }, [location.pathname]);
 
   return (
-    <nav className="navbar navbar-expand-lg static">
+    <nav
+     
+      className={`navbar navbar-expand-lg ${isScrolled ? "nav-scroll" : "static"}`}
+    >
       <div className="container">
         <a className="logo icon-img-100" href="#" onClick={preventClick}>
           <img src={logo} alt="logo" />
