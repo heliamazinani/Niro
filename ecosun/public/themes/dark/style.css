@@ -4808,7 +4808,7 @@ body.loaded {
   position: relative;
 }
 
-.date {
+.blog-modern .item .img .date {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0px;
@@ -4821,7 +4821,7 @@ body.loaded {
   opacity: .7;
 }
 
-.date:after {
+.blog-modern .item .img .date:after {
   content: '';
   position: absolute;
   top: 50%;

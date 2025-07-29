@@ -15,7 +15,7 @@ import Footer from "../components/Footer.jsx";
 import FAQs from "../components/FAQs.jsx";
 import b1 from "/assets/imgs/background/23.jpg";
 import postsData from "../data/posts.json";
-
+import { motion } from "framer-motion";
 
 function Home() {
 const posts = postsData.posts;
@@ -44,15 +44,21 @@ const posts = postsData.posts;
                   <div className="row">
                     <div className="col-lg-8">
                       <div className="position-re">
-                        <h6 className="dot-titl colorbg-3 mb-10">وبلاگ ما</h6>
-                        <h2 className="fz-60 fw-700">آخرین اخبار</h2>
+                        <motion.div
+                          initial={{ opacity: 0, y: 50 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.8 }}
+                          viewport={{ once: true }}
+                        >
+                          <h6 className="dot-titl colorbg-3 mb-10">وبلاگ ما</h6>
+                        </motion.div>
                       </div>
                     </div>
                     <div className="col-lg-4 d-flex align-items-center">
                       <div className="full-width d-flex justify-content-end justify-end">
                         <div className="vew-all wow fadeIn">
                           <a href="blog-classNameic.html">
-                            نمایش تمام اخبار
+                            نمایش تمام مقاله ها
                             <span>
                               <svg
                                 width="18"
@@ -76,13 +82,15 @@ const posts = postsData.posts;
                 </div>
                 <div className="row">
                   {posts.slice(-3).map((item) => (
-                    <Blog
-                      key={item.id}
-                      date={item.date}
-                      img={item.img}
-                      link={`/posts/${item.id}`}
-                      title={item.title}
-                    />
+
+                      <Blog
+                        key={item.id}
+                        date={item.date}
+                        img={item.img}
+                        link={`/posts/${item.id}`}
+                        title={item.title}
+                      />
+              
                   ))}
                 </div>
               </div>

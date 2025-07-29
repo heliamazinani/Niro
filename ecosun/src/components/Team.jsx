@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import hj from "/assets/imgs/team/hjavaheri.jpg";
 import j from "/assets/imgs/team/javaheri.jpg";
 import m from "/assets/imgs/team/mazinani.jpg";
-
+import { motion } from "framer-motion";
 import v from "/assets/imgs/team/vafaie.jpg";
 import gh from "/assets/imgs/team/khodabande.jpg";
 import Modal from "./Modal";
@@ -459,67 +459,87 @@ const Team = () => {
           <div className="row md-marg ">
             {faqs.map((faq, index) => (
               <div className="col-lg-4 col-md-6 " key={index}>
-                <div
-                  className="item mb-50 radius-5 wow fadeIn "
-                  data-wow-delay=".2s"
+                <motion.div
+                  initial={{ opacity: 0, y: 100 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
                 >
                   <div
-                    className="mb-15"
-                    style={{
-                      border: "2px",
-                      alignItems: "center",
-                      height: "100%",
-                      cursor: "pointer",
-                    }}
+                    className="item mb-50 radius-5  "
+                    
                   >
-                    <section className="item  ">
-                      <div className="container text-center">
-                        <div className="row mb-10">
-                          <div
-                            className="col-lg-12"
-                            style={{
-                              display: "flex",
-                              justifyContent: "center",
-                              alignItems: "center",
-                              height: "100%", // Ensure the container has a height
-                            }}
-                          >
-                            <div className="img circle-100 ">
-                              <img style={{ position : faq.img == "/assets/imgs/team/khodabande.jpg" ? "relative" : "static" ,
-                              top : faq.img == "/assets/imgs/team/khodabande.jpg" ? "15px" : "15px" 
-
-                              }} src={faq.img} alt="" />
+                    <div
+                      className="mb-15"
+                      style={{
+                        border: "2px",
+                        alignItems: "center",
+                        height: "100%",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <section className="item  ">
+                        <div className="container text-center">
+                          <div className="row mb-10">
+                            <div
+                              className="col-lg-12"
+                              style={{
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                height: "100%", // Ensure the container has a height
+                              }}
+                            >
+                              <div className="img circle-100 ">
+                                <img
+                                  style={{
+                                    position:
+                                      faq.img ==
+                                      "/assets/imgs/team/khodabande.jpg"
+                                        ? "relative"
+                                        : "static",
+                                    top:
+                                      faq.img ==
+                                      "/assets/imgs/team/khodabande.jpg"
+                                        ? "15px"
+                                        : "15px",
+                                  }}
+                                  src={faq.img}
+                                  alt=""
+                                />
+                              </div>
                             </div>
                           </div>
+
+                          <h6>{faq.name} </h6>
+
+                          <span className="main-color3">{faq.rank}</span>
+                          <div
+                            class="underline"
+                            onClick={() => openModal(index)}
+                          >
+                            <a class="mt-30 ls1 fz-12 text-u">
+                              بیشتر بخوانید
+                              <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 18 18"
+                                fill="none"
+                                class="mirror"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M13.922 4.5V11.8125C13.922 11.9244 13.8776 12.0317 13.7985 12.1108C13.7193 12.1899 13.612 12.2344 13.5002 12.2344C13.3883 12.2344 13.281 12.1899 13.2018 12.1108C13.1227 12.0317 13.0783 11.9244 13.0783 11.8125V5.51953L4.79547 13.7953C4.71715 13.8736 4.61092 13.9176 4.50015 13.9176C4.38939 13.9176 4.28316 13.8736 4.20484 13.7953C4.12652 13.717 4.08252 13.6108 4.08252 13.5C4.08252 13.3892 4.12652 13.283 4.20484 13.2047L12.4806 4.92188H6.18765C6.07577 4.92188 5.96846 4.87743 5.88934 4.79831C5.81023 4.71919 5.76578 4.61189 5.76578 4.5C5.76578 4.38811 5.81023 4.28081 5.88934 4.20169C5.96846 4.12257 6.07577 4.07813 6.18765 4.07812H13.5002C13.612 4.07813 13.7193 4.12257 13.7985 4.20169C13.8776 4.28081 13.922 4.38811 13.922 4.5Z"
+                                  fill="currentColor"
+                                ></path>
+                              </svg>
+                            </a>
+                          </div>
                         </div>
-
-                        <h6>{faq.name} </h6>
-
-              
-
-                        <span className="main-color3">{faq.rank}</span>
-                        <div class="underline" onClick={() => openModal(index)}>
-                          <a class="mt-30 ls1 fz-12 text-u">
-                            بیشتر بخوانید
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              class="mirror"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M13.922 4.5V11.8125C13.922 11.9244 13.8776 12.0317 13.7985 12.1108C13.7193 12.1899 13.612 12.2344 13.5002 12.2344C13.3883 12.2344 13.281 12.1899 13.2018 12.1108C13.1227 12.0317 13.0783 11.9244 13.0783 11.8125V5.51953L4.79547 13.7953C4.71715 13.8736 4.61092 13.9176 4.50015 13.9176C4.38939 13.9176 4.28316 13.8736 4.20484 13.7953C4.12652 13.717 4.08252 13.6108 4.08252 13.5C4.08252 13.3892 4.12652 13.283 4.20484 13.2047L12.4806 4.92188H6.18765C6.07577 4.92188 5.96846 4.87743 5.88934 4.79831C5.81023 4.71919 5.76578 4.61189 5.76578 4.5C5.76578 4.38811 5.81023 4.28081 5.88934 4.20169C5.96846 4.12257 6.07577 4.07813 6.18765 4.07812H13.5002C13.612 4.07813 13.7193 4.12257 13.7985 4.20169C13.8776 4.28081 13.922 4.38811 13.922 4.5Z"
-                                fill="currentColor"
-                              ></path>
-                            </svg>
-                          </a>
-                        </div>
-                      </div>
-                    </section>
+                      </section>
+                    </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             ))}
           </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { motion } from "framer-motion";
 const FAQs = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
@@ -48,18 +48,33 @@ const FAQs = () => {
             <div className="col-lg-9">
               <div className="caption">
                 {/* <h6 className="sub-title">آیا باید چیزی بپرسید؟</h6> */}
-                <h1 className="fz-55">سوالات متداول</h1>
+                <motion.div
+                  initial={{ opacity: 0, x: -100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
+                  <h1 className="fz-55">سوالات متداول</h1>
+                </motion.div>
               </div>
               <div className="row">
                 <div className="col-lg-11 offset-lg-1">
-                  <div className="text mt-30">
-                    <p>
-                      در این بخش، به برخی از سوالات رایج مشتریان و کاربران
-                      درباره خدمات و فعالیت‌های شرکت پاسخ داده‌ایم. هدف ما ارائه
-                      اطلاعات شفاف و مفید به شماست تا بتوانید تصمیمات بهتری
-                      بگیرید. اگر سوال دیگری دارید، لطفاً با ما تماس بگیرید.
-                    </p>
-                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="text mt-30">
+                      <p>
+                        در این بخش، به برخی از سوالات رایج مشتریان و کاربران
+                        درباره خدمات و فعالیت‌های شرکت پاسخ داده‌ایم. هدف ما
+                        ارائه اطلاعات شفاف و مفید به شماست تا بتوانید تصمیمات
+                        بهتری بگیرید. اگر سوال دیگری دارید، لطفاً با ما تماس
+                        بگیرید.
+                      </p>
+                    </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -110,18 +125,36 @@ const FAQs = () => {
           <div className="row lg-marg">
             {faqs.map((faq, index) => (
               <div className="col-lg-6 md-mb50" key={index}>
-                <div className="item pb-50 mb-50 bord-thin-bottom">
-                  <h6
-                    className="mb-15"
-                    style={{
-                      cursor: "pointer",
-                    }}
-                    onClick={() => toggleAnswer(index)}
-                  >
-                    {faq.question}
-                  </h6>
-                  {activeIndex === index && <p>{faq.answer}</p>}
-                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: 100 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="item pb-50 mb-50 bord-thin-bottom">
+                    <h6
+                      className="mb-15"
+                      style={{
+                        cursor: "pointer",
+                      }}
+                      onClick={() => toggleAnswer(index)}
+                    >
+                      {faq.question}
+                    </h6>
+                    {activeIndex === index && (
+                      <p>
+                        <motion.div
+                          initial={{ opacity: 0,  }}
+                          whileInView={{ opacity: 1 }}
+                          transition={{ duration: 0.8 }}
+                          viewport={{ once: true }}
+                        >
+                          {faq.answer}
+                        </motion.div>
+                      </p>
+                    )}
+                  </div>
+                </motion.div>
               </div>
             ))}
           </div>

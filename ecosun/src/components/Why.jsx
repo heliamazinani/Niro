@@ -1,5 +1,5 @@
 import React from "react";
-
+import { motion } from "framer-motion";
 import sq from "/assets/imgs/about/02.JPG";
 const Why = () => {
   return (
@@ -8,19 +8,34 @@ const Why = () => {
         <div className="sec-lg-head mb-80">
           <div className="row">
             <div className="col-lg-6">
-              <h6 className="dot-titl-non mb-15 wow fadeIn">خدمات برجسته </h6>
-              <h2 className="fz-60 fw-700 d-rotate wow animated">
-                <span className="rotate-text"> </span>
-              </h2>
+              <motion.div
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <h6 className="dot-titl mb-15 ">خدمات برجسته </h6>
+              </motion.div>
             </div>
           </div>
         </div>
         <div className="row">
           <div className="col-lg-6 md-mb80">
             <div className="img mb-50">
-              <img src={sq} style={{
-                height:"10%",
-              }} alt="" />
+              <motion.div
+                initial={{ opacity: 0, y: -100 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <img
+                  src={sq}
+                  style={{
+                    height: "10%",
+                  }}
+                  alt=""
+                />
+              </motion.div>
               <div className="cont-box main-colorbg3">
                 <span>
                   <svg
@@ -44,56 +59,63 @@ const Why = () => {
             </div>
           </div>
           <div className="col-lg-6">
-            <div className="cont mb-50">
-              <span className="sub-title mb-15">آنچه ما ارائه می دهیم</span>
-              <h3>
-                برتری در کیفیت، قابلیت اجرا با دقت بالا{" "}
-                <span className="stroke">و تخصص فراگیر</span>
-              </h3>
-              <div className="row mt-50">
-                <div className="col-lg-11 offset-lg-1">
-                  <p>
-                    وجه تمایز ما در کیفیت بالا ، دقت در جزئیات و کنترل بودجه است
-                    .تیم ما از افراد مجرب و متعهد تشکیل شده است که از فناوری‌های
-                    پیشرفته و مدرن استفاده میکنند.
-                  </p>
-
-                  <div className="list-arrow mt-50">
-                    <ul className="rest">
-                      <li className="mb-20">
-                        <span className="icon main-color3">
-                          <i className="fas fa-check-double"></i>
-                        </span>
-                        رشد پایدار و بهبود مداوم در همه جنبه‌های فعالیت‌هایمان
-                      </li>{" "}
-                      <li className="mb-20">
-                        <span className="icon main-color3">
-                          <i className="fas fa-check-double"></i>
-                        </span>
-                        استفاده از تجهیزات پیشرفته و بهره‌گیری از فناوری برای
-                        رشد پایدار
-                      </li>
-                      <li className="mb-20">
-                        <span className="icon main-color3">
-                          <i className="fas fa-check-double"></i>
-                        </span>
-                        رعایت استاندارد‌های بین‌المللی کیفیت در تمامی
-                        فعالیت‌هایمان
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="pt-50 mt-50 bord-thin-top">
-                    <p className="fz-13">
-                      ما باور داریم که ترکیب دانش دانشگاهی تجربه صنعتی و
-                      فناوریهای روز نه تنها صنعت انرژی را متحول می کند بلکه به
-                      صنایع کشور کمک میکند تا با مصرف بهینه ،انرژی بهره‌وری خود
-                      را به سطح جهانی ارتقا دهند.
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="cont mb-50">
+                <span className="sub-title mb-15">آنچه ما ارائه می دهیم</span>
+                <h3>
+                  برتری در کیفیت، قابلیت اجرا با دقت بالا{" "}
+                  <span className="stroke">و تخصص فراگیر</span>
+                </h3>
+                <div className="row mt-50">
+                  <div className="col-lg-11 offset-lg-1">
+                    <p>
+                      وجه تمایز ما در کیفیت بالا ، دقت در جزئیات و کنترل بودجه
+                      است .تیم ما از افراد مجرب و متعهد تشکیل شده است که از
+                      فناوری‌های پیشرفته و مدرن استفاده میکنند.
                     </p>
+
+                    <div className="list-arrow mt-50">
+                      <ul className="rest">
+                        <li className="mb-20">
+                          <span className="icon main-color3">
+                            <i className="fas fa-check-double"></i>
+                          </span>
+                          رشد پایدار و بهبود مداوم در همه جنبه‌های فعالیت‌هایمان
+                        </li>{" "}
+                        <li className="mb-20">
+                          <span className="icon main-color3">
+                            <i className="fas fa-check-double"></i>
+                          </span>
+                          استفاده از تجهیزات پیشرفته و بهره‌گیری از فناوری برای
+                          رشد پایدار
+                        </li>
+                        <li className="mb-20">
+                          <span className="icon main-color3">
+                            <i className="fas fa-check-double"></i>
+                          </span>
+                          رعایت استاندارد‌های بین‌المللی کیفیت در تمامی
+                          فعالیت‌هایمان
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="pt-50 mt-50 bord-thin-top">
+                      <p className="fz-13">
+                        ما باور داریم که ترکیب دانش دانشگاهی تجربه صنعتی و
+                        فناوریهای روز نه تنها صنعت انرژی را متحول می کند بلکه به
+                        صنایع کشور کمک میکند تا با مصرف بهینه ،انرژی بهره‌وری
+                        خود را به سطح جهانی ارتقا دهند.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
