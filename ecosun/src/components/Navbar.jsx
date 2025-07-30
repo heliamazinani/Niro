@@ -12,12 +12,16 @@ function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const location = useLocation();
+  //change
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const isAdmin = true; 
 
   useEffect(() => {
     // Check if token exists on load
     const token = localStorage.getItem("token");
     setIsLoggedIn(!!token);
+    setIsLoggedIn(false);
   }, []);
 
   const handleLogout = () => {
@@ -70,8 +74,9 @@ function Navbar() {
 
   return (
     <nav
-     
-      className={`navbar navbar-expand-lg ${isScrolled ? "nav-scroll" : "static"}`}
+      className={`navbar navbar-expand-lg ${
+        isScrolled ? "nav-scroll" : "static"
+      }`}
     >
       <div className="container">
         <a className="logo icon-img-100" href="#" onClick={preventClick}>
@@ -145,11 +150,6 @@ function Navbar() {
                       اعضای هیئت مدیره
                     </Link>
                   </div>
-                  {/* <div className="dropdown-item">
-                    <Link to="/team" onClick={scrollToTop}>
-                      مدیر عامل
-                    </Link>
-                  </div> */}
                 </div>
               )}
             </li>
@@ -245,6 +245,25 @@ function Navbar() {
                 </li>
               </>
             )}
+
+            {isAdmin && (
+              <>
+                <li className="nav-item">
+                  <div className="nav-link">
+                    <Link
+                      to="/dashboard"
+                      className={
+                        location.pathname === "/dashboard" ? "active-link" : ""
+                      }
+                      onClick={scrollToTop}
+                    >
+                      داشبورد ادمین
+                    </Link>
+                  </div>
+                </li>
+              </>
+            )}
+
             <li className="nav-item">
               <div className="nav-link">
                 <ThemeToggle />

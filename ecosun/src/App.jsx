@@ -16,7 +16,8 @@ import MyInfo from "./pages/MyInfo";
 import Shop from "./pages/Shop";
 import AdminEssayEditor from "./pages/AdminEssayEditor";
 import SingleShop from "./pages/SingleShop";
-
+import ScrollToTop from "./components/ScrolltoTopButton";
+import Dashboard from "./pages/Dashboard";
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -47,7 +48,9 @@ function App() {
                 <Route path="/info" element={<MyInfo />}></Route>
                 <Route path="/shop" element={<Shop />}></Route>
                 <Route path="/shop/:id" element={<SingleShop />}></Route>
+                <Route path="/dashboard" element={<Dashboard />}></Route>
                 <Route path="/add" element={<AdminEssayEditor />}></Route>
+                <Route path="/editessay/:id" element={<AdminEssayEditor />}></Route>
                 <Route path="/posts/:id" element={<SingleBlog></SingleBlog>} />
               </Routes>
             </>

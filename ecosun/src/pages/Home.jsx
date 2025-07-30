@@ -13,12 +13,26 @@ import IS from "../components/instaSlider.jsx";
 import Blog from "../components/Blog.jsx";
 import Footer from "../components/Footer.jsx";
 import FAQs from "../components/FAQs.jsx";
-import b1 from "/assets/imgs/background/23.jpg";
+import ScrollToTop from "../components/ScrolltoTopButton.jsx";
 import postsData from "../data/posts.json";
-import { motion } from "framer-motion";
+
+import React, { useState, useEffect } from 'react';
+import { motion, useScroll } from 'framer-motion';
 
 function Home() {
-const posts = postsData.posts;
+      const [posts, setPosts] = useState([]);
+
+      useEffect(() => {
+        // Load from localStorage first, or fallback to JSON file
+        const savedPosts = JSON.parse(localStorage.getItem("posts"));
+        setPosts(savedPosts || postsData.posts);
+      }, []);
+
+      // Save changes to localStorage whenever posts update
+      useEffect(() => {
+        localStorage.setItem("posts", JSON.stringify(posts));
+      }, [posts]);
+
 
   return (
     <>
@@ -82,15 +96,13 @@ const posts = postsData.posts;
                 </div>
                 <div className="row">
                   {posts.slice(-3).map((item) => (
-
-                      <Blog
-                        key={item.id}
-                        date={item.date}
-                        img={item.img}
-                        link={`/posts/${item.id}`}
-                        title={item.title}
-                      />
-              
+                    <Blog
+                      key={item.id}
+                      date={item.date}
+                      img={item.img}
+                      link={`/posts/${item.id}`}
+                      title={item.title}
+                    />
                   ))}
                 </div>
               </div>
@@ -99,19 +111,10 @@ const posts = postsData.posts;
           </main>
           <Footer></Footer>
         </div>
+   
       </div>
     </>
   );
-}
+};
 
-// function Home() {
-//   return (
-//     <div >
-//       {" "}
-//       {/* Make it tall for scrolling */}
-//       <h1>Home Page</h1>
-
-//     </div>
-//   );
-// };
 export default Home;

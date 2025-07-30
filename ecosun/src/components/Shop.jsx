@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import shopData from "../data/shopData.json";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -124,29 +125,36 @@ const Shop = () => {
               <div className="row">
                 {filteredProducts.map((product) => (
                   <div className="col-md-6 col-lg-4" key={product.id}>
-                    <div className="item mb-50">
-                      <div className="img">
-                        <Link to={`/shop/${product.id}`}>
-                          <img src={product.img} alt={product.name} />
-                        </Link>
-                        <a href="#0" className="add-cart">
-                          اضافه به سبد خرید
-                        </a>
-                      </div>
-                      <div className="cont">
-                        <div className="rate">
-                          {Array(product.rating)
-                            .fill()
-                            .map((_, i) => (
-                              <i key={i} className="fas fa-star"></i>
-                            ))}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1, y: -50 }}
+                      transition={{ duration: 0.8, y: 0 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="item mb-50">
+                        <div className="img">
+                          <Link to={`/shop/${product.id}`}>
+                            <img src={product.img} alt={product.name} />
+                          </Link>
+                          <a href="#0" className="add-cart">
+                            اضافه به سبد خرید
+                          </a>
                         </div>
-                        <Link to={`/shop/${product.id}`}>
-                          <h6>{product.name}</h6>
-                          <h5>{product.price.toLocaleString()} تومان</h5>
-                        </Link>
+                        <div className="cont">
+                          <div className="rate">
+                            {Array(product.rating)
+                              .fill()
+                              .map((_, i) => (
+                                <i key={i} className="fas fa-star"></i>
+                              ))}
+                          </div>
+                          <Link to={`/shop/${product.id}`}>
+                            <h6>{product.name}</h6>
+                            <h5>{product.price.toLocaleString()} تومان</h5>
+                          </Link>
+                        </div>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 ))}
 

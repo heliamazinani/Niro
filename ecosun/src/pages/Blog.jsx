@@ -1,14 +1,5 @@
 import Navbar from "../components/Navbar";
-import Slider from "../components/Slider.jsx";
-import AAbout from "../components/AAbout.jsx";
-import Loader from "../components/Loader.jsx";
-import Spin from "../components/Spin.jsx";
-import Services from "../components/Services.jsx";
-import Portfolio from "../components/Portfolio.jsx";
-import Numbers from "../components/Numbers.jsx";
-import Process from "../components/Process.jsx";
-import Block from "../components/Block.jsx";
-import Why from "../components/Why.jsx";
+import React, { useEffect, useState } from "react";
 import TeamS from "../components/TeamS.jsx";
 import Footer from "../components/Footer.jsx";
 import ASlider from "../components/ASlider.jsx";
@@ -18,7 +9,18 @@ import { Link } from "react-router-dom";
 import postsData from "../data/posts.json";
 
 function Blog() {
-  const posts = postsData.posts;
+      const [posts, setPosts] = useState([]);
+
+      useEffect(() => {
+        // Load from localStorage first, or fallback to JSON file
+        const savedPosts = JSON.parse(localStorage.getItem("posts"));
+        setPosts(savedPosts || postsData.posts);
+      }, []);
+
+      // Save changes to localStorage whenever posts update
+      useEffect(() => {
+        localStorage.setItem("posts", JSON.stringify(posts));
+      }, [posts]);
 
   return (
     <>
@@ -38,13 +40,7 @@ function Blog() {
                       title={item.title}
                     />
                   ))}
-                  <BlogTitle
-                    
-                    date="1233"
-                   
-                    link="/add"
-                    title="مقاله جدید"
-                  />
+                 
                 </div>
               </div>
             </section>
