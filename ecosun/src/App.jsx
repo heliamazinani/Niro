@@ -15,6 +15,8 @@ import Calc from "./pages/Calc";
 import MyInfo from "./pages/MyInfo";
 import Shop from "./pages/Shop";
 import AdminEssayEditor from "./pages/AdminEssayEditor";
+import AdminProductEditor from "./pages/AdminProductEditor";
+import AdminInstaEditor from "./pages/AdminInstaEditor"
 import SingleShop from "./pages/SingleShop";
 import ScrollToTop from "./components/ScrolltoTopButton";
 import Dashboard from "./pages/Dashboard";
@@ -50,8 +52,22 @@ function App() {
                 <Route path="/shop/:id" element={<SingleShop />}></Route>
                 <Route path="/dashboard" element={<Dashboard />}></Route>
                 <Route path="/add" element={<AdminEssayEditor />}></Route>
-                <Route path="/editessay/:id" element={<AdminEssayEditor />}></Route>
+                <Route
+                  path="/addproduct"
+                  element={<AdminProductEditor />}
+                ></Route>
+                <Route
+                  path="/editproduct/:id"
+                  element={<AdminProductEditor />}
+                ></Route>
+                <Route
+                  path="/editessay/:id"
+                  element={<AdminEssayEditor />}
+                ></Route>
                 <Route path="/posts/:id" element={<SingleBlog></SingleBlog>} />
+                <Route path="/insta/add" element={<AdminInstaEditor />} />
+                <Route path="/insta/edit/:id" element={<AdminInstaEditor />} />
+
               </Routes>
             </>
           )}

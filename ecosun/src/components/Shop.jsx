@@ -7,10 +7,15 @@ const Shop = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [priceRange, setPriceRange] = useState([0, 1000000]); // min & max price
   const [sortOption, setSortOption] = useState("default");
+      useEffect(() => {
+        // Load from localStorage first, or fallback to JSON file
+    const savedProducts = JSON.parse(localStorage.getItem("products"));
+    setProducts(savedProducts || shopData.products);
+      }, []);
 
-  useEffect(() => {
-    setProducts(shopData.products);
-  }, []);
+    useEffect(() => {
+      localStorage.setItem("products", JSON.stringify(products));
+    }, [products]);
 
   const filteredProducts = products
     .filter((p) => p.name.includes(searchTerm))

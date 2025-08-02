@@ -1,45 +1,24 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { motion } from "framer-motion";
 import "swiper/css";
 import "swiper/css/navigation";
-import p1 from "/posts/p1.jpg";
-import p2 from "/posts/p2.jpg";
-import p3 from "/posts/p3.jpg";
-import p4 from "/posts/p4.jpg";
-import p5 from "/posts/p5.jpg";
-import p6 from "/posts/p6.jpg";
+
+import insta from "../data/insta.json";
 
 const IS = () => {
+  const [instaposts, setPosts] = useState([]);
 
-  const slidesData = [
-    {
-      image: p1,
-      link: "https://www.instagram.com/reel/DMCmGeVsQs6/?igsh=MTNlbXN3c2FxODZoYg==",
-    },
-    {
-      image: p2,
-      link: "https://www.instagram.com/reel/DL_4MsyMjrk/?igsh=MWM2bHQ1ejFwcHNyMw==",
-    },
-    {
-      image: p3,
-      link: "https://www.instagram.com/reel/DMFZRCEtuA4/?igsh=YnF3b2I4cTR5ejNk",
-    },
-    {
-      image: p4,
-      link: "https://www.instagram.com/reel/DMKmIxVtR01/?igsh=MXk0ZWlwMnZxNHl0",
-    },
-    {
-      image: p5,
-      link: "https://www.instagram.com/reel/DMM_F21Nsdt/?igsh=MTJ5anBnZHRxZ2ZvZA==",
-    },
-    {
-      image: p6,
-      link: "https://www.instagram.com/reel/DMPVXzCtbsr/?igsh=aGQwbDI1ZzZzOGM2",
-    },
-  ];
+  useEffect(() => {
+    // Load from localStorage first, or fallback to JSON file
+    const savedProducts = JSON.parse(localStorage.getItem("instaposts"));
+    setPosts(savedProducts || insta.posts);
+  }, []);
 
+  useEffect(() => {
+    localStorage.setItem("instaposts", JSON.stringify(instaposts));
+  }, [instaposts]);
 
   return (
     <section className="work-carsouel section-padding position-re o-hidden">
@@ -121,9 +100,9 @@ const IS = () => {
             prevEl: ".swiper-button-prev",
           }}
         >
-          {slidesData.map((slide, index) => (
+          {instaposts.map((post) => (
             <SwiperSlide
-              key={index}
+              key={post.id}
               style={{
                 display: "flex", // Flex container
                 justifyContent: "center", // Center horizontally
@@ -138,7 +117,7 @@ const IS = () => {
               >
                 <a
                   className="item "
-                  href={slide.link}
+                  href={post.link}
                   style={{
                     display: "block",
                     width: "100%",
@@ -148,8 +127,8 @@ const IS = () => {
                 >
                   <div className="img ">
                     <img
-                      src={slide.image}
-                      alt={`slide-${index}`}
+                      src={post.img}
+                      alt={`slide-${post.id}`}
                       style={{
                         width: "100%",
                         height: "50%",
