@@ -2,35 +2,33 @@
 import DashboardLayout from "./DashboardLayout";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import List from "../components/List.jsx";
 import React, { useEffect, useState } from "react";
-import postsData from "../data/posts.json"; // your JSON file
 
 const ProductManegment = () => {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
   const handleDelete = (id) => {
-    setPosts(products.filter((products) => products.id !== id));
+    setProducts(products.filter((products) => products.id !== id));
   };
   useEffect(() => {
-    const savedPosts = JSON.parse(localStorage.getItem("posts"));
-    if (savedPosts && savedPosts.length > 0) {
-      setPosts(savedPosts);
+    const savedProducts = JSON.parse(localStorage.getItem("products"));
+    if (savedProducts && savedProducts.length > 0) {
+      setProducts(savedProducts);
     } else {
-      setPosts(postsData.posts);
+      setProducts(shopData.products);
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("posts", JSON.stringify(posts));
-  }, [posts]);
+    localStorage.setItem("products", JSON.stringify(products));
+  }, [products]);
 
   // Calculate indexes for pagination
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-  const totalPages = Math.ceil(posts.length / postsPerPage);
+  const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost);
+  const totalPages = Math.ceil(products.length / postsPerPage);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -41,7 +39,7 @@ const ProductManegment = () => {
   };
   return (
     <DashboardLayout>
-      <div className="container" style={{ marginTop: "200px" }}>
+      <div className="container" style={{ marginTop: "100px" }}>
         <div className="row">
           <div
             className="item  m-10 pb-5 "
@@ -51,7 +49,7 @@ const ProductManegment = () => {
             }}
           >
             <h1>مدیریت مقالات</h1>
-            <Link to="/add">
+            <Link to="/addproduct">
               <h6
                 style={{
                   cursor: "pointer",
@@ -61,15 +59,15 @@ const ProductManegment = () => {
                   padding: "15px", // Adjust the width and style as needed
                 }}
               >
-                مقاله جدید +
+                محصول جدید +
               </h6>
             </Link>
           </div>
-          {posts.length === 0 ? (
-            <p>هیچ مقاله‌ای وجود ندارد</p>
+          {products.length === 0 ? (
+            <p>هیچ محصولی وجود ندارد</p>
           ) : (
-            currentPosts.map((post) => (
-              <div className="col-lg-4" key={post.id}>
+            currentPosts.map((product) => (
+              <div className="col-lg-4" key={product.id}>
                 <motion.div
                   initial={{ opacity: 0, y: 100 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -86,7 +84,7 @@ const ProductManegment = () => {
                         }}
                       >
                         <img
-                          src={post.img}
+                          src={product.img}
                           alt=""
                           style={{
                             width: "100%",
@@ -97,7 +95,7 @@ const ProductManegment = () => {
                         />
 
                         <Link
-                          to={post.link}
+                          to={product.link}
                           className="main-colorbg3"
                           onClick={scrollToTop}
                         >
@@ -117,25 +115,22 @@ const ProductManegment = () => {
                         </Link>
                       </div>
                       <h6>
-                        <Link to={post.link} onClick={scrollToTop}>
-                          {post.title}
+                        <Link to={product.link} onClick={scrollToTop}>
+                          {product.name}
                         </Link>
                       </h6>
                       <div className="info mt-20 mb-20 pt-20 bord-thin-top">
                         <span className="row">
                           <div className="col-6 text-center">
                             {" "}
-                            <Link
-                              to={post.link}
-                              onClick={() => handleDelete(post.id)}
-                            >
+                            <Link onClick={() => handleDelete(product.id)}>
                               حذف
                             </Link>
                           </div>
                           <div className="col-6 text-center">
                             {" "}
                             <Link
-                              to={`/editessay/${post.id}`}
+                              to={`/editproduct/${product.id}`}
                               onClick={scrollToTop}
                             >
                               ویرایش
@@ -153,7 +148,7 @@ const ProductManegment = () => {
         </div>
 
         {/* Pagination Controls */}
-        {posts.length > postsPerPage && (
+        {products.length > postsPerPage && (
           <div
             style={{
               display: "flex",

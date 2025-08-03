@@ -40,7 +40,7 @@ const EssayManagment = () => {
   };
   return (
     <DashboardLayout>
-      <div className="container" style={{ marginTop: "200px" }}>
+      <div className="container" style={{ marginTop: "100px" }}>
         <div className="row">
           <div
             className="item  m-10 pb-5 "
