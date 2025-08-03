@@ -7,7 +7,7 @@ import postsData from "../data/posts.json"; // your JSON file
 import shopData from "../data/shopData.json"; // your JSON file
 import instaPost from "../data/insta.json"; // your JSON file
 import { Link } from "react-router-dom";
-
+import DashboardSidebar from "../components/DashboardSidebar.jsx";
 function Dashboard() {
   const [posts, setPosts] = useState([]);
   const [products, setProducts] = useState([]);

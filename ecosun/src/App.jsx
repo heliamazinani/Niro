@@ -18,8 +18,9 @@ import AdminEssayEditor from "./pages/AdminEssayEditor";
 import AdminProductEditor from "./pages/AdminProductEditor";
 import AdminInstaEditor from "./pages/AdminInstaEditor"
 import SingleShop from "./pages/SingleShop";
+import Dash from "./pages/Dash"
 import ScrollToTop from "./components/ScrolltoTopButton";
-import Dashboard from "./pages/Dashboard";
+import EssayManagment from "./pages/EssayManagment";
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -50,7 +51,11 @@ function App() {
                 <Route path="/info" element={<MyInfo />}></Route>
                 <Route path="/shop" element={<Shop />}></Route>
                 <Route path="/shop/:id" element={<SingleShop />}></Route>
-                <Route path="/dashboard" element={<Dashboard />}></Route>
+                <Route path="/dashboard" element={<Dash />}></Route>
+                <Route
+                  path="/dashboard/essays"
+                  element={<EssayManagment />}
+                ></Route>
                 <Route path="/add" element={<AdminEssayEditor />}></Route>
                 <Route
                   path="/addproduct"
@@ -67,7 +72,6 @@ function App() {
                 <Route path="/posts/:id" element={<SingleBlog></SingleBlog>} />
                 <Route path="/insta/add" element={<AdminInstaEditor />} />
                 <Route path="/insta/edit/:id" element={<AdminInstaEditor />} />
-
               </Routes>
             </>
           )}

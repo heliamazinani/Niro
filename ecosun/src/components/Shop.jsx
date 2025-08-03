@@ -146,13 +146,7 @@ const Shop = () => {
                           </a>
                         </div>
                         <div className="cont">
-                          <div className="rate">
-                            {Array(product.rating)
-                              .fill()
-                              .map((_, i) => (
-                                <i key={i} className="fas fa-star"></i>
-                              ))}
-                          </div>
+
                           <Link to={`/shop/${product.id}`}>
                             <h6>{product.name}</h6>
                             <h5>{product.price.toLocaleString()} تومان</h5>
