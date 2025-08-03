@@ -2,7 +2,7 @@
 import Footer from "../components/Footer.jsx";
 import Navbar from "../components/Navbar";
 import Slider from "../components/Slider.jsx";
-import AAbout from "../components/AAbout.jsx";
+
 import WA from '/whatsapp.jpg'
 import Inst from "/insta.jpg";
 import { motion } from "framer-motion";

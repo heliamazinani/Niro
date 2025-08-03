@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import Slider from "../components/Slider.jsx";
-import AAbout from "../components/AAbout.jsx";
+
 import Loader from "../components/Loader.jsx";
 import Spin from "../components/Spin.jsx";
 import Services from "../components/Services.jsx";
