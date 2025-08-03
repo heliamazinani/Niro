@@ -22,6 +22,8 @@ import Dash from "./pages/Dash"
 
 import EssayManagment from "./pages/EssayManagment";
 import ProductManegment from "./pages/ProductManegment";
+import InstaManegment from "./pages/InstaManegment";
+
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -61,6 +63,10 @@ function App() {
                 <Route
                   path="/dashboard/products"
                   element={<ProductManegment />}
+                ></Route>
+                <Route
+                  path="/dashboard/insta"
+                  element={<InstaManegment />}
                 ></Route>
                 <Route path="/add" element={<AdminEssayEditor />}></Route>
                 <Route

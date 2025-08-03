@@ -22,6 +22,7 @@ const DashboardSidebar = ({ onToggle }) => {
   }, []);
 
   const menuItems = [
+    { name: "خانه  ", path: "/" },
     { name: "مدیریت مقالات", path: "/dashboard/essays" },
     { name: "مدیریت محصولات", path: "/dashboard/products" },
     { name: "مدیریت پست‌های اینستاگرام", path: "/dashboard/insta" },
@@ -52,9 +53,10 @@ const DashboardSidebar = ({ onToggle }) => {
         style={{
           width: isOpen ? "250px" : "0px",
           height: "100vh",
-          background: "#1e1e2d",
+          background: "#111",
           color: "#fff",
           position: "fixed",
+          borderRight: "1px solid gray ",
           top: 0,
           left: 0,
           overflowX: "hidden",

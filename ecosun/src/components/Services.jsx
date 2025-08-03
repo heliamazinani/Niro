@@ -15,12 +15,12 @@ const Services = () => {
   const p1 = theme === "dark" ? darkp1 : lightp1;
   const p2 = theme === "dark" ? darkp2 : lightp2;
   return (
-    <section class="serv-box section-padding">
-      <div class="container">
-        <div class="sec-lg-head mb-80">
-          <div class="row">
-            <div class="col-lg-8">
-              <div class="position-re">
+    <section className="serv-box section-padding">
+      <div className="container">
+        <div className="sec-lg-head mb-80">
+          <div className="row">
+            <div className="col-lg-8">
+              <div className="position-re">
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -29,11 +29,11 @@ const Services = () => {
                 >
                   <h6 className="dot-titl mb-15  "> فضای مجازی</h6>
                 </motion.div>
-                <h2 class="fz-60 fw-700">خدمات ما</h2>
+                <h2 className="fz-60 fw-700">خدمات ما</h2>
               </div>
             </div>
-            <div class="col-lg-3 d-flex align-items-center">
-              <div class="text">
+            <div className="col-lg-3 d-flex align-items-center">
+              <div className="text">
                 <p>
                   شرکت خدمات انرژی صنعت نیرو با بیش از پنج دهه تجربه مدیران تخصص
                   و توانمندی‌های برتر خود بهترین خدمات را ارائه می ‌دهد.
@@ -42,32 +42,32 @@ const Services = () => {
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-3">
+        <div className="row">
+          <div className="col-lg-3">
             <motion.div
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div class="serv-item md-mb50 radius-5  ">
-                <div class="icon-img-50 mb-40">
+              <div className="serv-item md-mb50 radius-5  ">
+                <div className="icon-img-50 mb-40">
                   <img src={p0} alt="" />
                 </div>
 
-                <h6 class="mb-15"> نیروگاه‌های خورشیدی </h6>
-                <p class="fz-14">
+                <h6 className="mb-15"> نیروگاه‌های خورشیدی </h6>
+                <p className="fz-14">
                   نصب راه اندازی و بهره برداری نیروگاه‌های خورشیدی
                 </p>
-                <div class="underline">
-                  <a class="mt-30 ls1 fz-12 text-u">
+                <div className="underline">
+                  <a className="mt-30 ls1 fz-12 text-u">
                     بیشتر بخوانید
                     <svg
                       width="18"
                       height="18"
                       viewBox="0 0 18 18"
                       fill="none"
-                      class="mirror"
+                      className="mirror"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
@@ -81,31 +81,31 @@ const Services = () => {
             </motion.div>
           </div>
 
-          <div class="col-lg-3">
+          <div className="col-lg-3">
             <motion.div
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div class="serv-item md-mb50 radius-5  ">
-                <div class="icon-img-50 mb-40">
+              <div className="serv-item md-mb50 radius-5  ">
+                <div className="icon-img-50 mb-40">
                   <img src={p1} alt="" />
                 </div>
 
-                <h6 class="mb-15"> فیبر نوری </h6>
-                <p class="fz-14">
+                <h6 className="mb-15"> فیبر نوری </h6>
+                <p className="fz-14">
                   مشاوره، طراحی و اجرا FTTX – FTTO FTTH – FTTC - FTTB
                 </p>
-                <div class="underline">
-                  <a class="mt-30 ls1 fz-12 text-u">
+                <div className="underline">
+                  <a className="mt-30 ls1 fz-12 text-u">
                     بیشتر بخوانید
                     <svg
                       width="18"
                       height="18"
                       viewBox="0 0 18 18"
                       fill="none"
-                      class="mirror"
+                      className="mirror"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
@@ -119,31 +119,31 @@ const Services = () => {
             </motion.div>
           </div>
 
-          <div class="col-lg-3">
+          <div className="col-lg-3">
             <motion.div
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div class="serv-item md-mb50 radius-5 ">
-                <div class="icon-img-50 mb-40">
+              <div className="serv-item md-mb50 radius-5 ">
+                <div className="icon-img-50 mb-40">
                   <img src={p2} alt="" />
                 </div>
 
-                <h6 class="mb-15"> تابلو‌های برق صنعتی </h6>
-                <p class="fz-14">
+                <h6 className="mb-15"> تابلو‌های برق صنعتی </h6>
+                <p className="fz-14">
                   طراحی ساخت و نصب و راه اندازی انواع تابلو‌های برق صنعتی
                 </p>
-                <div class="underline">
-                  <a class="mt-30 ls1 fz-12 text-u">
+                <div className="underline">
+                  <a className="mt-30 ls1 fz-12 text-u">
                     بیشتر بخوانید
                     <svg
                       width="18"
                       height="18"
                       viewBox="0 0 18 18"
                       fill="none"
-                      class="mirror"
+                      className="mirror"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
@@ -157,31 +157,31 @@ const Services = () => {
             </motion.div>
           </div>
 
-          <div class="col-lg-3">
+          <div className="col-lg-3">
             <motion.div
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div class="serv-item md-mb50 radius-5  ">
-                <div class="icon-img-50 mb-40">
+              <div className="serv-item md-mb50 radius-5  ">
+                <div className="icon-img-50 mb-40">
                   <img src={p0} alt="" />
                 </div>
 
-                <h6 class="mb-15">تاسیسات الکتریکی </h6>
-                <p class="fz-14">
+                <h6 className="mb-15">تاسیسات الکتریکی </h6>
+                <p className="fz-14">
                   طراحی نظارت و اجرای در کارخانجات و ساختمانهای تجاری و هتل
                 </p>
-                <div class="underline">
-                  <a class="mt-30 ls1 fz-12 text-u">
+                <div className="underline">
+                  <a className="mt-30 ls1 fz-12 text-u">
                     بیشتر بخوانید
                     <svg
                       width="18"
                       height="18"
                       viewBox="0 0 18 18"
                       fill="none"
-                      class="mirror"
+                      className="mirror"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path

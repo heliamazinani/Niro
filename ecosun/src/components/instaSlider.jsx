@@ -137,15 +137,15 @@ const IS = () => {
 
                     <div className="cont">
                       <span className="mb-5">
-                        <div class="underline">
-                          <a class=" ls1 fz-12 text-u">
+                        <div className="underline">
+                          <a className=" ls1 fz-12 text-u">
                             اطلاعات بیشتر
                             <svg
                               width="18"
                               height="18"
                               viewBox="0 0 18 18"
                               fill="none"
-                              class="mirror"
+                              className="mirror"
                               xmlns="http://www.w3.org/2000/svg"
                             >
                               <path

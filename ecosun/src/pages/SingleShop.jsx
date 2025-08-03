@@ -48,74 +48,74 @@ const SingleShop = () => {
                       style={{ width: "100%", borderRadius: "8px" }}
                     />
                   </div>
-                  <div class="col-lg-6 offset-lg-1">
-                    <div class="product-info">
-                      <div class="top-info">
-                        <h6 class="main-color4">
+                  <div className="col-lg-6 offset-lg-1">
+                    <div className="product-info">
+                      <div className="top-info">
+                        <h6 className="main-color4">
                           {" "}
                           {product.price.toLocaleString()} تومان
                         </h6>
-                        <div class="d-flex align-items-center">
+                        <div className="d-flex align-items-center">
                           <div>
-                            <h4 class="line-height-1"> {product.name}</h4>
+                            <h4 className="line-height-1"> {product.name}</h4>
                           </div>
-                          <div class="ml-auto">
-                            <div class="d-flex align-items-center"></div>
+                          <div className="ml-auto">
+                            <div className="d-flex align-items-center"></div>
                           </div>
                         </div>
-                        <div class="text mt-30">
+                        <div className="text mt-30">
                           <p>{product.description}</p>
                         </div>
-                        <div class="dot-list mt-30">
-                          <ul class="rest">
-                            <li class="mb-15">برج های قابل تنظیم در هود</li>
+                        <div className="dot-list mt-30">
+                          <ul className="rest">
+                            <li className="mb-15">برج های قابل تنظیم در هود</li>
                             <li>جیب های جیب در کمر</li>
                           </ul>
                         </div>
                       </div>
-                      <div class="prod-order pt-30 pb-30 mt-50 bord-thin-top bord-thin-bottom">
-                        <div class="d-flex align-items-center">
+                      <div className="prod-order pt-30 pb-30 mt-50 bord-thin-top bord-thin-bottom">
+                        <div className="d-flex align-items-center">
                           <div>
-                            <div class="counter">
+                            <div className="counter">
                               <span
-                                class="down"
+                                className="down"
                                 onClick="decreaseCount(event, this)"
                               >
                                 -
                               </span>
                               <input type="text" value="1" />
                               <span
-                                class="up"
+                                className="up"
                                 onClick="increaseCount(event, this)"
                               >
                                 +
                               </span>
                             </div>
                           </div>
-                          <div class="ml-auto">
-                            <a href="#0" class="butn butn-md butn-bord">
-                              <span class="text-u fz-13">
+                          <div className="ml-auto">
+                            <a href="#0" className="butn butn-md butn-bord">
+                              <span className="text-u fz-13">
                                 اضافه به سبد خرید
                               </span>
                             </a>
                           </div>
                         </div>
                       </div>
-                      <div class="mt-40">
-                        <ul class="rest">
-                          <li class="d-flex align-items-center mb-15">
+                      <div className="mt-40">
+                        <ul className="rest">
+                          <li className="d-flex align-items-center mb-15">
                             <strong>کد محصول :</strong>
-                            <span class="ml-10">8552635</span>
+                            <span className="ml-10">8552635</span>
                           </li>
-                          <li class="d-flex align-items-center mb-15">
+                          <li className="d-flex align-items-center mb-15">
                             <strong>دسته بندی :</strong>
-                            <span class="ml-10">
+                            <span className="ml-10">
                               <a href="#0">لباس</a>
                             </span>
                           </li>
-                          <li class="d-flex align-items-center">
+                          <li className="d-flex align-items-center">
                             <strong>تگ :</strong>
-                            <span class="ml-10">
+                            <span className="ml-10">
                               <a href="#0">مردانه</a> , <a href="#0">زنانه</a> ,
                               <a href="#0">ژاکت</a>
                             </span>
@@ -126,19 +126,19 @@ const SingleShop = () => {
                   </div>
                 </div>
 
-                <div class="row justify-content-center mt-100">
-                  <div class="col-lg-11">
-                    <div class="overview" id="tabs">
-                      <ul class="rest tab-links mb-30">
-                        <li class="item-link current" data-tab="tabs-1">
+                <div className="row justify-content-center mt-100">
+                  <div className="col-lg-11">
+                    <div className="overview" id="tabs">
+                      <ul className="rest tab-links mb-30">
+                        <li className="item-link current" data-tab="tabs-1">
                           <h6>توضیحات</h6>
                         </li>
                       </ul>
-                      <div class="tab-cont">
-                        <div class="tab-content current" id="tabs-1">
-                          <div class="item">
-                            <div class="text">
-                              <p class="mb-15">
+                      <div className="tab-cont">
+                        <div className="tab-content current" id="tabs-1">
+                          <div className="item">
+                            <div className="text">
+                              <p className="mb-15">
                                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
                                 صنعت چاپ، و با استفاده از طراحان گرافیک است،
                                 چاپگرها و متون بلکه روزنامه و مجله در ستون و
@@ -165,9 +165,9 @@ const SingleShop = () => {
                 </div>
 
                 {/* Related Products */}
-                <div class="row justify-content-center mt-100">
-                  <div class="col-lg-11">
-                    <div class="main-shop">
+                <div className="row justify-content-center mt-100">
+                  <div className="col-lg-11">
+                    <div className="main-shop">
                       {relatedProducts.length > 0 && (
                         <div className="shop-products">
                           <div>
@@ -175,16 +175,16 @@ const SingleShop = () => {
                           </div>
                           <div className="row">
                             {relatedProducts.map((item) => (
-                              <div class="col-lg-3 col-md-6">
+                              <div className="col-lg-3 col-md-6">
                                 <div key={item.id}>
                                   <div className="item mt-50">
-                                    <div class="img">
+                                    <div className="img">
                                       <img
                                         src={`/${item.img}`}
                                         alt={item.name}
                                         style={{ width: "100%" }}
                                       />
-                                      <a href="#0" class="add-cart">
+                                      <a href="#0" className="add-cart">
                                         اضافه به سبد خرید
                                       </a>
                                     </div>

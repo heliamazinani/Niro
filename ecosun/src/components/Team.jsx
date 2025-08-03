@@ -438,15 +438,15 @@ const Team = () => {
     <>
       <section className="team section-padding">
         <div className="container ">
-          {/* <div class="sec-head mb-80">
-            <div class="row md-marg">
-              <div class="col-lg-8">
-                <div class="position-re">
-                  <h2 class="fz-60 fw-700">اعضای هیئت مدیره </h2>
+          {/* <div className="sec-head mb-80">
+            <div className="row md-marg">
+              <div className="col-lg-8">
+                <div className="position-re">
+                  <h2 className="fz-60 fw-700">اعضای هیئت مدیره </h2>
                 </div>
               </div>
-              <div class="col-lg-4 d-flex align-items-center">
-                <div class="text">
+              <div className="col-lg-4 d-flex align-items-center">
+                <div className="text">
                   <p>
                     .شرکت خدمات انرژی صنعت نیرو توس با بیش از پنج دهه تجربه
                     مدیران تخصص و توانمندی‌های برتر خود بهترین خدمات را ارائه می
@@ -515,17 +515,17 @@ const Team = () => {
 
                           <span className="main-color3">{faq.rank}</span>
                           <div
-                            class="underline"
+                            className="underline"
                             onClick={() => openModal(index)}
                           >
-                            <a class="mt-30 ls1 fz-12 text-u">
+                            <a className="mt-30 ls1 fz-12 text-u">
                               بیشتر بخوانید
                               <svg
                                 width="18"
                                 height="18"
                                 viewBox="0 0 18 18"
                                 fill="none"
-                                class="mirror"
+                                className="mirror"
                                 xmlns="http://www.w3.org/2000/svg"
                               >
                                 <path

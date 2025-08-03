@@ -28,9 +28,9 @@ function Blog() {
         <Navbar />
         <div id="smooth-content">
           <main className="main-bg">
-            <section class="blog-modern section-padding sub-bg">
-              <div class="container">
-                <div class="row">
+            <section className="blog-modern section-padding sub-bg">
+              <div className="container">
+                <div className="row">
                   {posts.map((item) => (
                     <BlogTitle
                       key={item.id}

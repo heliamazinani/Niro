@@ -21,12 +21,12 @@ function Calc() {
                   <div className="controls row">
                     <div className="col-6">
                       <div className="form-group mb-30">
-                        <span class="arrow"></span>
+                        <span className="arrow"></span>
 
                         <input
                           type="number"
                           id="temperatureInput"
-                          class="input"
+                          className="input"
                           placeholder="Enter value"
                         />
                       </div>
@@ -34,7 +34,7 @@ function Calc() {
 
                     <div className="col-6">
                       <div className="form-group mb-30">
-                        <select id="fromTemperatureUnit" class="unit-select">
+                        <select id="fromTemperatureUnit" className="unit-select">
                           <option value="celsius">Celsius</option>
                           <option value="kelvin">Kelvin</option>
                           <option value="fahrenheit">Fahrenheit</option>
@@ -45,14 +45,14 @@ function Calc() {
                   <div className="controls row">
                     <div className="col-6">
                       <div className="form-group mb-30">
-                        <div class="result">
+                        <div className="result">
                           <p id="areaResult">نتیجه</p>
                         </div>
                       </div>
                     </div>
                     <div className="col-6">
                       <div className="form-group mb-30">
-                        <select id="toTemperatureUnit" class="unit-select">
+                        <select id="toTemperatureUnit" className="unit-select">
                           <option value="celsius">Celsius</option>
                           <option value="kelvin">Kelvin</option>
                           <option value="fahrenheit">Fahrenheit</option>
@@ -63,13 +63,13 @@ function Calc() {
 
                   <button
                     id="temperatureConvertBtn"
-                    class="butn butn-md butn-bg main-colorbg3 text-dark"
+                    className="butn butn-md butn-bg main-colorbg3 text-dark"
                   >
                     محاسبه کن
                   </button>
                   {/* <div className="col-12">
                   <div className="form-group mb-30">
-                    <select id="form_name" class="select-category">
+                    <select id="form_name" className="select-category">
                       <option value="">- Select -</option>
                       <option value="temperature">Temperature</option>
                       <option value="area">Area</option>
@@ -79,130 +79,130 @@ function Calc() {
                     </select>
                   </div>
                 </div> */}
-                  {/* <div class="container">
-                      <div class="conversion" id="temperature">
-                        <h2 class="category-title">Temperature</h2>
+                  {/* <div className="container">
+                      <div className="conversion" id="temperature">
+                        <h2 className="category-title">Temperature</h2>
                         <input
                           type="number"
                           id="temperatureInput"
-                          class="input"
+                          className="input"
                           placeholder="Enter value"
                         />
-                        <select id="fromTemperatureUnit" class="unit-select">
+                        <select id="fromTemperatureUnit" className="unit-select">
                           <option value="celsius">Celsius</option>
                           <option value="kelvin">Kelvin</option>
                           <option value="fahrenheit">Fahrenheit</option>
                         </select>
-                        <span class="arrow"></span>
-                        <select id="toTemperatureUnit" class="unit-select">
+                        <span className="arrow"></span>
+                        <select id="toTemperatureUnit" className="unit-select">
                           <option value="celsius">Celsius</option>
                           <option value="kelvin">Kelvin</option>
                           <option value="fahrenheit">Fahrenheit</option>
                         </select>
                         <button
                           id="temperatureConvertBtn"
-                          class="butn butn-md butn-bg main-colorbg3 text-dark"
+                          className="butn butn-md butn-bg main-colorbg3 text-dark"
                         >
                           محاسبه کن
                         </button>
-                        <div class="result">
+                        <div className="result">
                           <p id="temperatureResult">نتیجه</p>
                         </div>
                       </div>
-                      <div class="conversion" id="area">
-                        <h2 class="category-title">Area</h2>
+                      <div className="conversion" id="area">
+                        <h2 className="category-title">Area</h2>
                         <input
                           type="number"
                           id="areaInput"
-                          class="input"
+                          className="input"
                           placeholder="Enter value"
                         />
-                        <select id="fromAreaUnit" class="unit-select">
+                        <select id="fromAreaUnit" className="unit-select">
                           <option value="sqMeter">Square Meter</option>
                           <option value="sqKilometer">Square Kilometer</option>
                         </select>
-                        <span class="arrow"></span>
-                        <select id="toAreaUnit" class="unit-select">
+                        <span className="arrow"></span>
+                        <select id="toAreaUnit" className="unit-select">
                           <option value="sqMeter">Square Meter</option>
                           <option value="sqKilometer">Square Kilometer</option>
                         </select>
-                        <button id="areaConvertBtn" class="convert-button">
+                        <button id="areaConvertBtn" className="convert-button">
                           Convert
                         </button>
-                        <div class="result">
+                        <div className="result">
                           <p id="areaResult">Result will be displayed here</p>
                         </div>
                       </div>
                     </div>
-                    <div class="conversion" id="weight">
-                      <h2 class="category-title">Weight</h2>
+                    <div className="conversion" id="weight">
+                      <h2 className="category-title">Weight</h2>
                       <input
                         type="number"
                         id="weightInput"
-                        class="input"
+                        className="input"
                         placeholder="Enter value"
                       />
-                      <select id="fromWeightUnit" class="unit-select">
+                      <select id="fromWeightUnit" className="unit-select">
                         <option value="gram">Gram</option>
                         <option value="kilogram">Kilogram</option>
                       </select>
-                      <span class="arrow"></span>
-                      <select id="toWeightUnit" class="unit-select">
+                      <span className="arrow"></span>
+                      <select id="toWeightUnit" className="unit-select">
                         <option value="gram">Gram</option>
                         <option value="kilogram">Kilogram</option>
                       </select>
-                      <button id="weightConvertBtn" class="convert-button">
+                      <button id="weightConvertBtn" className="convert-button">
                         Convert
                       </button>
-                      <div class="result">
+                      <div className="result">
                         <p id="weightResult">Result will be displayed here</p>
                       </div>
                     </div>
-                    <div class="conversion" id="length">
-                      <h2 class="category-title">Length</h2>
+                    <div className="conversion" id="length">
+                      <h2 className="category-title">Length</h2>
                       <input
                         type="number"
                         id="lengthInput"
-                        class="input"
+                        className="input"
                         placeholder="Enter value"
                       />
-                      <select id="fromLengthUnit" class="unit-select">
+                      <select id="fromLengthUnit" className="unit-select">
                         <option value="meter">Meter</option>
                         <option value="kilometer">Kilometer</option>
                       </select>
-                      <span class="arrow"></span>
-                      <select id="toLengthUnit" class="unit-select">
+                      <span className="arrow"></span>
+                      <select id="toLengthUnit" className="unit-select">
                         <option value="meter">Meter</option>
                         <option value="kilometer">Kilometer</option>
                       </select>
-                      <button id="lengthConvertBtn" class="convert-button">
+                      <button id="lengthConvertBtn" className="convert-button">
                         Convert
                       </button>
-                      <div class="result">
+                      <div className="result">
                         <p id="lengthResult">Result will be displayed here</p>
                       </div>
                     </div>
-                    <div class="conversion" id="time">
-                      <h2 class="category-title">Time</h2>
+                    <div className="conversion" id="time">
+                      <h2 className="category-title">Time</h2>
                       <input
                         type="number"
                         id="timeInput"
-                        class="input"
+                        className="input"
                         placeholder="Enter value"
                       />
-                      <select id="fromTimeUnit" class="unit-select">
+                      <select id="fromTimeUnit" className="unit-select">
                         <option value="second">Second</option>
                         <option value="minute">Minute</option>
                       </select>
-                      <span class="arrow"></span>
-                      <select id="toTimeUnit" class="unit-select">
+                      <span className="arrow"></span>
+                      <select id="toTimeUnit" className="unit-select">
                         <option value="second">Second</option>
                         <option value="minute">Minute</option>
                       </select>
-                      <button id="timeConvertBtn" class="convert-button">
+                      <button id="timeConvertBtn" className="convert-button">
                         Convert
                       </button>
-                      <div class="result">
+                      <div className="result">
                         <p id="timeResult">Result will be displayed here</p>
                       </div>
                     </div> */}

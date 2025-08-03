@@ -58,19 +58,19 @@ const handleDeleteInsta = (id) => {
         <Navbar />
         <div id="smooth-content">
           <main className="main-bg">
-            <section class="serv-box section-padding">
-              <div class="container">
-                <div class="row">
-                  <div class="col-lg-4">
+            <section className="serv-box section-padding">
+              <div className="container">
+                <div className="row">
+                  <div className="col-lg-4">
                     <motion.div
                       initial={{ opacity: 0, y: 100 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8 }}
                       viewport={{ once: true }}
                     >
-                      <div class="serv-item md-mb50 radius-5  ">
-                        <h6 class="mb-15"> مدیریت مقالات</h6>
-                        <p class="fz-14">
+                      <div className="serv-item md-mb50 radius-5  ">
+                        <h6 className="mb-15"> مدیریت مقالات</h6>
+                        <p className="fz-14">
                           <li>
                             {" "}
                             <div
@@ -91,11 +91,11 @@ const handleDeleteInsta = (id) => {
                               key={post.id}
                             >
                               {" "}
-                              <div class="row">
-                                <div class="col-lg-6">
+                              <div className="row">
+                                <div className="col-lg-6">
                                   <td>{post.title}</td>
                                 </div>
-                                <div class="col-lg-3">
+                                <div className="col-lg-3">
                                   <td>
                                     <div
                                       className="ml-20"
@@ -108,7 +108,7 @@ const handleDeleteInsta = (id) => {
                                     </div>
                                   </td>
                                 </div>
-                                <div class="col-lg-3">
+                                <div className="col-lg-3">
                                   <td>
                                     <div
                                       className="ml-20"
@@ -130,16 +130,16 @@ const handleDeleteInsta = (id) => {
                     </motion.div>
                   </div>
 
-                  <div class="col-lg-4">
+                  <div className="col-lg-4">
                     <motion.div
                       initial={{ opacity: 0, y: 100 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8 }}
                       viewport={{ once: true }}
                     >
-                      <div class="serv-item md-mb50 radius-5">
-                        <h6 class="mb-15"> مدیریت محصولات </h6>
-                        <p class="fz-14">
+                      <div className="serv-item md-mb50 radius-5">
+                        <h6 className="mb-15"> مدیریت محصولات </h6>
+                        <p className="fz-14">
                           <li>
                             {" "}
                             <div
@@ -160,11 +160,11 @@ const handleDeleteInsta = (id) => {
                               key={product.id}
                             >
                               {" "}
-                              <div class="row">
-                                <div class="col-lg-6">
+                              <div className="row">
+                                <div className="col-lg-6">
                                   <td>{product.name}</td>
                                 </div>
-                                <div class="col-lg-3">
+                                <div className="col-lg-3">
                                   <td>
                                     <div
                                       className="ml-20"
@@ -179,7 +179,7 @@ const handleDeleteInsta = (id) => {
                                     </div>
                                   </td>
                                 </div>
-                                <div class="col-lg-3">
+                                <div className="col-lg-3">
                                   <td>
                                     <div
                                       className="ml-20"
@@ -201,16 +201,16 @@ const handleDeleteInsta = (id) => {
                     </motion.div>
                   </div>
 
-                  <div class="col-lg-4">
+                  <div className="col-lg-4">
                     <motion.div
                       initial={{ opacity: 0, y: 100 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.8 }}
                       viewport={{ once: true }}
                     >
-                      <div class="serv-item md-mb50 radius-5 ">
-                        <h6 class="mb-15"> مدیریت پست ها </h6>
-                        <p class="fz-14">
+                      <div className="serv-item md-mb50 radius-5 ">
+                        <h6 className="mb-15"> مدیریت پست ها </h6>
+                        <p className="fz-14">
                           <li>
                             {" "}
                             <div
@@ -231,11 +231,11 @@ const handleDeleteInsta = (id) => {
                               key={post.id}
                             >
                               {" "}
-                              <div class="row">
-                                <div class="col-lg-6">
+                              <div className="row">
+                                <div className="col-lg-6">
                                   <td>{post.id}</td>
                                 </div>
-                                <div class="col-lg-3">
+                                <div className="col-lg-3">
                                   <td>
                                     <div
                                       className="ml-20"
@@ -248,7 +248,7 @@ const handleDeleteInsta = (id) => {
                                     </div>
                                   </td>
                                 </div>
-                                <div class="col-lg-3">
+                                <div className="col-lg-3">
                                   <td>
                                     <div
                                       className="ml-20"

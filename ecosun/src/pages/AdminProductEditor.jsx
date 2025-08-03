@@ -50,7 +50,7 @@ const AdminProductEditor = () => {
       localStorage.setItem("products", JSON.stringify(updatedProducts));
     }
 
-    navigate("/admin"); // Back to dashboard
+    navigate("/dashboard"); // Back to dashboard
   };
 
   const handleImageChange = (e) => {

@@ -28,41 +28,41 @@ const SingleBlog = () => {
         <Navbar />
         <div id="smooth-content">
           <main className="main-bg">
-            <header class="page-header blog-header section-padding pb-0">
-              <div class="container mt-80">
-                <div class="row justify-content-center">
-                  <div class="col-lg-10">
-                    <div class="caption">
-                      <div class="sub-title fz-12">
+            <header className="page-header blog-header section-padding pb-0">
+              <div className="container mt-80">
+                <div className="row justify-content-center">
+                  <div className="col-lg-10">
+                    <div className="caption">
+                      <div className="sub-title fz-12">
                         <a href="#0">
                           <span>{post.genre}</span>
                         </a>
                       </div>
-                      <h1 class="fz-55 mt-30">{post.title}</h1>
+                      <h1 className="fz-55 mt-30">{post.title}</h1>
                     </div>
-                    <div class="info d-flex mt-40 align-items-center">
-                      <div class="left-info">
-                        <div class="d-flex">
-                          <div class="author-info">
-                            <div class="d-flex align-items-center">
-                              <a href="#0" class="ml-20">
-                                <span class="opacity-7">نویسنده</span>
-                                <h6 class="fz-16"> {post.author} </h6>
+                    <div className="info d-flex mt-40 align-items-center">
+                      <div className="left-info">
+                        <div className="d-flex">
+                          <div className="author-info">
+                            <div className="d-flex align-items-center">
+                              <a href="#0" className="ml-20">
+                                <span className="opacity-7">نویسنده</span>
+                                <h6 className="fz-16"> {post.author} </h6>
                               </a>
                             </div>
                           </div>
-                          <div class="date ml-50">
+                          <div className="date ml-50">
                             <a href="#0">
-                              <span class="opacity-7">منتشر شده در</span>
-                              <h6 class="fz-16">{post.date} </h6>
+                              <span className="opacity-7">منتشر شده در</span>
+                              <h6 className="fz-16">{post.date} </h6>
                             </a>
                           </div>
                         </div>
                       </div>
-                      <div class="right-info ml-auto">
+                      <div className="right-info ml-auto">
                         {/* <div>
-                          <span class="pe-7s-comment fz-18 mr-10"></span>
-                          <span class="opacity-7">02 کامنت</span>
+                          <span className="pe-7s-comment fz-18 mr-10"></span>
+                          <span className="opacity-7">02 کامنت</span>
                         </div> */}
                       </div>
                     </div>
@@ -80,22 +80,22 @@ const SingleBlog = () => {
                 <img src={post.img} alt="" />
               </div>
               {/* <div
-                  class="background bg-img parallaxie mt-80"
+                  className="background bg-img parallaxie mt-80"
                   data-background={post.img}
                 ></div> */}
             </header>
 
-            <section class="blog section-padding pb-0">
-              <div class="container">
-                <div class="main-post">
-                  <div class="item pb-60">
+            <section className="blog section-padding pb-0">
+              <div className="container">
+                <div className="main-post">
+                  <div className="item pb-60">
                     <div>
-                      <div class="row justify-content-center">
-                        <div class="col-lg-10">
-                          <div class="title mt-30">
-                            <h5 class="fw-600"> {post.title} </h5>
+                      <div className="row justify-content-center">
+                        <div className="col-lg-10">
+                          <div className="title mt-30">
+                            <h5 className="fw-600"> {post.title} </h5>
                           </div>
-                          <div class="text mt-20">
+                          <div className="text mt-20">
                             <div
                               className="post-content"
                               dangerouslySetInnerHTML={{ __html: post.content }}
@@ -105,10 +105,10 @@ const SingleBlog = () => {
                       </div>
                     </div>
                   </div>
-                  <div class="info-area flex mt-20 pb-20">
+                  <div className="info-area flex mt-20 pb-20">
                     <div>
-                      <div class="tags flex">
-                        <div class="valign">
+                      <div className="tags flex">
+                        <div className="valign">
                           <span>تگ ها :</span>
                         </div>
                         <div>
@@ -116,21 +116,21 @@ const SingleBlog = () => {
                         </div>
                       </div>
                     </div>
-                    <div class="ml-auto">
-                      <div class="share-icon flex">
-                        <div class="valign">
+                    <div className="ml-auto">
+                      <div className="share-icon flex">
+                        <div className="valign">
                           <span>اشتراک :</span>
                         </div>
                         <div>
                           <a
                             href={`https://www.linkedin.com/shareArticle?mini=true&url=${window.location.href}`}
                           >
-                            <i class="fab fa-linkedin-in"></i>
+                            <i className="fab fa-linkedin-in"></i>
                           </a>
                           <a
                             href={`https://twitter.com/intent/tweet?url=${window.location.href}&text=${post.title}`}
                           >
-                            <i class="fab fa-twitter"></i>
+                            <i className="fab fa-twitter"></i>
                           </a>
                         </div>
                       </div>

@@ -5,18 +5,18 @@ import abst from "/assets/imgs/patterns/abstact-BG.png";
 const Pricing = () => {
   return (
     <>
-      <section class="pricing section-padding sub-bg">
-        <div class="container">
-          <div class="sec-lg-head mb-80">
-            <div class="row">
-              <div class="col-lg-8">
-                <div class="position-re">
-                  <h6 class="dot-titl colorbg-3 mb-10">خدمات برجسته</h6>
-                  <h2 class="fz-60 fw-700">خدمات ما</h2>
+      <section className="pricing section-padding sub-bg">
+        <div className="container">
+          <div className="sec-lg-head mb-80">
+            <div className="row">
+              <div className="col-lg-8">
+                <div className="position-re">
+                  <h6 className="dot-titl colorbg-3 mb-10">خدمات برجسته</h6>
+                  <h2 className="fz-60 fw-700">خدمات ما</h2>
                 </div>
               </div>
-              <div class="col-lg-4 d-flex align-items-center">
-                <div class="text">
+              <div className="col-lg-4 d-flex align-items-center">
+                <div className="text">
                   <p>
                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
                     با استفاده از طراحان گرافیک است، چاپگرها{" "}
@@ -25,22 +25,22 @@ const Pricing = () => {
               </div>
             </div>
           </div>
-          <div class="row md-marg">
-            <div class="col-lg-4">
-              <div class="item main-bg position-re o-hidden md-mb50">
-                <div class="info-box pb-30 bord-thin-bottom mb-30">
-                  <h6 class="sub-title mb-15">برنامه اصلی</h6>
-                  <div class="amount">
+          <div className="row md-marg">
+            <div className="col-lg-4">
+              <div className="item main-bg position-re o-hidden md-mb50">
+                <div className="info-box pb-30 bord-thin-bottom mb-30">
+                  <h6 className="sub-title mb-15">برنامه اصلی</h6>
+                  <div className="amount">
                     <div>
-                      <span class="main-color3 num-font fw-600 fz-50">
+                      <span className="main-color3 num-font fw-600 fz-50">
                         190 تومان
                       </span>{" "}
-                      <span class="fz-14 fw-400">/ ماهانه</span>
+                      <span className="fz-14 fw-400">/ ماهانه</span>
                     </div>
                   </div>
-                  <p class="fz-13">10 ٪ مالیات شامل قیمت می شود.</p>
+                  <p className="fz-13">10 ٪ مالیات شامل قیمت می شود.</p>
                 </div>
-                <ul class="rest">
+                <ul className="rest">
                   <li>10 ساعت کار کار</li>
                   <li>1 کاربر شامل می شود</li>
                   <li>تبلیغات</li>
@@ -49,16 +49,16 @@ const Pricing = () => {
                 </ul>
                 <a
                   href="page-contact.html"
-                  class="butn butn-md butn-bord mt-30"
+                  className="butn butn-md butn-bord mt-30"
                 >
                   <span>شروع با این پلن</span>
-                  <i class="ml-5">
+                  <i className="ml-5">
                     <svg
                       width="18"
                       height="18"
                       viewBox="0 0 18 18"
                       fill="none"
-                      class="mirror"
+                      className="mirror"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
@@ -69,28 +69,28 @@ const Pricing = () => {
                   </i>
                 </a>
                 <div
-                  class="bg-pattern bg-img opacity-1"
+                  className="bg-pattern bg-img opacity-1"
                   style={{
                     backgroundImage: `url(${p1})`,
                   }}
                 ></div>
               </div>
             </div>
-            <div class="col-lg-4">
-              <div class="item main-bg position-re o-hidden md-mb50">
-                <div class="info-box pb-30 bord-thin-bottom mb-30">
-                  <h6 class="sub-title mb-15">برنامه اصلی</h6>
-                  <div class="amount">
+            <div className="col-lg-4">
+              <div className="item main-bg position-re o-hidden md-mb50">
+                <div className="info-box pb-30 bord-thin-bottom mb-30">
+                  <h6 className="sub-title mb-15">برنامه اصلی</h6>
+                  <div className="amount">
                     <div>
-                      <span class="main-color3 num-font fw-600 fz-50">
+                      <span className="main-color3 num-font fw-600 fz-50">
                         49 تومان
                       </span>{" "}
-                      <span class="fz-14 fw-400">/ ماهانه</span>
+                      <span className="fz-14 fw-400">/ ماهانه</span>
                     </div>
                   </div>
-                  <p class="fz-13">10 ٪ مالیات شامل قیمت می شود.</p>
+                  <p className="fz-13">10 ٪ مالیات شامل قیمت می شود.</p>
                 </div>
-                <ul class="rest">
+                <ul className="rest">
                   <li>10 ساعت کار کار</li>
                   <li>1 کاربر شامل می شود</li>
                   <li>تبلیغات</li>
@@ -99,16 +99,16 @@ const Pricing = () => {
                 </ul>
                 <a
                   href="page-contact.html"
-                  class="butn butn-md butn-bord mt-30"
+                  className="butn butn-md butn-bord mt-30"
                 >
                   <span>شروع با این پلن</span>
-                  <i class="ml-5">
+                  <i className="ml-5">
                     <svg
                       width="18"
                       height="18"
                       viewBox="0 0 18 18"
                       fill="none"
-                      class="mirror"
+                      className="mirror"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
@@ -119,28 +119,28 @@ const Pricing = () => {
                   </i>
                 </a>
                 <div
-                  class="bg-pattern bg-img opacity-3"
+                  className="bg-pattern bg-img opacity-3"
                   style={{
                     backgroundImage: `url(${abst})`,
                   }}
                 ></div>
               </div>
             </div>
-            <div class="col-lg-4">
-              <div class="item main-bg position-re o-hidden">
-                <div class="info-box pb-30 bord-thin-bottom mb-30">
-                  <h6 class="sub-title mb-15">برنامه اصلی</h6>
-                  <div class="amount">
+            <div className="col-lg-4">
+              <div className="item main-bg position-re o-hidden">
+                <div className="info-box pb-30 bord-thin-bottom mb-30">
+                  <h6 className="sub-title mb-15">برنامه اصلی</h6>
+                  <div className="amount">
                     <div>
-                      <span class="main-color3 num-font fw-600 fz-50">
+                      <span className="main-color3 num-font fw-600 fz-50">
                         79 تومان
                       </span>{" "}
-                      <span class="fz-14 fw-400">/ ماهانه</span>
+                      <span className="fz-14 fw-400">/ ماهانه</span>
                     </div>
                   </div>
-                  <p class="fz-13">10 ٪ مالیات شامل قیمت می شود.</p>
+                  <p className="fz-13">10 ٪ مالیات شامل قیمت می شود.</p>
                 </div>
-                <ul class="rest">
+                <ul className="rest">
                   <li>10 ساعت کار کار</li>
                   <li>1 کاربر شامل می شود</li>
                   <li>تبلیغات</li>
@@ -149,16 +149,16 @@ const Pricing = () => {
                 </ul>
                 <a
                   href="page-contact.html"
-                  class="butn butn-md butn-bord mt-30"
+                  className="butn butn-md butn-bord mt-30"
                 >
                   <span>شروع با این پلن</span>
-                  <i class="ml-5">
+                  <i className="ml-5">
                     <svg
                       width="18"
                       height="18"
                       viewBox="0 0 18 18"
                       fill="none"
-                      class="mirror"
+                      className="mirror"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
@@ -169,7 +169,7 @@ const Pricing = () => {
                   </i>
                 </a>
                 <div
-                  class="bg-pattern bg-img opacity-1"
+                  className="bg-pattern bg-img opacity-1"
                   style={{
                     backgroundImage: `url(${p1})`,
                   }}

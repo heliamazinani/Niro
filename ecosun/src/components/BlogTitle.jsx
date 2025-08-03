@@ -9,9 +9,9 @@ const BlogTitle = ({date,img,title,link}) => {
 
   return (
     <>
-      {/* <div class="col-lg-4 col-md-6">
-        <div class="item mb-50">
-          <div class="img" >
+      {/* <div className="col-lg-4 col-md-6">
+        <div className="item mb-50">
+          <div className="img" >
             <img
               src={img}
               style={{
@@ -21,17 +21,17 @@ const BlogTitle = ({date,img,title,link}) => {
                 display: "block",
               }}
             />
-            <div class="date">{date}</div>
+            <div className="date">{date}</div>
           </div>
-          <div class="cont mt-30">
+          <div className="cont mt-30">
             <h6>
               <Link to={link}>{title}</Link>
             </h6>
-            <a href="blog-details.html" class="mt-20 ls1 sub-title">
+            <a href="blog-details.html" className="mt-20 ls1 sub-title">
               بیشتر بخوانید{" "}
-              <i class="ml-5">
+              <i className="ml-5">
                 <svg
-                  class="mirror"
+                  className="mirror"
                   width="18"
                   height="18"
                   viewBox="0 0 18 18"
@@ -57,7 +57,7 @@ const BlogTitle = ({date,img,title,link}) => {
           viewport={{ once: true }}
         >
           <div className="item mb-50">
-            <div class="row">
+            <div className="row">
               <div
                 style={{ width: "100%", height: "220px", overflow: "hidden" }}
               >

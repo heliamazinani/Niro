@@ -37,7 +37,7 @@ const Shop = () => {
               {/* Search */}
               <div className="item search mb-30">
                 <form action="#">
-                  <div class="form-group">
+                  <div className="form-group">
                     <input
                       type="text"
                       className="shop_search"
@@ -46,7 +46,7 @@ const Shop = () => {
                       onChange={(e) => setSearchTerm(e.target.value)}
                     />
                     <button type="submit">
-                      <span class="pe-7s-search"></span>
+                      <span className="pe-7s-search"></span>
                     </button>
                   </div>
                 </form>
@@ -56,7 +56,7 @@ const Shop = () => {
               <div className="item price-range mb-40">
                 <h6>فیلتر قیمت</h6>
 
-                <div class="range-input">
+                <div className="range-input">
                   <input
                     type="range"
                     min="0"
