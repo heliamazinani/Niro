@@ -23,6 +23,7 @@ import Dash from "./pages/Dash"
 import EssayManagment from "./pages/EssayManagment";
 import ProductManegment from "./pages/ProductManegment";
 import InstaManegment from "./pages/InstaManegment";
+import Video from "./pages/Video";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -84,6 +85,7 @@ function App() {
                 <Route path="/posts/:id" element={<SingleBlog></SingleBlog>} />
                 <Route path="/insta/add" element={<AdminInstaEditor />} />
                 <Route path="/insta/edit/:id" element={<AdminInstaEditor />} />
+                <Route path="/video" element={<Video />} />
               </Routes>
             </>
           )}
