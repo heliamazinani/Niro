@@ -31,30 +31,25 @@ const handleDelete = async (id) => {
 };
 
 useEffect(() => {
-  const fetchPosts = async () => {
+  const fetchInstaPosts = async () => {
     try {
-      const response = await fetch("http://api.ecosunir.ir:3000/api/post");
-      const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.message || "خطا در دریافت داده‌ها");
+      const res = await fetch("http://api.ecosunir.ir:3000/api/post");
+      const result = await res.json();
+      console.log("Fetched:", result);
+
+      if (Array.isArray(result.data)) {
+        setInsta(result.data); // ✅ Use result.data
+      } else {
+        console.error("Unexpected response format", result);
       }
-
-      // Map backend's `image` → `img` to match current rendering logic
-      const formatted = data.map((item) => ({
-        id: item.id,
-        img: item.image,
-        link: item.link,
-      }));
-
-      setInsta(formatted);
-    } catch (error) {
-      console.error("Fetch Error:", error);
-      alert("خطا در بارگیری پست‌ها: " + error.message);
+    } catch (err) {
+      console.error("Fetch error:", err);
     }
   };
 
-  fetchPosts();
+  fetchInstaPosts();
 }, []);
+
 
   // Calculate indexes for pagination
   const indexOfLastPost = currentPage * instaPerPage;
@@ -99,7 +94,7 @@ useEffect(() => {
             <p>هیچ پست وجود ندارد</p>
           ) : (
             currentinsta.map((post) => (
-              <div className="col-lg-4" key={post.id}>
+              <div className="col-lg-4" key={post.ID}>
                 <motion.div
                   initial={{ opacity: 0, y: 100 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -116,7 +111,7 @@ useEffect(() => {
                         }}
                       >
                         <img
-                          src={post.img}
+                          src={post.image}
                           alt=""
                           style={{
                             width: "100%",
@@ -157,7 +152,7 @@ useEffect(() => {
                             {" "}
                             <Link
                               to={post.link}
-                              onClick={() => handleDelete(post.id)}
+                              onClick={() => handleDelete(post.ID)}
                             >
                               حذف
                             </Link>
@@ -165,7 +160,7 @@ useEffect(() => {
                           <div className="col-6 text-center">
                             {" "}
                             <Link
-                              to={`/insta/edit/${post.id}`}
+                              to={`/insta/edit/${post.ID}`}
                               onClick={scrollToTop}
                             >
                               ویرایش

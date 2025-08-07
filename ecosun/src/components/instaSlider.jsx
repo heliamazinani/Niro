@@ -16,8 +16,8 @@ useEffect(() => {
       const response = await fetch("http://api.ecosunir.ir:3000/api/post");
       const data = await response.json();
 
-      if (Array.isArray(data)) {
-        setPosts(data);
+      if (Array.isArray(data.data)) {
+        setPosts(data.data);
       } else {
         console.error("Unexpected data format:", data);
       }
@@ -111,7 +111,7 @@ useEffect(() => {
         >
           {instaposts.map((post) => (
             <SwiperSlide
-              key={post.id}
+              key={post.ID}
               style={{
                 display: "flex", // Flex container
                 justifyContent: "center", // Center horizontally
@@ -137,7 +137,7 @@ useEffect(() => {
                   <div className="img ">
                     <img
                       src={post.image}
-                      alt={`slide-${post.id}`}
+                      alt={`slide-${post.ID}`}
                       style={{
                         width: "100%",
                         height: "50%",

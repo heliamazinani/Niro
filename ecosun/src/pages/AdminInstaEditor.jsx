@@ -4,105 +4,111 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const AdminInstaEditor = () => {
-  const { id } = useParams(); // "add" or post ID
+  const { id } = useParams();
   const navigate = useNavigate();
 
-  const [posts, setPosts] = useState([]);
   const [editingPost, setEditingPost] = useState({
     id: "",
-    img: "",
+    image: "", // base64 or URL for preview
     link: "",
+    file: null, // actual image file to send
   });
 
-  // ✅ Fetch posts from backend
+  // ✅ Fetch post for editing
   useEffect(() => {
-    const fetchPosts = async () => {
+    const fetchPost = async () => {
+      if (!id || id === "add") return;
+
       try {
-        const response = await fetch("http://api.ecosunir.ir:3000/api/post");
-        const data = await response.json();
+        const response = await fetch(
+          `http://api.ecosunir.ir:3000/api/post/${id}`
+        );
+        const post = await response.json();
 
-        if (Array.isArray(data)) {
-          setPosts(data);
-
-          // If editing
-          if (id) {
-            const post = data.find((p) => p.id === Number(id));
-            if (post) setEditingPost(post);
-          }
+        if (response.ok) {
+          setEditingPost({
+            id: post.ID,
+            image: post.image, // base64 or URL
+            link: post.link,
+            file: null, // not needed for preview
+          });
         } else {
-          console.error("Unexpected response:", data);
+          console.error("Invalid post data");
         }
       } catch (err) {
-        console.error("Failed to fetch posts:", err);
+        console.error("Fetch error:", err);
       }
     };
 
-    fetchPosts();
+    fetchPost();
   }, [id]);
 
-  // ✅ Handle image upload
+  // ✅ Handle image input
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setEditingPost({ ...editingPost, img: reader.result });
+        setEditingPost((prev) => ({
+          ...prev,
+          image: reader.result,
+          file: file,
+        }));
       };
       reader.readAsDataURL(file);
     }
   };
 
-  // ✅ Save Post (Add or Edit) via backend POST or PUT
-const handleSave = async (e) => {
-  e.preventDefault();
+  // ✅ Handle form submit
+  const handleSave = async (e) => {
+    e.preventDefault();
 
-  if (!editingPost.link || !editingPost.img) {
-    alert("لطفاً تصویر و لینک را وارد کنید");
-    return;
-  }
+    if (!editingPost.link || (!editingPost.file && !editingPost.image)) {
+      alert("لطفاً تصویر و لینک را وارد کنید");
+      return;
+    }
 
-  try {
-    const isEditing = !!id;
-
+    const isEditing = !!id && id !== "add";
     const url = isEditing
       ? `http://api.ecosunir.ir:3000/api/post/${id}`
       : `http://api.ecosunir.ir:3000/api/post`;
 
-    const method = isEditing ? "PUT" : "POST";
+    try {
+      const formData = new FormData();
+      if (editingPost.file) {
+        formData.append("image", editingPost.file);
+      }
+      formData.append("link", editingPost.link);
 
-    const response = await fetch(url, {
-      method,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        image: editingPost.img,
-        link: editingPost.link,
-      }),
-    });
+      const response = await fetch(url, {
+        method: isEditing ? "PUT" : "POST",
+        body: formData,
+      });
 
-    const result = await response.json();
-    console.log("Server response:", result);
+      const result = await response.json();
 
-    if (!response.ok) {
-      throw new Error(result.message || "خطا در ذخیره‌سازی");
+      if (!response.ok) {
+        throw new Error(result.message || "خطا در ذخیره‌سازی");
+      }
+
+      alert(isEditing ? "پست ویرایش شد" : "پست جدید ذخیره شد");
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Save error:", error.message);
+      alert("خطا: " + error.message);
     }
-
-    alert(isEditing ? "پست ویرایش شد" : "پست جدید ذخیره شد");
-    navigate("/dashboard");
-  } catch (error) {
-    console.error("Save error:", error.message);
-    alert("خطا: " + error.message);
-  }
-};
-
+  };
 
   return (
     <>
       <Navbar />
       <main className="main-bg">
         <div className="comments-from" style={{ padding: "20px" }}>
-          <h1>{id ? "ویرایش پست اینستاگرام" : "افزودن پست اینستاگرام"}</h1>
+          <h1>
+            {id && id !== "add"
+              ? "ویرایش پست اینستاگرام"
+              : "افزودن پست اینستاگرام"}
+          </h1>
           <form
             onSubmit={handleSave}
             style={{ display: "flex", flexDirection: "column", gap: "15px" }}
@@ -115,9 +121,9 @@ const handleSave = async (e) => {
                 accept="image/*"
                 onChange={handleImageChange}
               />
-              {editingPost.img && (
+              {editingPost.image && (
                 <img
-                  src={editingPost.img}
+                  src={editingPost.image}
                   alt="Preview"
                   style={{ width: "200px", marginTop: "10px" }}
                 />
