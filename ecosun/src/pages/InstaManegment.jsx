@@ -9,21 +9,52 @@ const InstaManegment = () => {
   const [insta, setInsta] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const instaPerPage = 6;
-  const handleDelete = (id) => {
-    setInsta(insta.filter((post) => post.id !== id));
-  };
-  useEffect(() => {
-    const savedinsta = JSON.parse(localStorage.getItem("instaposts"));
-    if (savedinsta && savedinsta.length > 0) {
-      setInsta(savedinsta);
-    } else {
-      setInsta(instaData.posts);
-    }
-  }, []);
+const handleDelete = async (id) => {
+  if (!window.confirm("آیا از حذف این پست مطمئن هستید؟")) return;
 
-  useEffect(() => {
-    localStorage.setItem("instaposts", JSON.stringify(insta));
-  }, [insta]);
+  try {
+    const response = await fetch(`http://api.ecosunir.ir:3000/api/post/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || "خطا در حذف پست");
+    }
+
+    // Remove from local state after successful deletion
+    setInsta((prev) => prev.filter((post) => post.id !== id));
+  } catch (error) {
+    console.error("Delete Error:", error);
+    alert("حذف پست با خطا مواجه شد: " + error.message);
+  }
+};
+
+useEffect(() => {
+  const fetchPosts = async () => {
+    try {
+      const response = await fetch("http://api.ecosunir.ir:3000/api/post");
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || "خطا در دریافت داده‌ها");
+      }
+
+      // Map backend's `image` → `img` to match current rendering logic
+      const formatted = data.map((item) => ({
+        id: item.id,
+        img: item.image,
+        link: item.link,
+      }));
+
+      setInsta(formatted);
+    } catch (error) {
+      console.error("Fetch Error:", error);
+      alert("خطا در بارگیری پست‌ها: " + error.message);
+    }
+  };
+
+  fetchPosts();
+}, []);
 
   // Calculate indexes for pagination
   const indexOfLastPost = currentPage * instaPerPage;

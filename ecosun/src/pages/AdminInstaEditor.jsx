@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import instaData from "../data/insta.json"; // Your JSON file
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -15,24 +14,33 @@ const AdminInstaEditor = () => {
     link: "",
   });
 
-  // ✅ Load posts from localStorage or fallback JSON
+  // ✅ Fetch posts from backend
   useEffect(() => {
-    const savedPosts =
-      JSON.parse(localStorage.getItem("instaposts")) || instaData.posts;
-    setPosts(savedPosts);
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch("http://api.ecosunir.ir:3000/api/post");
+        const data = await response.json();
 
-    if (id) {
-      const post = savedPosts.find((p) => p.id === Number(id));
-      if (post) setEditingPost(post);
-    }
+        if (Array.isArray(data)) {
+          setPosts(data);
+
+          // If editing
+          if (id) {
+            const post = data.find((p) => p.id === Number(id));
+            if (post) setEditingPost(post);
+          }
+        } else {
+          console.error("Unexpected response:", data);
+        }
+      } catch (err) {
+        console.error("Failed to fetch posts:", err);
+      }
+    };
+
+    fetchPosts();
   }, [id]);
 
-  // ✅ Save posts whenever they change
-  useEffect(() => {
-    localStorage.setItem("instaposts", JSON.stringify(posts));
-  }, [posts]);
-
-  // ✅ Handle Image Upload
+  // ✅ Handle image upload
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -44,36 +52,57 @@ const AdminInstaEditor = () => {
     }
   };
 
-  // ✅ Save Post (Add or Edit)
-  const handleSave = (e) => {
-    e.preventDefault();
+  // ✅ Save Post (Add or Edit) via backend POST or PUT
+const handleSave = async (e) => {
+  e.preventDefault();
 
-    if (!editingPost.link) {
-      alert("لینک اینستاگرام را وارد کنید");
-      return;
+  if (!editingPost.link || !editingPost.img) {
+    alert("لطفاً تصویر و لینک را وارد کنید");
+    return;
+  }
+
+  try {
+    const isEditing = !!id;
+
+    const url = isEditing
+      ? `http://api.ecosunir.ir:3000/api/post/${id}`
+      : `http://api.ecosunir.ir:3000/api/post`;
+
+    const method = isEditing ? "PUT" : "POST";
+
+    const response = await fetch(url, {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        image: editingPost.img,
+        link: editingPost.link,
+      }),
+    });
+
+    const result = await response.json();
+    console.log("Server response:", result);
+
+    if (!response.ok) {
+      throw new Error(result.message || "خطا در ذخیره‌سازی");
     }
 
-    if (!id ) {
-      const newPost = { ...editingPost, id: Date.now() };
-      setPosts([...posts, newPost]);
-    } else {
-      const updatedPosts = posts.map((p) =>
-        p.id === editingPost.id ? editingPost : p
-      );
-      setPosts(updatedPosts);
-    }
+    alert(isEditing ? "پست ویرایش شد" : "پست جدید ذخیره شد");
+    navigate("/dashboard");
+  } catch (error) {
+    console.error("Save error:", error.message);
+    alert("خطا: " + error.message);
+  }
+};
 
-    navigate("/dashboard"); // Redirect back to dashboard
-  };
 
   return (
     <>
       <Navbar />
       <main className="main-bg">
         <div className="comments-from" style={{ padding: "20px" }}>
-          <h1>
-            {id? "افزودن پست اینستاگرام" : "ویرایش پست اینستاگرام"}
-          </h1>
+          <h1>{id ? "ویرایش پست اینستاگرام" : "افزودن پست اینستاگرام"}</h1>
           <form
             onSubmit={handleSave}
             style={{ display: "flex", flexDirection: "column", gap: "15px" }}
@@ -107,6 +136,7 @@ const AdminInstaEditor = () => {
             />
 
             <button
+              type="submit"
               style={{
                 background: "#ffaa17",
                 color: "#fff",
@@ -115,7 +145,6 @@ const AdminInstaEditor = () => {
                 cursor: "pointer",
                 fontSize: "16px",
               }}
-              type="submit"
             >
               ذخیره پست
             </button>

@@ -5,22 +5,24 @@ import ASlider from "./ASlider.jsx";
 import Team from "./Team.jsx";
 
 function SignUp() {
-  const [username, setusername] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
  const handleSubmit = async (e) => {
    e.preventDefault();
 
+   console.log("Name before submit:", name);
+   
    try {
-     const response = await fetch("http://api.ecosunir.ir:5000/api/register", {
+     const response = await fetch("http://api.ecosunir.ir:3000/api/register", {
        method: "POST",
        headers: {
          "Content-Type": "application/json",
        },
-       body: JSON.stringify({ username, email, password }),
+       body: JSON.stringify({ name, email, password }),
      });
-
+     console.log(JSON.stringify({ name, email, password }));
      const data = await response.json();
      console.log("Register Response:", data);
 
@@ -30,7 +32,7 @@ function SignUp() {
 
      // ✅ If register does not return token, login now
      const loginResponse = await fetch(
-       "https://api.ecosunir.ir:5000/api/login",
+       "http://api.ecosunir.ir:3000/api/login",
        {
          method: "POST",
          headers: {
@@ -67,10 +69,10 @@ function SignUp() {
                 <input
                   id="form_name"
                   type="text"
-                  name="username"
+                  name="Name"
                   placeholder="نام کاربری "
-                  value={username}
-                  onChange={(e) => setusername(e.target.value)}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   required
                 />
               </div>

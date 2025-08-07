@@ -3,6 +3,7 @@ import DashboardLayout from "./DashboardLayout";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import shopData from "../data/shopData.json"; // your JSON file
 
 const ProductManegment = () => {
   const [products, setProducts] = useState([]);

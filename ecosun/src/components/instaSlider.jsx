@@ -10,15 +10,24 @@ import insta from "../data/insta.json";
 const IS = () => {
   const [instaposts, setPosts] = useState([]);
 
-  useEffect(() => {
-    // Load from localStorage first, or fallback to JSON file
-    const savedProducts = JSON.parse(localStorage.getItem("instaposts"));
-    setPosts(savedProducts || insta.posts);
-  }, []);
+useEffect(() => {
+  const fetchInstaPosts = async () => {
+    try {
+      const response = await fetch("http://api.ecosunir.ir:3000/api/post");
+      const data = await response.json();
 
-  useEffect(() => {
-    localStorage.setItem("instaposts", JSON.stringify(instaposts));
-  }, [instaposts]);
+      if (Array.isArray(data)) {
+        setPosts(data);
+      } else {
+        console.error("Unexpected data format:", data);
+      }
+    } catch (err) {
+      console.error("Failed to fetch Instagram posts:", err);
+    }
+  };
+
+  fetchInstaPosts();
+}, []);
 
   return (
     <section className="work-carsouel section-padding position-re o-hidden">
@@ -127,7 +136,7 @@ const IS = () => {
                 >
                   <div className="img ">
                     <img
-                      src={post.img}
+                      src={post.image}
                       alt={`slide-${post.id}`}
                       style={{
                         width: "100%",
