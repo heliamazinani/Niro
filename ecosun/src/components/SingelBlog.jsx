@@ -9,7 +9,7 @@ const BlogTitle = ({ date, img, title, link }) => {
           <div className="img">
             <img src={img} alt="" />
             <div className="date">
-              <a href="blog-details.html">{date}</a>
+              <div >{date}</div>
             </div>
           </div>
           <div className="cont mt-30">

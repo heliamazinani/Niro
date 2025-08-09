@@ -23,9 +23,9 @@ const Blog = ({ date, img, title, link }) => {
               </h6>
               <div className="info mt-20 mb-20 pt-20 bord-thin-top">
                 <span className="by">
-                  <a>
+                  <div>
                     <i className="far fa-user fz-14 mr-10"></i> توسط ادمین
-                  </a>
+                  </div>
                 </span>
                 <span className="dot main-colorbg3"></span>
                 <span className="date">

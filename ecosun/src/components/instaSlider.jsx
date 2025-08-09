@@ -50,7 +50,7 @@ useEffect(() => {
                   <div className="swiper-controls arrow-out d-flex">
                     <div
                       className="swiper-button-next "
-                      tabindex="0"
+                      tabIndex="0"
                       role="button"
                       aria-label="Next slide"
                     >
@@ -71,7 +71,7 @@ useEffect(() => {
                     </div>
                     <div
                       className="swiper-button-prev ml-50"
-                      tabindex="0"
+                      tabIndex="0"
                       role="button"
                       aria-label="Previous slide"
                     >
@@ -137,7 +137,7 @@ useEffect(() => {
                   <div className="img ">
                     <img
                       src={`http://api.ecosunir.ir:3000/api${post.image}`}
-                      alt={`slide-${post.ID}`}
+                      alt={`slide-${post}`}
                       style={{
                         width: "100%",
                         height: "50%",
@@ -147,7 +147,7 @@ useEffect(() => {
                     <div className="cont">
                       <span className="mb-5">
                         <div className="underline">
-                          <a className=" ls1 fz-12 text-u">
+                          <div className=" ls1 fz-12 text-u">
                             اطلاعات بیشتر
                             <svg
                               width="18"
@@ -162,7 +162,7 @@ useEffect(() => {
                                 fill="currentColor"
                               ></path>
                             </svg>
-                          </a>
+                          </div>
                         </div>
                       </span>
                     </div>
