@@ -136,7 +136,7 @@ useEffect(() => {
                 >
                   <div className="img ">
                     <img
-                      src={post.image}
+                      src={`http://api.ecosunir.ir:3000/api${post.image}`}
                       alt={`slide-${post.ID}`}
                       style={{
                         width: "100%",

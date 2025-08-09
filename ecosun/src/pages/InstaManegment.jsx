@@ -111,7 +111,7 @@ useEffect(() => {
                         }}
                       >
                         <img
-                          src={post.image}
+                          src={`http://api.ecosunir.ir:3000/api${post.image}`}
                           alt=""
                           style={{
                             width: "100%",
@@ -151,7 +151,7 @@ useEffect(() => {
                           <div className="col-6 text-center">
                             {" "}
                             <Link
-                              to={post.link}
+                            
                               onClick={() => handleDelete(post.ID)}
                             >
                               حذف

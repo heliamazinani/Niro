@@ -92,7 +92,7 @@ const AdminInstaEditor = () => {
       }
 
       alert(isEditing ? "پست ویرایش شد" : "پست جدید ذخیره شد");
-      navigate("/dashboard");
+      navigate("/dashboard/insta");
     } catch (error) {
       console.error("Save error:", error.message);
       alert("خطا: " + error.message);

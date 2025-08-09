@@ -20,6 +20,7 @@ function Navbar() {
   useEffect(() => {
     // Check if token exists on load
     const token = localStorage.getItem("token");
+    console.log(token);
     setIsLoggedIn(!!token);
     setIsLoggedIn(false);
   }, []);
