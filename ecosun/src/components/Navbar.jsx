@@ -17,13 +17,12 @@ function Navbar() {
 
   const isAdmin = true; 
 
-  useEffect(() => {
-    // Check if token exists on load
-    const token = localStorage.getItem("token");
-    console.log(token);
-    setIsLoggedIn(!!token);
-    setIsLoggedIn(false);
-  }, []);
+useEffect(() => {
+  const token = localStorage.getItem("token");
+  console.log(token);
+  setIsLoggedIn(!!token);
+}, []);
+
 
   const handleLogout = () => {
     localStorage.removeItem("token");
