@@ -12,7 +12,7 @@ function MyInfo() {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      navigate("/login");
+      navigate("/signup");
       return;
     }
 
@@ -24,7 +24,9 @@ function MyInfo() {
       },
     })
       .then(async (response) => {
+        
         if (!response.ok) {
+          console.log(response);
           throw new Error("Failed to fetch user");
         }
         const data = await response.json();
@@ -34,7 +36,7 @@ function MyInfo() {
       .catch((err) => {
         console.error(err);
         localStorage.removeItem("token");
-        navigate("/login");
+        navigate("/signup");
       })
       .finally(() => setLoading(false));
   }, []);

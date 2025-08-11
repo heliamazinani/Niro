@@ -64,6 +64,12 @@ const SingleShop = () => {
                           </div>
                         </div>
                         <div className="text mt-30">
+                          <div
+                            className="post-content"
+                            dangerouslySetInnerHTML={{
+                              __html: product.description,
+                            }}
+                          />
                           <p>{product.description}</p>
                         </div>
                         <div className="dot-list mt-30">
@@ -195,7 +201,7 @@ const SingleShop = () => {
                                           {item.price.toLocaleString()} تومان
                                         </p>
                                       </div>
-                                    </Link>  
+                                    </Link>
                                   </div>
                                 </div>
                               </div>

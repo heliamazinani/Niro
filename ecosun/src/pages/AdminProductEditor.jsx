@@ -3,7 +3,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useParams, useNavigate } from "react-router-dom";
 import shopData from "../data/shopData.json";
-
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 const AdminProductEditor = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -13,21 +14,35 @@ const AdminProductEditor = () => {
     name: "",
     price: "",
     category: "",
-    rating: 0,
     img: "",
     description: "",
   });
 
   // Load product if editing
-  useEffect(() => {
-    const savedProducts =
-      JSON.parse(localStorage.getItem("products")) || shopData.products;
+useEffect(() => {
+  let savedProducts = [];
+  try {
+    savedProducts = JSON.parse(localStorage.getItem("products"));
+  } catch (e) {
+    console.error("Invalid localStorage data", e);
+  }
 
-    if (id) {
-      const product = savedProducts.find((p) => p.id === Number(id));
-      if (product) setEditingProduct(product);
+  if (!savedProducts || savedProducts.length === 0) {
+    savedProducts = shopData.products;
+  }
+
+  if (id) {
+    const product = savedProducts.find((p) => p.id === Number(id));
+    console.log("Editing product:", product);
+
+    if (product) {
+      setEditingProduct((prev) => ({
+        ...prev,
+        ...product,
+      }));
     }
-  }, [id]);
+  }
+}, [id]);
 
   const handleSave = (e) => {
     e.preventDefault();
@@ -64,6 +79,38 @@ const AdminProductEditor = () => {
     }
   };
 
+  const modules = {
+    toolbar: [
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      ["bold", "italic", "underline", "strike", "blockquote"],
+      [{ size: [] }],
+      [{ font: [] }],
+      [{ align: ["right", "center", "justify"] }],
+      [{ list: "ordered" }, { list: "bullet" }],
+      ["link", "image"],
+      [{ color: ["red", "#785412"] }],
+      [{ background: ["red", "#785412"] }],
+    ],
+  };
+
+  const formats = [
+    "header",
+    "bold",
+    "italic",
+    "underline",
+    "strike",
+    "blockquote",
+    "list",
+    "bullet",
+    "link",
+    "color",
+    "image",
+    "background",
+    "align",
+    "size",
+    "font",
+  ];
+
   return (
     <>
       <Navbar />
@@ -91,10 +138,10 @@ const AdminProductEditor = () => {
               type="number"
               placeholder="قیمت"
               value={editingProduct.price}
-              onChange={(e) =>
+              onChange={(value) =>
                 setEditingProduct({
                   ...editingProduct,
-                  price: Number(e.target.value),
+                  price: Number(value),
                 })
               }
               required
@@ -118,32 +165,20 @@ const AdminProductEditor = () => {
               ))}
             </select> */}
 
-            {/* Rating */}
-            <input
-              type="number"
-              placeholder="امتیاز (1 تا 5)"
-              min="1"
-              max="5"
-              value={editingProduct.rating}
-              onChange={(e) =>
-                setEditingProduct({
-                  ...editingProduct,
-                  rating: Number(e.target.value),
-                })
-              }
-            />
-
+         
             {/* Description */}
-            <textarea
-              placeholder="توضیحات محصول"
-              rows="4"
+            <p>توضیحات محصول:</p>
+            <ReactQuill
+              theme="snow"
               value={editingProduct.description}
-              onChange={(e) =>
+              onChange={(value) =>
                 setEditingProduct({
                   ...editingProduct,
-                  description: e.target.value,
+                  description: value, // HTML from Quill
                 })
               }
+              modules={modules}
+              formats={formats}
             />
 
             {/* Image Upload */}
