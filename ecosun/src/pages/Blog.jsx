@@ -9,19 +9,26 @@ import { Link } from "react-router-dom";
 import postsData from "../data/posts.json";
 
 function Blog() {
-      const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
 
-      useEffect(() => {
-        // Load from localStorage first, or fallback to JSON file
-        const savedPosts = JSON.parse(localStorage.getItem("posts"));
-        setPosts(savedPosts || postsData.posts);
-      }, []);
+  useEffect(() => {
+    const fetchInstaPosts = async () => {
+      try {
+        const response = await fetch("http://api.ecosunir.ir:3000/blogs");
+        const data = await response.json();
 
-      // Save changes to localStorage whenever posts update
-      useEffect(() => {
-        localStorage.setItem("posts", JSON.stringify(posts));
-      }, [posts]);
+        if (Array.isArray(data)) {
+          setPosts(data);
+        } else {
+          console.error("Unexpected data format:", data);
+        }
+      } catch (err) {
+        console.error("Failed to fetch Instagram posts:", err);
+      }
+    };
 
+    fetchInstaPosts();
+  }, []);
   return (
     <>
       <div id="smooth-wrapper">
@@ -34,13 +41,12 @@ function Blog() {
                   {posts.map((item) => (
                     <BlogTitle
                       key={item.id}
-                      date={item.date} 
+                      date={item.date}
                       img={item.img}
                       link={`/posts/${item.id}`}
                       title={item.title}
                     />
                   ))}
-                 
                 </div>
               </div>
             </section>

@@ -123,7 +123,8 @@ const AdminInstaEditor = () => {
               />
               {editingPost.image && (
                 <img
-                  src={editingPost.image}
+                  src={`http://api.ecosunir.ir:3000/api${editingPost.image}`}
+                
                   alt="Preview"
                   style={{ width: "200px", marginTop: "10px" }}
                 />

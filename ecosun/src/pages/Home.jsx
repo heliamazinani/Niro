@@ -16,23 +16,30 @@ import FAQs from "../components/FAQs.jsx";
 import ScrollToTop from "../components/ScrolltoTopButton.jsx";
 import postsData from "../data/posts.json";
 
-import React, { useState, useEffect } from 'react';
-import { motion, useScroll } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { motion, useScroll } from "framer-motion";
 
 function Home() {
-      const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
 
-      useEffect(() => {
-        // Load from localStorage first, or fallback to JSON file
-        const savedPosts = JSON.parse(localStorage.getItem("posts"));
-        setPosts(savedPosts || postsData.posts);
-      }, []);
+  useEffect(() => {
+    const fetchInstaPosts = async () => {
+      try {
+        const response = await fetch("http://api.ecosunir.ir:3000/blogs");
+        const data = await response.json();
 
-      // Save changes to localStorage whenever posts update
-      useEffect(() => {
-        localStorage.setItem("posts", JSON.stringify(posts));
-      }, [posts]);
+        if (Array.isArray(data)) {
+          setPosts(data);
+        } else {
+          console.error("Unexpected data format:", data);
+        }
+      } catch (err) {
+        console.error("Failed to fetch Instagram posts:", err);
+      }
+    };
 
+    fetchInstaPosts();
+  }, []);
 
   return (
     <>
@@ -111,10 +118,9 @@ function Home() {
           </main>
           <Footer></Footer>
         </div>
-   
       </div>
     </>
   );
-};
+}
 
 export default Home;

@@ -9,21 +9,45 @@ const EssayManagment = () => {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
-  const handleDelete = (id) => {
-    setPosts(posts.filter((post) => post.id !== id));
-  };
-  useEffect(() => {
-    const savedPosts = JSON.parse(localStorage.getItem("posts"));
-    if (savedPosts && savedPosts.length > 0) {
-      setPosts(savedPosts);
-    } else {
-      setPosts(postsData.posts);
-    }
-  }, []);
+const handleDelete = async (id) => {
+  if (!window.confirm("آیا از حذف این مقاله مطمئن هستید؟")) return;
 
+  try {
+    const response = await fetch(`http://api.ecosunir.ir:3000/blogs/${id}`, {
+      method: "DELETE",
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || "خطا در حذف ");
+    }
+
+    // Remove from local state after successful deletion
+    setPosts((prev) => prev.filter((post) => post.id !== id));
+  } catch (error) {
+    console.error("Delete Error:", error);
+    alert("حذف  با خطا مواجه شد: " + error.message);
+  }
+};
   useEffect(() => {
-    localStorage.setItem("posts", JSON.stringify(posts));
-  }, [posts]);
+    const fetchInstaPosts = async () => {
+      try {
+        const res = await fetch("http://api.ecosunir.ir:3000/blogs");
+        const result = await res.json();
+        console.log("Fetched:", result);
+  
+        if (Array.isArray(result)) {
+          setPosts(result); // ✅ Use result.data
+        } else {
+          console.error("Unexpected response format", result);
+        }
+      } catch (err) {
+        console.error("Fetch error:", err);
+      }
+    };
+  
+    fetchInstaPosts();
+  }, []);
 
   // Calculate indexes for pagination
   const indexOfLastPost = currentPage * postsPerPage;

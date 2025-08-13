@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import postsData from "../data/posts.json";
 import Navbar from "../components/Navbar";
-import { useParams, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
+import { useParams, useNavigate } from "react-router-dom";
+
 const genres = ["خورشیدی", "برق", "تکنولوژی", "عمومی"];
+
 const AdminAddArticle = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+
   const [editingPost, setEditingPost] = useState({
     id: "",
     title: "",
@@ -17,46 +19,98 @@ const AdminAddArticle = () => {
     author: "ادمین",
     genre: "",
     date: "",
+    file: null,
   });
+
+  // ✅ Load post if editing
   useEffect(() => {
-    const savedPosts =
-      JSON.parse(localStorage.getItem("posts")) || postsData.posts;
-    console.log(id);
-    if (id) {
-      const post = savedPosts.find((p) => p.id === Number(id));
-      if (post) setEditingPost(post);
-    }
+    const fetchPost = async () => {
+      if (!id || id === "add") return;
+
+      try {
+        const response = await fetch(`http://api.ecosunir.ir:3000/blogs/${id}`);
+        const post = await response.json();
+
+        if (response.ok) {
+          setEditingPost({
+            id: post.id,
+            title: post.title || "",
+            content: post.content || "",
+            img: post.img || "",
+            author: post.author || "ادمین",
+            genre: post.genre || "",
+            date: post.date || "",
+            file: null,
+          });
+        } else {
+          console.error("Invalid post data", post);
+        }
+      } catch (err) {
+        console.error("Fetch error:", err);
+      }
+    };
+
+    fetchPost();
   }, [id]);
 
-  const handleSave = (e) => {
-    e.preventDefault(); // ✅ Prevent page reload
-
-    const savedPosts =
-      JSON.parse(localStorage.getItem("posts")) || postsData.posts;
-
-    if (!id) {
-      const newPost = { ...editingPost, id: Date.now() };
-      localStorage.setItem("posts", JSON.stringify([...savedPosts, newPost]));
-    } else {
-      const updatedPosts = savedPosts.map((p) =>
-        p.id === editingPost.id ? editingPost : p
-      );
-      localStorage.setItem("posts", JSON.stringify(updatedPosts));
+  // ✅ Handle file input
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setEditingPost((prev) => ({
+          ...prev,
+          img: reader.result, // preview
+          file: file, // actual file to send
+        }));
+      };
+      reader.readAsDataURL(file);
     }
+  };
 
-   navigate("/");
- };
+  // ✅ Handle save
+  const handleSave = async (e) => {
+    e.preventDefault();
 
- const handleImageChange = (e) => {
-   const file = e.target.files[0];
-   if (file) {
-     const reader = new FileReader();
-     reader.onloadend = () => {
-       setEditingPost({ ...editingPost, img: reader.result });
-     };
-     reader.readAsDataURL(file);
-   }
- };
+    try {
+      const isEditing = !!(id && id !== "add");
+      const url = isEditing
+        ? `http://api.ecosunir.ir:3000/blogs/${id}`
+        : `http://api.ecosunir.ir:3000/blogs`;
+
+      const method = isEditing ? "PUT" : "POST";
+
+      const formData = new FormData();
+      formData.append("title", editingPost.title);
+      formData.append("content", editingPost.content);
+      formData.append("author", editingPost.author);
+      formData.append("genre", editingPost.genre);
+      formData.append("date", editingPost.date || new Date().toISOString());
+
+      if (editingPost.file) {
+        formData.append("img", editingPost.file); // send only if new file chosen
+      }
+
+      const response = await fetch(url, {
+        method,
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || "خطا در ذخیره‌سازی مقاله");
+      }
+
+      alert(isEditing ? "مقاله ویرایش شد" : "مقاله جدید ذخیره شد");
+      navigate("/"); // redirect after save
+    } catch (error) {
+      console.error("Save error:", error);
+      alert("خطا: " + error.message);
+    }
+  };
+
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
@@ -92,13 +146,13 @@ const AdminAddArticle = () => {
   return (
     <>
       <Navbar />
-
       <main className="main-bg">
         <div className="comments-from" style={{ padding: "20px" }}>
-          <h1>{!id ? "افزودن مقاله" : "ویرایش مقاله"}</h1>
+          <h1>{id && id !== "add" ? "ویرایش مقاله" : "افزودن مقاله"}</h1>
+
           <form
             onSubmit={handleSave}
-            style={{ display: "flex", flexDirection: "column", gap: "10px" }}
+            style={{ display: "flex", flexDirection: "column", gap: "15px" }}
           >
             <input
               type="text"
@@ -109,6 +163,7 @@ const AdminAddArticle = () => {
               }
               required
             />
+
             <input
               type="date"
               value={editingPost.date}
@@ -116,6 +171,7 @@ const AdminAddArticle = () => {
                 setEditingPost({ ...editingPost, date: e.target.value })
               }
             />
+
             <select
               value={editingPost.genre}
               onChange={(e) =>
@@ -130,6 +186,7 @@ const AdminAddArticle = () => {
               ))}
             </select>
 
+            {/* Image upload */}
             <div>
               <p>انتخاب تصویر:</p>
               <input
@@ -139,12 +196,18 @@ const AdminAddArticle = () => {
               />
               {editingPost.img && (
                 <img
-                  src={editingPost.img}
+                  src={
+                    editingPost.file
+                      ? editingPost.img // preview of newly selected image
+                      : `http://api.ecosunir.ir:3000/api${editingPost.img}` // existing image
+                  }
                   alt="Preview"
                   style={{ width: "200px", marginTop: "10px" }}
                 />
               )}
             </div>
+
+            {/* Content editor */}
             <ReactQuill
               theme="snow"
               modules={modules}
@@ -157,22 +220,21 @@ const AdminAddArticle = () => {
             />
 
             <button
-              className="mt-80"
+              type="submit"
               style={{
                 background: "#ffaa17",
                 color: "#fff",
                 padding: "10px 20px",
                 border: "none",
                 cursor: "pointer",
+                fontSize: "16px",
               }}
-              type="submit"
             >
               ذخیره مقاله
             </button>
           </form>
         </div>
       </main>
-
       <Footer />
     </>
   );

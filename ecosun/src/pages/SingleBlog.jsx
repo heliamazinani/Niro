@@ -9,8 +9,22 @@ const SingleBlog = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const savedPosts = JSON.parse(localStorage.getItem("posts"));
-    setPosts(savedPosts || postsData.posts);
+    const fetchInstaPosts = async () => {
+      try {
+        const response = await fetch("http://api.ecosunir.ir:3000/blogs");
+        const data = await response.json();
+
+        if (Array.isArray(data)) {
+          setPosts(data);
+        } else {
+          console.error("Unexpected data format:", data);
+        }
+      } catch (err) {
+        console.error("Failed to fetch Instagram posts:", err);
+      }
+    };
+
+    fetchInstaPosts();
   }, []);
 
   const { id } = useParams();
