@@ -54,10 +54,10 @@ function MyInfo() {
             <div className="container mt-5">
               <h2>اطلاعات حساب کاربری</h2>
               <p>
-                <strong>نام:</strong> {user.Username}
+                <strong>نام:</strong> {user.name}
               </p>
               <p>
-                <strong>ایمیل:</strong> {user.Email}
+                <strong>ایمیل:</strong> {user.email}
               </p>
             </div>
           </main>
