@@ -25,7 +25,7 @@ function Home() {
   useEffect(() => {
     const fetchInstaPosts = async () => {
       try {
-        const response = await fetch("http://api.ecosunir.ir:3000/blogs");
+        const response = await fetch("http://api.ecosunir.ir:3000/api/blog");
         const data = await response.json();
 
         if (Array.isArray(data)) {

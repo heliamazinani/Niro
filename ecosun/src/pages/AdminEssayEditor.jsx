@@ -15,7 +15,7 @@ const AdminAddArticle = () => {
     id: "",
     title: "",
     content: "",
-    img: "",
+    image: "",
     author: "ادمین",
     genre: "",
     date: "",
@@ -28,7 +28,9 @@ const AdminAddArticle = () => {
       if (!id || id === "add") return;
 
       try {
-        const response = await fetch(`http://api.ecosunir.ir:3000/blogs/${id}`);
+        const response = await fetch(
+          `http://api.ecosunir.ir:3000/api/blog/${id}`
+        );
         const post = await response.json();
 
         if (response.ok) {
@@ -42,6 +44,7 @@ const AdminAddArticle = () => {
             date: post.date || "",
             file: null,
           });
+          console.log(post);
         } else {
           console.error("Invalid post data", post);
         }
@@ -61,7 +64,7 @@ const AdminAddArticle = () => {
       reader.onloadend = () => {
         setEditingPost((prev) => ({
           ...prev,
-          img: reader.result, // preview
+          image: reader.result, // preview
           file: file, // actual file to send
         }));
       };
@@ -76,20 +79,20 @@ const AdminAddArticle = () => {
     try {
       const isEditing = !!(id && id !== "add");
       const url = isEditing
-        ? `http://api.ecosunir.ir:3000/blogs/${id}`
-        : `http://api.ecosunir.ir:3000/blogs`;
+        ? `http://api.ecosunir.ir:3000/api/blog/${id}`
+        : `http://api.ecosunir.ir:3000/api/blog`;
 
       const method = isEditing ? "PUT" : "POST";
 
       const formData = new FormData();
       formData.append("title", editingPost.title);
       formData.append("content", editingPost.content);
-      formData.append("author", editingPost.author);
-      formData.append("genre", editingPost.genre);
-      formData.append("date", editingPost.date || new Date().toISOString());
+      // formData.append("author", editingPost.author);
+      // formData.append("genre", editingPost.genre);
+      // formData.append("date", editingPost.date || new Date().toISOString());
 
       if (editingPost.file) {
-        formData.append("img", editingPost.file); // send only if new file chosen
+        formData.append("image", editingPost.file); // send only if new file chosen
       }
 
       const response = await fetch(url, {
@@ -194,13 +197,14 @@ const AdminAddArticle = () => {
                 accept="image/*"
                 onChange={handleImageChange}
               />
-              {editingPost.img && (
+              <img
+                src={`http://api.ecosunir.ir:3000/api${editingPost.img}`}
+                alt="Preview"
+                style={{ width: "200px", marginTop: "10px" }}
+              />
+              {editingPost.image && (
                 <img
-                  src={
-                    editingPost.file
-                      ? editingPost.img // preview of newly selected image
-                      : `http://api.ecosunir.ir:3000/api${editingPost.img}` // existing image
-                  }
+                  src={`http://api.ecosunir.ir:3000/api${editingPost.image}`}
                   alt="Preview"
                   style={{ width: "200px", marginTop: "10px" }}
                 />

@@ -11,7 +11,7 @@ const SingleBlog = () => {
   useEffect(() => {
     const fetchInstaPosts = async () => {
       try {
-        const response = await fetch("http://api.ecosunir.ir:3000/blogs");
+        const response = await fetch("http://api.ecosunir.ir:3000/api/blog");
         const data = await response.json();
 
         if (Array.isArray(data)) {
@@ -91,12 +91,12 @@ const SingleBlog = () => {
                   objectFit: "contain", // prevent stretching
                 }}
               >
-                <img src={post.img} alt="" />
+                <img
+                  src={`http://api.ecosunir.ir:3000/api${post.img}`}
+                  alt=""
+                />
               </div>
-              {/* <div
-                  className="background bg-img parallaxie mt-80"
-                  data-background={post.img}
-                ></div> */}
+              
             </header>
 
             <section className="blog section-padding pb-0">
