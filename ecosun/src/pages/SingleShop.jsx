@@ -43,7 +43,7 @@ const SingleShop = () => {
                   {/* Product Image */}
                   <div className="col-lg-4">
                     <img
-                      src={`/${product.img}`}
+                      src={`${product.img}`}
                       alt={product.name}
                       style={{ width: "100%", borderRadius: "8px" }}
                     />
@@ -186,7 +186,7 @@ const SingleShop = () => {
                                   <div className="item mt-50">
                                     <div className="img">
                                       <img
-                                        src={`/${item.img}`}
+                                        src={`${item.img}`}
                                         alt={item.name}
                                         style={{ width: "100%" }}
                                       />

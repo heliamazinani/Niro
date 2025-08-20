@@ -52,8 +52,8 @@ const BlogTitle = ({date,img,title,link}) => {
       <div className="col-lg-4 col-md-6">
         <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 ,y:-50 }}
-          transition={{ duration: 0.8 ,y:0}}
+          whileInView={{ opacity: 1, y: -50 }}
+          transition={{ duration: 0.8, y: 0 }}
           viewport={{ once: true }}
         >
           <div className="item mb-50">
@@ -62,7 +62,7 @@ const BlogTitle = ({date,img,title,link}) => {
                 style={{ width: "100%", height: "220px", overflow: "hidden" }}
               >
                 <img
-                  src={img}
+                  src={`http://api.ecosunir.ir:3000/api${img}`}
                   alt=""
                   style={{
                     width: "100%",

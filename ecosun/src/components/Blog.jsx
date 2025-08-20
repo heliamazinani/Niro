@@ -38,7 +38,7 @@ const Blog = ({ date, img, title, link }) => {
             </div>
             <div style={{ width: "100%", height: "220px", overflow: "hidden" }}>
               <img
-                src={img}
+                src={`http://api.ecosunir.ir:3000/api${img}`}
                 alt=""
                 style={{
                   width: "100%",
