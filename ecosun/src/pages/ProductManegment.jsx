@@ -14,7 +14,7 @@ const ProductManegment = () => {
 
     try {
       const response = await fetch(
-        `http://api.ecosunir.ir:3000/api/Product/${id}`,
+        `https://api.ecosunir.ir/api/Product/${id}`,
         {
           method: "DELETE",
         }
@@ -38,7 +38,7 @@ const ProductManegment = () => {
 useEffect(() => {
   const fetchInstaPosts = async () => {
     try {
-      const res = await fetch("http://api.ecosunir.ir:3000/api/Product");
+      const res = await fetch("https://api.ecosunir.ir/api/Product");
       const result = await res.json();
       console.log("Fetched:", result);
 
@@ -116,7 +116,7 @@ useEffect(() => {
                         }}
                       >
                         <img
-                          src={`http://api.ecosunir.ir:3000/api${product.img}`}
+                          src={`https://api.ecosunir.ir/api${product.img}`}
                           alt=""
                           style={{
                             width: "100%",

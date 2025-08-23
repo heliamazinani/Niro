@@ -21,7 +21,7 @@ const AdminInstaEditor = () => {
 
       try {
         const response = await fetch(
-          `http://api.ecosunir.ir:3000/api/post/${id}`
+          `https://api.ecosunir.ir/api/post/${id}`
         );
         const post = await response.json();
 
@@ -70,8 +70,8 @@ const AdminInstaEditor = () => {
 
     const isEditing = !!id && id !== "add";
     const url = isEditing
-      ? `http://api.ecosunir.ir:3000/api/post/${id}`
-      : `http://api.ecosunir.ir:3000/api/post`;
+      ? `https://api.ecosunir.ir/api/post/${id}`
+      : `https://api.ecosunir.ir/api/post`;
 
     try {
       const formData = new FormData();
@@ -123,7 +123,7 @@ const AdminInstaEditor = () => {
               />
               {editingPost.image && (
                 <img
-                  src={`http://api.ecosunir.ir:3000/api${editingPost.image}`}
+                  src={`https://api.ecosunir.ir/api${editingPost.image}`}
                 
                   alt="Preview"
                   style={{ width: "200px", marginTop: "10px" }}

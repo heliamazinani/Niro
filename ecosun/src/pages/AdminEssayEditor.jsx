@@ -30,7 +30,7 @@ const AdminAddArticle = () => {
 
       try {
         const response = await fetch(
-          `http://api.ecosunir.ir:3000/api/blog/${id}`
+          `https://api.ecosunir.ir/api/blog/${id}`
         );
         const post = await response.json();
 
@@ -80,8 +80,8 @@ const AdminAddArticle = () => {
     try {
       const isEditing = !!(id && id !== "add");
       const url = isEditing
-        ? `http://api.ecosunir.ir:3000/api/blog/${id}`
-        : `http://api.ecosunir.ir:3000/api/blog`;
+        ? `https://api.ecosunir.ir/api/blog/${id}`
+        : `https://api.ecosunir.ir/api/blog`;
 
       const method = isEditing ? "PUT" : "POST";
 
@@ -202,7 +202,7 @@ const AdminAddArticle = () => {
               {/* show backend image if exists */}
               {editingPost.img && !editingPost.image && (
                 <img
-                  src={`http://api.ecosunir.ir:3000/api${editingPost.img}`}
+                  src={`https://api.ecosunir.ir/api${editingPost.img}`}
                   alt="Preview"
                   style={{ width: "200px", marginTop: "10px" }}
                 />

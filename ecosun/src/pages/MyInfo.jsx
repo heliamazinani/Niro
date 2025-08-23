@@ -16,7 +16,7 @@ function MyInfo() {
       return;
     }
 
-    fetch("http://api.ecosunir.ir:3000/api/me", {
+    fetch("https://api.ecosunir.ir/api/me", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`, // This is how most APIs expect tokens

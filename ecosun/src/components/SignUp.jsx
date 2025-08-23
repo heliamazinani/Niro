@@ -15,7 +15,7 @@ function SignUp() {
    console.log("Name before submit:", name);
    
    try {
-     const response = await fetch("http://api.ecosunir.ir:3000/api/register", {
+     const response = await fetch("https://api.ecosunir.ir/api/register", {
        method: "POST",
        headers: {
          "Content-Type": "application/json",
@@ -32,7 +32,7 @@ function SignUp() {
 
      // ✅ If register does not return token, login now
      const loginResponse = await fetch(
-       "http://api.ecosunir.ir:3000/api/login",
+       "https://api.ecosunir.ir/api/login",
        {
          method: "POST",
          headers: {

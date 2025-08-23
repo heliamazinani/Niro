@@ -13,7 +13,7 @@ const handleDelete = async (id) => {
   if (!window.confirm("آیا از حذف این پست مطمئن هستید؟")) return;
 
   try {
-    const response = await fetch(`http://api.ecosunir.ir:3000/api/post/${id}`, {
+    const response = await fetch(`https://api.ecosunir.ir/api/post/${id}`, {
       method: "DELETE",
     });
 
@@ -33,7 +33,7 @@ const handleDelete = async (id) => {
 useEffect(() => {
   const fetchInstaPosts = async () => {
     try {
-      const res = await fetch("http://api.ecosunir.ir:3000/api/post");
+      const res = await fetch("https://api.ecosunir.ir/api/post");
       const result = await res.json();
       console.log("Fetched:", result);
 
@@ -111,7 +111,7 @@ useEffect(() => {
                         }}
                       >
                         <img
-                          src={`http://api.ecosunir.ir:3000/api${post.image}`}
+                          src={`https://api.ecosunir.ir/api${post.image}`}
                           alt=""
                           style={{
                             width: "100%",

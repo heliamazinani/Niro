@@ -13,7 +13,7 @@ const IS = () => {
 useEffect(() => {
   const fetchInstaPosts = async () => {
     try {
-      const response = await fetch("http://api.ecosunir.ir:3000/api/post");
+      const response = await fetch("https://api.ecosunir.ir/api/post");
       const data = await response.json();
 
       if (Array.isArray(data.data)) {
@@ -136,7 +136,7 @@ useEffect(() => {
                 >
                   <div className="img ">
                     <img
-                      src={`http://api.ecosunir.ir:3000/api${post.image}`}
+                      src={`https://api.ecosunir.ir/api${post.image}`}
                       alt={`slide-${post}`}
                       style={{
                         width: "100%",

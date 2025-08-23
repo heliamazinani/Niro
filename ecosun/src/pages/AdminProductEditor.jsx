@@ -26,7 +26,7 @@ const AdminProductEditor = () => {
 
       try {
         const response = await fetch(
-          `http://api.ecosunir.ir:3000/api/Product/${id}`
+          `https://api.ecosunir.ir/api/Product/${id}`
         );
         const product = await response.json();
 
@@ -56,8 +56,8 @@ const AdminProductEditor = () => {
 
     const isEditing = !!id && id !== "add";
     const url = isEditing
-      ? `http://api.ecosunir.ir:3000/api/Product/${id}`
-      : `http://api.ecosunir.ir:3000/api/Product`;
+      ? `https://api.ecosunir.ir/api/Product/${id}`
+      : `https://api.ecosunir.ir/api/Product`;
 
     try {
       const formData = new FormData();
@@ -214,7 +214,7 @@ const AdminProductEditor = () => {
               />
               {editingProduct.img && (
                 <img
-                  src={`http://api.ecosunir.ir:3000/api${editingProduct.img}`}
+                  src={`https://api.ecosunir.ir/api${editingProduct.img}`}
                   alt="Preview"
                   style={{ width: "200px", marginTop: "10px" }}
                 />

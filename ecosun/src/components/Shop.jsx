@@ -10,7 +10,7 @@ const Shop = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://api.ecosunir.ir:3000/api/Product");
+        const response = await fetch("https://api.ecosunir.ir/api/Product");
         const data = await response.json();
 
         if (response.ok) {
@@ -151,7 +151,7 @@ const Shop = () => {
                           <div className="img">
                             <Link to={`/shop/${product.id}`}>
                               <img
-                                src={`http://api.ecosunir.ir:3000/api${product.img}`}
+                                src={`https://api.ecosunir.ir/api${product.img}`}
                                 alt={product.name}
                               />
                             </Link>

@@ -62,7 +62,7 @@ const BlogTitle = ({date,img,title,link}) => {
                 style={{ width: "100%", height: "220px", overflow: "hidden" }}
               >
                 <img
-                  src={`http://api.ecosunir.ir:3000/api${img}`}
+                  src={`https://api.ecosunir.ir/api${img}`}
                   alt=""
                   style={{
                     width: "100%",

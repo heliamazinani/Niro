@@ -35,7 +35,7 @@ const SingleShop = () => {
       try {
         // ✅ Fetch single product
         const response = await fetch(
-          `http://api.ecosunir.ir:3000/api/Product/${id}`
+          `https://api.ecosunir.ir/api/Product/${id}`
         );
         const data = await response.json();
 
@@ -44,7 +44,7 @@ const SingleShop = () => {
 
           // ✅ Fetch all products to get related ones
           const relatedRes = await fetch(
-            "http://api.ecosunir.ir:3000/api/Product"
+            "https://api.ecosunir.ir/api/Product"
           );
           const allProducts = await relatedRes.json();
 
@@ -87,7 +87,7 @@ const SingleShop = () => {
                   {/* Product Image */}
                   <div className="col-lg-4">
                     <img
-                      src={`http://api.ecosunir.ir:3000/api${product.img}`}
+                      src={`https://api.ecosunir.ir/api${product.img}`}
                       alt={product.name}
                       style={{ width: "100%", borderRadius: "8px" }}
                     />
@@ -204,7 +204,7 @@ const SingleShop = () => {
                                   <div className="item mt-50">
                                     <div className="img">
                                       <img
-                                        src={`http://api.ecosunir.ir:3000/api${item.img}`}
+                                        src={`https://api.ecosunir.ir/api${item.img}`}
                                         alt={item.name}
                                         style={{ width: "100%" }}
                                       />
