@@ -8,19 +8,63 @@ const SingleShop = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [relatedProducts, setRelatedProducts] = useState([]);
+  const sendWhatsApp = () => {
+    const phoneNumber = "989155363273";
+    const message = `سلام می خواهم این محصول را سفارش دهم : \n
+ نام محصول: ${product.name}
+ قیمت: ${product.price.toLocaleString()} تومان
+ لینک: ${window.location.href}`;
+
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+
+    window.open(url, "_blank"); // Open in new tab
+  };
+  function formatPrice(price, locale = "en-US", currency = "USD") {
+    return new Intl.NumberFormat(locale, {
+      style: "currency",
+      currency: currency,
+      minimumFractionDigits: 0, // Ensures at least two decimal places
+      maximumFractionDigits: 0, // Ensures at most two decimal places
+    }).format(price);
+  }
 
   useEffect(() => {
-    if (!shopData || !shopData.products) return;
+    const fetchProduct = async () => {
+      try {
+        // ✅ Fetch single product
+        const response = await fetch(
+          `http://api.ecosunir.ir:3000/api/Product/${id}`
+        );
+        const data = await response.json();
 
-    const selected = shopData.products.find((item) => item.id === Number(id));
-    setProduct(selected);
+        if (response.ok) {
+          setProduct(data);
 
-    if (selected) {
-      const related = shopData.products.filter(
-        (item) => item.category === selected.category && item.id !== selected.id
-      );
-      setRelatedProducts(related);
-    }
+          // ✅ Fetch all products to get related ones
+          const relatedRes = await fetch(
+            "http://api.ecosunir.ir:3000/api/Product"
+          );
+          const allProducts = await relatedRes.json();
+
+          if (relatedRes.ok) {
+            const related = allProducts.filter(
+              (item) => item.category === data.category && item.id !== data.id
+            );
+            setRelatedProducts(related);
+          }
+        } else {
+          console.error("Invalid product response:", data);
+        }
+      } catch (error) {
+        console.error("Fetch error:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProduct();
   }, [id]);
 
   if (!product) {
@@ -37,13 +81,13 @@ const SingleShop = () => {
         <Navbar />
         <div id="smooth-content">
           <main className="main-bg pt-80">
-            <section className="product-details section-padding">
+            <section className="product-details ">
               <div className="container ">
                 <div className="row justify-content-center">
                   {/* Product Image */}
                   <div className="col-lg-4">
                     <img
-                      src={`${product.img}`}
+                      src={`http://api.ecosunir.ir:3000/api${product.img}`}
                       alt={product.name}
                       style={{ width: "100%", borderRadius: "8px" }}
                     />
@@ -51,38 +95,40 @@ const SingleShop = () => {
                   <div className="col-lg-6 offset-lg-1">
                     <div className="product-info">
                       <div className="top-info">
-                        <h6 className="main-color4">
-                          {" "}
-                          {product.price.toLocaleString()} تومان
-                        </h6>
+                        <h2 className="line-height-1"> {product.name}</h2>
+
                         <div className="d-flex align-items-center">
-                          <div>
-                            <h4 className="line-height-1"> {product.name}</h4>
-                          </div>
+                          <div> </div>
                           <div className="ml-auto">
                             <div className="d-flex align-items-center"></div>
                           </div>
                         </div>
-                        <div className="text mt-30">
-                          <div
-                            className="post-content"
-                            dangerouslySetInnerHTML={{
-                              __html: product.description,
-                            }}
-                          />
-                          <p>{product.description}</p>
-                        </div>
-                        <div className="dot-list mt-30">
-                          <ul className="rest">
-                            <li className="mb-15">برج های قابل تنظیم در هود</li>
-                            <li>جیب های جیب در کمر</li>
-                          </ul>
-                        </div>
                       </div>
-                      <div className="prod-order pt-30 pb-30 mt-50 bord-thin-top bord-thin-bottom">
-                        <div className="d-flex align-items-center">
-                          <div>
-                            <div className="counter">
+
+                      <div className="mt-40">
+                        <ul className="rest">
+                          <li className="d-flex align-items-center mb-15">
+                            <strong>کد محصول :</strong>
+                            <span className="ml-10">{product.id}</span>
+                          </li>
+                          <li className="d-flex align-items-center mb-15">
+                            <strong>دسته بندی :</strong>
+                            <span className="ml-10">
+                              <a href="#0">{product.category}</a>
+                            </span>
+                          </li>
+                        </ul>
+                        <div className="prod-order pt-30 pb-30 mt-50 bord-thin-top bord-thin-bottom">
+                          <div className="d-flex align-items-center">
+                            <div>
+                              <h6 className="main-color4">
+                                {" "}
+                                {product.price
+                                  .toString()
+                                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                                تومان
+                              </h6>
+                              {/* <div className="counter">
                               <span
                                 className="down"
                                 onClick="decreaseCount(event, this)"
@@ -96,37 +142,20 @@ const SingleShop = () => {
                               >
                                 +
                               </span>
+                            </div> */}
+                            </div>
+                            <div className="ml-auto">
+                              <div
+                                onClick={sendWhatsApp}
+                                className="butn butn-md butn-bord"
+                              >
+                                <span className="text-u fz-13">
+                                  اطلاعات بیشتر
+                                </span>
+                              </div>
                             </div>
                           </div>
-                          <div className="ml-auto">
-                            <a href="#0" className="butn butn-md butn-bord">
-                              <span className="text-u fz-13">
-                                اضافه به سبد خرید
-                              </span>
-                            </a>
-                          </div>
                         </div>
-                      </div>
-                      <div className="mt-40">
-                        <ul className="rest">
-                          <li className="d-flex align-items-center mb-15">
-                            <strong>کد محصول :</strong>
-                            <span className="ml-10">8552635</span>
-                          </li>
-                          <li className="d-flex align-items-center mb-15">
-                            <strong>دسته بندی :</strong>
-                            <span className="ml-10">
-                              <a href="#0">لباس</a>
-                            </span>
-                          </li>
-                          <li className="d-flex align-items-center">
-                            <strong>تگ :</strong>
-                            <span className="ml-10">
-                              <a href="#0">مردانه</a> , <a href="#0">زنانه</a> ,
-                              <a href="#0">ژاکت</a>
-                            </span>
-                          </li>
-                        </ul>
                       </div>
                     </div>
                   </div>
@@ -144,24 +173,13 @@ const SingleShop = () => {
                         <div className="tab-content current" id="tabs-1">
                           <div className="item">
                             <div className="text">
-                              <p className="mb-15">
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                                صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                                چاپگرها و متون بلکه روزنامه و مجله در ستون و
-                                سطرآنچنان که لازم است، و برای شرایط فعلی
-                                تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
-                                بهبود{" "}
-                              </p>
-                              <p>
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                                صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                                چاپگرها و متون بلکه روزنامه و مجله در ستون و
-                                سطرآنچنان که لازم است، و برای شرایط فعلی
-                                تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
-                                بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در
-                                شصت و سه درصد گذشته حال و آینده، شناخت فراوان
-                                جامعه و متخصصان را می طلبد، تا با{" "}
-                              </p>
+                              <div
+                                className="post-content"
+                                dangerouslySetInnerHTML={{
+                                  __html: product.description,
+                                }}
+                              />
+                              {/* <p>{product.description}</p> */}
                             </div>
                           </div>
                         </div>
@@ -186,19 +204,25 @@ const SingleShop = () => {
                                   <div className="item mt-50">
                                     <div className="img">
                                       <img
-                                        src={`${item.img}`}
+                                        src={`http://api.ecosunir.ir:3000/api${item.img}`}
                                         alt={item.name}
                                         style={{ width: "100%" }}
                                       />
                                       <a href="#0" className="add-cart">
-                                        اضافه به سبد خرید
+                                        اطلاعات بیشتر
                                       </a>
                                     </div>
                                     <Link to={`/shop/${item.id}`}>
                                       <div className="card-body">
                                         <h6>{item.name}</h6>
                                         <p>
-                                          {item.price.toLocaleString()} تومان
+                                          {product.price
+                                            .toString()
+                                            .replace(
+                                              /\B(?=(\d{3})+(?!\d))/g,
+                                              ","
+                                            )}{" "}
+                                          تومان
                                         </p>
                                       </div>
                                     </Link>

@@ -15,11 +15,12 @@ const AdminAddArticle = () => {
     id: "",
     title: "",
     content: "",
-    image: "",
+    img: "", // server path to image
+    image: "", // preview for new upload
+    file: null, // actual uploaded file
     author: "ادمین",
     genre: "",
     date: "",
-    file: null,
   });
 
   // ✅ Load post if editing
@@ -38,13 +39,13 @@ const AdminAddArticle = () => {
             id: post.id,
             title: post.title || "",
             content: post.content || "",
-            img: post.img || "",
+            img: post.img || "", // backend image path
+            image: "", // no new image yet
+            file: null, // no file yet
             author: post.author || "ادمین",
             genre: post.genre || "",
             date: post.date || "",
-            file: null,
           });
-          console.log(post);
         } else {
           console.error("Invalid post data", post);
         }
@@ -87,12 +88,12 @@ const AdminAddArticle = () => {
       const formData = new FormData();
       formData.append("title", editingPost.title);
       formData.append("content", editingPost.content);
-      // formData.append("author", editingPost.author);
-      // formData.append("genre", editingPost.genre);
-      // formData.append("date", editingPost.date || new Date().toISOString());
+      formData.append("author", editingPost.author);
+      formData.append("genre", editingPost.genre);
+      formData.append("date", editingPost.date || new Date().toISOString());
 
       if (editingPost.file) {
-        formData.append("image", editingPost.file); // send only if new file chosen
+        formData.append("image", editingPost.file);
       }
 
       const response = await fetch(url, {
@@ -107,7 +108,7 @@ const AdminAddArticle = () => {
       }
 
       alert(isEditing ? "مقاله ویرایش شد" : "مقاله جدید ذخیره شد");
-      navigate("/"); // redirect after save
+      navigate("/dashboard/blogs");
     } catch (error) {
       console.error("Save error:", error);
       alert("خطا: " + error.message);
@@ -197,14 +198,20 @@ const AdminAddArticle = () => {
                 accept="image/*"
                 onChange={handleImageChange}
               />
-              <img
-                src={`http://api.ecosunir.ir:3000/api${editingPost.img}`}
-                alt="Preview"
-                style={{ width: "200px", marginTop: "10px" }}
-              />
+
+              {/* show backend image if exists */}
+              {editingPost.img && !editingPost.image && (
+                <img
+                  src={`http://api.ecosunir.ir:3000/api${editingPost.img}`}
+                  alt="Preview"
+                  style={{ width: "200px", marginTop: "10px" }}
+                />
+              )}
+
+              {/* show preview if new file selected */}
               {editingPost.image && (
                 <img
-                  src={`http://api.ecosunir.ir:3000/api${editingPost.image}`}
+                  src={editingPost.image}
                   alt="Preview"
                   style={{ width: "200px", marginTop: "10px" }}
                 />

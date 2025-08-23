@@ -5,18 +5,28 @@ import { motion } from "framer-motion";
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [priceRange, setPriceRange] = useState([0, 1000000]); // min & max price
+  const [priceRange, setPriceRange] = useState([0, 100000000]); // min & max price
   const [sortOption, setSortOption] = useState("default");
-      useEffect(() => {
-        // Load from localStorage first, or fallback to JSON file
-    const savedProducts = JSON.parse(localStorage.getItem("products"));
-    setProducts(savedProducts || shopData.products);
-      }, []);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("http://api.ecosunir.ir:3000/api/Product");
+        const data = await response.json();
 
-    useEffect(() => {
-      localStorage.setItem("products", JSON.stringify(products));
-    }, [products]);
+        if (response.ok) {
+          setProducts(data); // assuming backend returns an array of products
+        } else {
+          console.error("Invalid products response:", data);
+          // fallback to local data if backend fails
+          setProducts(shopData.products);
+        }
+      } catch (err) {
+        console.error("Fetch error:", err);
+      }
+    };
 
+    fetchProducts();
+  }, []);
   const filteredProducts = products
     .filter((p) => p.name.includes(searchTerm))
     .filter((p) => p.price >= priceRange[0] && p.price <= priceRange[1])
@@ -60,10 +70,10 @@ const Shop = () => {
                   <input
                     type="range"
                     min="0"
-                    max="1000000"
+                    max="100000000"
                     value={priceRange[1]}
                     style={{
-                      "--progress": `${(priceRange[1] / 1000000) * 100}%`,
+                      "--progress": `${(priceRange[1] / 100000000) * 100}%`,
                     }}
                     onChange={(e) => setPriceRange([0, Number(e.target.value)])}
                   />
@@ -137,21 +147,31 @@ const Shop = () => {
                       viewport={{ once: true }}
                     >
                       <div className="item mb-50">
-                        <div className="img">
-                          <Link to={`/shop/${product.id}`}>
-                            <img src={product.img} alt={product.name} />
-                          </Link>
-                          <a href="#0" className="add-cart">
-                            اضافه به سبد خرید
-                          </a>
-                        </div>
-                        <div className="cont">
-
-                          <Link to={`/shop/${product.id}`}>
-                            <h6>{product.name}</h6>
-                            <h5>{product.price.toLocaleString()} تومان</h5>
-                          </Link>
-                        </div>
+                        <Link to={`/shop/${product.id}`}>
+                          <div className="img">
+                            <Link to={`/shop/${product.id}`}>
+                              <img
+                                src={`http://api.ecosunir.ir:3000/api${product.img}`}
+                                alt={product.name}
+                              />
+                            </Link>
+                            <a href="#0" className="add-cart">
+                              اطلاعات بیشتر
+                            </a>
+                          </div>
+                          <div className="cont">
+                            <Link to={`/shop/${product.id}`}>
+                              <h6>{product.name}</h6>
+                              <h5>
+                                {" "}
+                                {product.price
+                                  .toString()
+                                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                                تومان
+                              </h5>
+                            </Link>
+                          </div>
+                        </Link>
                       </div>
                     </motion.div>
                   </div>

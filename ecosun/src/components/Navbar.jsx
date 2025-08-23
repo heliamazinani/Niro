@@ -191,7 +191,7 @@ useEffect(() => {
                 </Link>
               </div>
             </li>
-
+{/* 
             {!isLoggedIn ? (
               <li className="nav-item">
                 <div className="nav-link">
@@ -244,9 +244,9 @@ useEffect(() => {
                   )}
                 </li>
               </>
-            )}
+            )} */}
 
-            {isAdmin && (
+            {/* {isAdmin && (
               <>
                 <li className="nav-item">
                   <div className="nav-link">
@@ -262,7 +262,7 @@ useEffect(() => {
                   </div>
                 </li>
               </>
-            )}
+            )} */}
 
             <li className="nav-item">
               <div className="nav-link">

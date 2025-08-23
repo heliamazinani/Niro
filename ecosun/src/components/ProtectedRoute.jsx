@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/Footer.jsx";
-import Navbar from "../components/Navbar";
 
-function MyInfo() {
-  const navigate = useNavigate();
+const ProtectedRoute = ({ allowedRole, children }) => {
+ const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -24,7 +23,6 @@ function MyInfo() {
       },
     })
       .then(async (response) => {
-        
         if (!response.ok) {
           console.log(response);
           throw new Error("Failed to fetch user");
@@ -40,35 +38,16 @@ function MyInfo() {
       })
       .finally(() => setLoading(false));
   }, []);
-
   if (loading) return <div>در حال بارگذاری اطلاعات...</div>;
 
   if (!user) return <div>اطلاعات یافت نشد.</div>;
+  // Role doesn’t match → send to homepage
+  if (allowedRole && user.userRole !== allowedRole) {
+    return <Navigate to="/" replace />;
+  }
 
-  return (
-    <>
-      <div id="smooth-wrapper">
-        <Navbar />
-        <div id="smooth-content">
-          <main className="main-bg">
-            <div className="container mt-5">
-              <h2>اطلاعات حساب کاربری</h2>
-              <p>
-                <strong>نام:</strong> {user.name}
-              </p>
-              <p>
-                <strong>ایمیل:</strong> {user.email}
-              </p>
-              <p>
-                <strong>ایمیل:</strong> {user.userRole}
-              </p>
-            </div>
-          </main>
-          <Footer />
-        </div>
-      </div>
-    </>
-  );
-}
+  // ✅ Allowed → render child component
+  return children;
+};
 
-export default MyInfo;
+export default ProtectedRoute;

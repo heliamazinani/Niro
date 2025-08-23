@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import Footer from "./Footer.jsx";
 import ASlider from "./ASlider.jsx";
 import Team from "./Team.jsx";
-// import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +27,11 @@ function Login() {
       }
 
       localStorage.setItem("token", data.token);
-      window.location.href = "/";
+    if (data.userRole === "Admin") {
+      navigate("/dashboard"); // go to admin dashboard
+    } else {
+      navigate("/"); // go to homepage (or user dashboard)
+    }
     } catch (error) {
       console.error("Login error:", error.message);
       alert("Login failed: " + error.message);

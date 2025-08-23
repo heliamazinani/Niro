@@ -28,12 +28,12 @@ const Blog = ({ date, img, title, link }) => {
                   </div>
                 </span>
                 <span className="dot main-colorbg3"></span>
-                <span className="date">
+                {/* <span className="date">
                   <Link to={link}>
                     <i className="far fa-calendar-alt fz-14 mr-10"></i>
                     {date}
                   </Link>
-                </span>
+                </span> */}
               </div>
             </div>
             <div style={{ width: "100%", height: "220px", overflow: "hidden" }}>

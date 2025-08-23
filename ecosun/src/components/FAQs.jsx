@@ -80,7 +80,8 @@ const FAQs = () => {
             </div>
           </div>
         </div>
-        <div className="main-marq xlrg section-padding pb-0">
+        {/* <div className="main-marq xlrg section-padding pb-0"
+        style={{height:'100px'}}>
           <div className="slide-har st1">
             <div className="box">
               <div className="item">
@@ -116,8 +117,8 @@ const FAQs = () => {
                 <h4>سوال</h4>
               </div>
             </div>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
       </div>
 
       <section className="faqs section-padding main-bg">

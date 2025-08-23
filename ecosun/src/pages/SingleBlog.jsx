@@ -42,16 +42,16 @@ const SingleBlog = () => {
         <Navbar />
         <div id="smooth-content">
           <main className="main-bg">
-            <header className="page-header blog-header section-padding pb-0">
+            <header className="page-header blog-header pb-0">
               <div className="container mt-80">
                 <div className="row justify-content-center">
                   <div className="col-lg-10">
                     <div className="caption">
-                      <div className="sub-title fz-12">
+                      {/* <div className="sub-title fz-12">
                         <a href="#0">
                           <span>{post.genre}</span>
                         </a>
-                      </div>
+                      </div> */}
                       <h1 className="fz-55 mt-30">{post.title}</h1>
                     </div>
                     <div className="info d-flex mt-40 align-items-center">
@@ -61,15 +61,15 @@ const SingleBlog = () => {
                             <div className="d-flex align-items-center">
                               <a href="#0" className="ml-20">
                                 <span className="opacity-7">نویسنده</span>
-                                <h6 className="fz-16"> {post.author} </h6>
+                                <h6 className="fz-16"> ادمین </h6>
                               </a>
                             </div>
                           </div>
                           <div className="date ml-50">
-                            <a href="#0">
+                            {/* <a href="#0">
                               <span className="opacity-7">منتشر شده در</span>
                               <h6 className="fz-16">{post.date} </h6>
-                            </a>
+                            </a> */}
                           </div>
                         </div>
                       </div>
@@ -122,12 +122,12 @@ const SingleBlog = () => {
                   <div className="info-area flex mt-20 pb-20">
                     <div>
                       <div className="tags flex">
-                        <div className="valign">
+                        {/* <div className="valign">
                           <span>تگ ها :</span>
                         </div>
                         <div>
                           <a href="blog-classic.html"> {post.genre} </a>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                     <div className="ml-auto">

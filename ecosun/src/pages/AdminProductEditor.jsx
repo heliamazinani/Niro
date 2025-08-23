@@ -14,66 +14,91 @@ const AdminProductEditor = () => {
     name: "",
     price: "",
     category: "",
-    img: "",
+    image: "",
     description: "",
+    file: null, // actual image file to send
   });
 
-  // Load product if editing
-useEffect(() => {
-  let savedProducts = [];
-  try {
-    savedProducts = JSON.parse(localStorage.getItem("products"));
-  } catch (e) {
-    console.error("Invalid localStorage data", e);
-  }
+  // ✅ Fetch post for editing
+  useEffect(() => {
+    const fetchPost = async () => {
+      if (!id || id === "add") return;
 
-  if (!savedProducts || savedProducts.length === 0) {
-    savedProducts = shopData.products;
-  }
+      try {
+        const response = await fetch(
+          `http://api.ecosunir.ir:3000/api/Product/${id}`
+        );
+        const product = await response.json();
 
-  if (id) {
-    const product = savedProducts.find((p) => p.id === Number(id));
-    console.log("Editing product:", product);
+        if (response.ok) {
+          setEditingProduct({
+            id: product.ID,
+            name: product.name,
+            price: product.price,
+            category: product.catagory,
+            img: product.img, // base64 or URL
+            description: product.description,
+            file: null, // not needed for preview
+          });
+        } else {
+          console.error("Invalid post data");
+        }
+      } catch (err) {
+        console.error("Fetch error:", err);
+      }
+    };
 
-    if (product) {
-      setEditingProduct((prev) => ({
-        ...prev,
-        ...product,
-      }));
-    }
-  }
-}, [id]);
+    fetchPost();
+  }, [id]);
 
-  const handleSave = (e) => {
+  const handleSave = async (e) => {
     e.preventDefault();
 
-    const savedProducts =
-      JSON.parse(localStorage.getItem("products")) || shopData.products;
+    const isEditing = !!id && id !== "add";
+    const url = isEditing
+      ? `http://api.ecosunir.ir:3000/api/Product/${id}`
+      : `http://api.ecosunir.ir:3000/api/Product`;
 
-    if (!id) {
-      // Add new product
-      const newProduct = { ...editingProduct, id: Date.now() };
-      localStorage.setItem(
-        "products",
-        JSON.stringify([...savedProducts, newProduct])
-      );
-    } else {
-      // Edit existing
-      const updatedProducts = savedProducts.map((p) =>
-        p.id === Number(id) ? editingProduct : p
-      );
-      localStorage.setItem("products", JSON.stringify(updatedProducts));
+    try {
+      const formData = new FormData();
+      formData.append("name", editingProduct.name);
+      formData.append("price", editingProduct.price);
+      formData.append("category", editingProduct.category);
+      formData.append("description", editingProduct.description);
+      if (editingProduct.file) {
+        formData.append("image", editingProduct.file);
+      }
+
+      const response = await fetch(url, {
+        method: isEditing ? "PUT" : "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || "خطا در ذخیره‌سازی");
+      }
+
+      alert(isEditing ? "پست ویرایش شد" : "پست جدید ذخیره شد");
+      navigate("/dashboard/insta");
+    } catch (error) {
+      console.error("Save error:", error.message);
+      alert("خطا: " + error.message);
     }
-
-    navigate("/dashboard"); // Back to dashboard
   };
 
+  // ✅ Handle file input
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setEditingProduct({ ...editingProduct, img: reader.result });
+        setEditingProduct((prev) => ({
+          ...prev,
+          image: reader.result, // preview
+          file: file, // actual file to send
+        }));
       };
       reader.readAsDataURL(file);
     }
@@ -138,17 +163,17 @@ useEffect(() => {
               type="number"
               placeholder="قیمت"
               value={editingProduct.price}
-              onChange={(value) =>
+              onChange={(e) =>
                 setEditingProduct({
                   ...editingProduct,
-                  price: Number(value),
+                  price: e.target.value, // keep as string so input works
                 })
               }
               required
             />
 
             {/* Category */}
-            {/* <select
+            <select
               value={editingProduct.category}
               onChange={(e) =>
                 setEditingProduct({
@@ -158,14 +183,12 @@ useEffect(() => {
               }
             >
               <option value="">انتخاب دسته‌بندی</option>
-              {categories.map((cat, index) => (
-                <option key={index} value={cat}>
-                  {cat}
-                </option>
-              ))}
-            </select> */}
 
-         
+              <option>خورشیدی</option>
+              <option>فیبر نوری</option>
+              <option>برق</option>
+            </select>
+
             {/* Description */}
             <p>توضیحات محصول:</p>
             <ReactQuill
@@ -191,7 +214,7 @@ useEffect(() => {
               />
               {editingProduct.img && (
                 <img
-                  src={editingProduct.img}
+                  src={`http://api.ecosunir.ir:3000/api${editingProduct.img}`}
                   alt="Preview"
                   style={{ width: "200px", marginTop: "10px" }}
                 />

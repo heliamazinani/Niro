@@ -9,21 +9,52 @@ const ProductManegment = () => {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
-  const handleDelete = (id) => {
-    setProducts(products.filter((products) => products.id !== id));
-  };
-  useEffect(() => {
-    const savedProducts = JSON.parse(localStorage.getItem("products"));
-    if (savedProducts && savedProducts.length > 0) {
-      setProducts(savedProducts);
-    } else {
-      setProducts(shopData.products);
-    }
-  }, []);
+  const handleDelete = async (id) => {
+    if (!window.confirm("آیا از حذف این پست مطمئن هستید؟")) return;
 
-  useEffect(() => {
-    localStorage.setItem("products", JSON.stringify(products));
-  }, [products]);
+    try {
+      const response = await fetch(
+        `http://api.ecosunir.ir:3000/api/Product/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "خطا در حذف پست");
+      }
+
+      // Remove from local state after successful deletion
+      setProducts((prev) => prev.filter((post) => post.id !== id));
+    } catch (error) {
+      console.error("Delete Error:", error);
+      alert("حذف پست با خطا مواجه شد: " + error.message);
+    }
+  };
+  // const handleDelete = (id) => {
+  //   setProducts(products.filter((products) => products.id !== id));
+  // };
+useEffect(() => {
+  const fetchInstaPosts = async () => {
+    try {
+      const res = await fetch("http://api.ecosunir.ir:3000/api/Product");
+      const result = await res.json();
+      console.log("Fetched:", result);
+
+      if (Array.isArray(result)) {
+        setProducts(result); // ✅ Use result.data
+      } else {
+        console.error("Unexpected response format", result);
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+    }
+  };
+
+  fetchInstaPosts();
+}, []);
+
 
   // Calculate indexes for pagination
   const indexOfLastPost = currentPage * postsPerPage;
@@ -85,7 +116,7 @@ const ProductManegment = () => {
                         }}
                       >
                         <img
-                          src={product.img}
+                          src={`http://api.ecosunir.ir:3000/api${product.img}`}
                           alt=""
                           style={{
                             width: "100%",

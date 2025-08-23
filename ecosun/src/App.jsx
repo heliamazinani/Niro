@@ -19,7 +19,7 @@ import AdminProductEditor from "./pages/AdminProductEditor";
 import AdminInstaEditor from "./pages/AdminInstaEditor"
 import SingleShop from "./pages/SingleShop";
 import Dash from "./pages/Dash"
-
+import ProtectedRoute from "./components/ProtectedRoute";
 import EssayManagment from "./pages/EssayManagment";
 import ProductManegment from "./pages/ProductManegment";
 import InstaManegment from "./pages/InstaManegment";
@@ -55,7 +55,16 @@ function App() {
                 <Route path="/info" element={<MyInfo />}></Route>
                 <Route path="/shop" element={<Shop />}></Route>
                 <Route path="/shop/:id" element={<SingleShop />}></Route>
-                <Route path="/dashboard" element={<Dash />}></Route>
+                <Route
+                  path="/dashboard/*"
+                  element={
+                    <ProtectedRoute allowedRole="Admin">
+                      <Dash />
+                    </ProtectedRoute>
+                  }
+                />
+
+                {/* <Route path="/dashboard" element={<Dash />}></Route> */}
                 <Route
                   path="/dashboard/essays"
                   element={<EssayManagment />}
