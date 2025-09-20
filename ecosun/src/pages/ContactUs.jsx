@@ -68,15 +68,17 @@ function ContactUs() {
                       <div className="phone fz-30 fw-600 mt-30 underline">
                         <a href="#0">0915-53-63-273 </a>
                       </div>
+                      <div className="phone fz-30 fw-600 mt-30 underline">
+                        <a href="#0">051-37063294 </a>
+                      </div>
                       <ul className="rest social-text d-flex mt-60">
-                      
-                          <li className="mr-30 text-center">
-                              <motion.div
-                          initial={{ opacity: 0, y: 100 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8 }}
-                          viewport={{ once: true }}
-                        >
+                        <li className="mr-30 text-center">
+                          <motion.div
+                            initial={{ opacity: 0, y: 100 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                            viewport={{ once: true }}
+                          >
                             <a href="#0">اینستاگرام</a>
                             <div className="icon-img-100 mb-40 mt-10 ">
                               <img
@@ -85,15 +87,15 @@ function ContactUs() {
                                 style={{ borderRadius: "10px" }}
                               />
                             </div>
-                            </motion.div>
-                          </li>
-                          <li className="mr-30 text-center">
-                                         <motion.div
-                          initial={{ opacity: 0, y: 100 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8 }}
-                          viewport={{ once: true }}
-                        >
+                          </motion.div>
+                        </li>
+                        <li className="mr-30 text-center">
+                          <motion.div
+                            initial={{ opacity: 0, y: 100 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                            viewport={{ once: true }}
+                          >
                             <a href="#0">واتساپ</a>
                             <div className="icon-img-100 mb-40 mt-10 ">
                               <img
@@ -102,9 +104,9 @@ function ContactUs() {
                                 style={{ borderRadius: "10px" }}
                               />
                             </div>
-                            </motion.div>
-                          </li>
-                          {/* <li className="mr-30 text-center">
+                          </motion.div>
+                        </li>
+                        {/* <li className="mr-30 text-center">
                           <a href="#0">واتساپ</a>
                           <div className="icon-img-100 mb-40 mt-10 ">
                             <img
@@ -114,7 +116,6 @@ function ContactUs() {
                             />
                           </div>
                         </li> */}
-                     
                       </ul>
                     </div>
                   </div>

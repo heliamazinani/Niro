@@ -165,7 +165,7 @@ useEffect(() => {
                 </Link>
               </div>
             </li>
-
+{/* 
             <li className="nav-item">
               <div className="nav-link">
                 <Link
@@ -176,7 +176,7 @@ useEffect(() => {
                   فروشگاه
                 </Link>
               </div>
-            </li>
+            </li> */}
 
             <li className="nav-item">
               <div className="nav-link">
@@ -274,7 +274,7 @@ useEffect(() => {
 
         <div className={`search-form ${searchOpen ? "open" : ""}`}>
           <div className="form-group">
-            <input type="text" name="search" placeholder="جستوجو" />
+            <input type="text" name="search" placeholder="جستجو" />
             <button>
               <span className="pe-7s-search"></span>
             </button>
